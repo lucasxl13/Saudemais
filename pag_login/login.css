@@ -25,11 +25,9 @@ body {
     overflow: visible;
 }
 
-
-
 .registro-logo {
     position: absolute;
-    width: 40%;
+    width: 35%;
     top: -50px;
     left: 50%; /* Centraliza horizontalmente */
     transform: translateX(-50%);
@@ -37,16 +35,20 @@ body {
 }
 
 .titulo-logo {
-
     font-size: 30px;
     color: #000000;
-    margin-top: 0px;
-    margin-bottom: 15px;
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
+
+.subtitulo__texto {
+    font-size: 30px;
+    color: #00ffc8;
 }
 
 
 .entrada {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: left;
 }
 
@@ -70,6 +72,8 @@ input.erro {
 .mensagem-erro {
     color: red;
     font-size: 12px;
+    display: flex;
+    position: absolute;
     display: none;
 }
 
@@ -80,12 +84,9 @@ input.erro {
     margin-bottom: 15px;
 }
 
-label[for="Manter-conectado"] {
+.check label {
     cursor: pointer;
-    color: #000000;
 }
-
-
 
 .check input[type="checkbox"] {
     -webkit-appearance: none; 
@@ -147,7 +148,3 @@ label[for="Manter-conectado"] {
 }
 
 
-.subtitulo__texto {
-    font-size: 40px;
-    color: #01b698;
-}

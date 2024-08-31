@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #00ffd5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center_box{
+    border: 1px solid #000000; 
+    background-color: #fff;
+    padding: 20px;
+    padding-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: relative; 
+    overflow: visible;
+}
+
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.entrada {
+    margin-bottom: 20px;
+    text-align: left;
+}
+.entrada input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+}
+
+input.erro {
+    border-color: red;
+}
+
+.mensagem-erro {
+    color: red;
+    font-size: 12px;
+    display: flex;
+    position: absolute;
+    display: none;
+}
+.btns
+{   
+    margin-top: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.btn1 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    border: 1px solid #000000;
+    position: relative;
+    width: 40px;
+    height: 40px; 
+    background-color: #00ac81; 
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transição de cor e fundo */
+    
+}
+.btn1:hover
+{
+    border: 1px solid #000000;
+    background-color: #00685f
+}
+
+.btn2 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    border: 1px solid #000000;
+    position: relative;
+    width: 40px;
+    height: 40px; 
+    background-color: #00ac81; 
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transição de cor e fundo */
+}
+.btn2:hover
+{
+    border: 1px solid #000000;
+    background-color: #00685f
+}
+
+.progress-dots {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* Centraliza os pontinhos */
+    gap: 10px; /* Espaçamento entre os pontinhos */
+  }
+
+  .pag2{
+    display:none;
+  }
+  
+  .dot1 {
+    width: 10px;
+    height: 10px;
+    background-color: #c4c4c4; /* Cor dos pontinhos inativos */
+    border-radius: 50%;
+  }
+
+  .dot2 {
+    width: 10px;
+    height: 10px;
+    background-color: #c4c4c4; /* Cor dos pontinhos inativos */
+    border-radius: 50%;
+  }
+
+  .dot3 {
+    width: 10px;
+    height: 10px;
+    background-color: #c4c4c4; /* Cor dos pontinhos inativos */
+    border-radius: 50%;
+  }
+  
+  .dot1.active {
+    background-color: #444444; /* Cor do pontinho ativo */
+  }
+
+  .dot2.active {
+    background-color: #444444; /* Cor do pontinho ativo */
+  }
+
+  .dot3.active {
+    background-color: #3d3d3d; /* Cor do pontinho ativo */
+  }

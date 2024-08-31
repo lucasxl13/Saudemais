@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+
+<div class = "center_box"> 
+    <form class = "register" id="register">
+        <div id="pag1">
+        <div class="entrada">
+            <input type="text" id="usuario" name="usuario" placeholder="Usuário">
+            <span class="mensagem-erro" id="usuario-erro">Por favor, insira o usuário.</span>
+        </div>
+
+        <div class="entrada">
+            <input type="password" id="senha" name="senha" placeholder="Senha">
+            <span class="mensagem-erro" id="senha-erro">Por favor, insira a senha.</span>
+        </div>
+
+        <div class="entrada">
+                <input type="password" id="c_senha" name="c_senha" placeholder="Confirmar a Senha">
+                <span class="mensagem-erro" id="csenha-erro">Por favor, confirme a senha.</span>
+        </div>
+
+        <div class="pag2" id="pag2">
+            <div class="entrada">
+                <input type="text" id="Nascimento" name="Nascimento" placeholder="Nascimento">
+                <span class="mensagem-erro" id="Nascimento-erro">Por favor, insira sua data de nascimento.</span>
+            </div>
+        </div>
+        </div>
+
+        <div class="btns">
+            <button type="submit1" class="btn1" id="btn1">˂</button>
+            <button type="submit2" class="btn2" id="btn2">˃</button>
+        </div>
+        
+        <div class="progress-dots">
+            <span class="dot1" id="dot1"></span>
+            <span class="dot2" id="dot2"></span>
+            <span class="dot2" id="dot3"></span>
+        </div>
+        
+
+
+    </form>
+
+</div>
+<script src="cadastro.js"></script>
+</body>
+</html>
