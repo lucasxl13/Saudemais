@@ -1,55 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
 </head>
+
 <body>
 
-<div class = "center_box"> 
-    <form class = "register" id="register">
-        <div id="pag1">
-        <div class="entrada">
-            <input type="text" id="usuario" name="usuario" placeholder="Usuário">
-            <span class="mensagem-erro" id="usuario-erro">Por favor, insira o usuário.</span>
-        </div>
+    <div class="center_box">
+        <img src="..\pag_login\logo.svg" alt="Saúde mais" class="registro-logo">
+        <h1 class="titulo-logo">SAÚDE <Strong class="subtitulo__texto">+</Strong></h1>
 
-        <div class="entrada">
-            <input type="password" id="senha" name="senha" placeholder="Senha">
-            <span class="mensagem-erro" id="senha-erro">Por favor, insira a senha.</span>
-        </div>
+        <form class="register" id="register">
+            <div id="pag1">
+                <div class="entrada">
+                    <h1 class="texto_cadastro">Usuário</h1>
+                    <input type="text" id="usuario" name="usuario" placeholder="Usuário">
+                    <span class="mensagem-erro" id="usuario-erro">Por favor, insira o usuário.</span>
+                </div>
 
-        <div class="entrada">
-                <input type="password" id="c_senha" name="c_senha" placeholder="Confirmar a Senha">
-                <span class="mensagem-erro" id="csenha-erro">Por favor, confirme a senha.</span>
-        </div>
+                <div class="entrada">
+                    <h1 class="texto_cadastro">Email</h1>
+                    <input type="text" id="email" name="email" placeholder="Email">
+                    <span class="mensagem-erro" id="email-erro">Por favor, insira o email.</span>
+                </div>
 
-        <div class="pag2" id="pag2">
-            <div class="entrada">
-                <input type="text" id="Nascimento" name="Nascimento" placeholder="Nascimento">
-                <span class="mensagem-erro" id="Nascimento-erro">Por favor, insira sua data de nascimento.</span>
+                <div class="entrada">
+                    <h1 class="texto_cadastro">Senha</h1>
+                    <div class="senha-container">
+                        <input type="password" id="senha" name="senha" placeholder="Senha">
+                        <button type="button" class="mostrarsenha" id="mostrarsenha">👁</button>
+                    </div>
+                    
+                    <span class="mensagem-erro" id="senha-erro">Por favor, insira a senha.</span>
+                </div>
+
+                <div class="entrada">
+                    <h1 class="texto_cadastro">Confirmação de senha</h1>
+                    <div class="senha-container">
+                        <input type="password" id="c_senha" name="c_senha" placeholder="Confirmar a Senha">
+                        <button type="button" class="mostrarsenha" id="mostrarcsenha">👁</button>
+                    </div>
+                    <span class="mensagem-erro" id="csenha-erro">Por favor, confirme a senha.</span>
+                </div>
             </div>
-        </div>
-        </div>
 
-        <div class="btns">
-            <button type="submit1" class="btn1" id="btn1">˂</button>
-            <button type="submit2" class="btn2" id="btn2">˃</button>
-        </div>
-        
-        <div class="progress-dots">
-            <span class="dot1" id="dot1"></span>
-            <span class="dot2" id="dot2"></span>
-            <span class="dot2" id="dot3"></span>
-        </div>
-        
+            <div class="pag2" id="pag2">
 
+                <div class="entrada">
 
-    </form>
+                    <h1 class="texto_cadastro">Data de nascimento</h1>
 
-</div>
-<script src="cadastro.js"></script>
+                    <input type="text" id="data" placeholder="Nascimento">
+
+                    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+                    <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
+
+                    <script>
+                        flatpickr("#data", {
+                            dateFormat: "d/m/Y",
+                            locale: "pt",
+                            minDate: "01.01.1900",
+                            maxDate: "today",
+                        });
+
+                    </script>
+
+                    <span class="mensagem-erro" id="Nascimento-erro">Por favor, insira sua data de nascimento.</span>
+
+                </div>
+
+            </div>
+
+            <div class="btns">
+                <button type="submit" class="btn1" id="btn1">˂</button>
+                <button type="submit" class="btn2" id="btn2">˃</button>
+            </div>
+
+            <div class="progress-dots">
+                <span class="dot1" id="dot1"></span>
+                <span class="dot2" id="dot2"></span>
+                <span class="dot2" id="dot3"></span>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <script src="cadastro.js"></script>
+
 </body>
+
 </html>
