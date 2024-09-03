@@ -1,0 +1,60 @@
+@import url('../main.css');
+
+body {
+    background-color: var(--color3);
+}
+
+.style_bg_nav {
+    background-color: var(--color1);
+}
+
+.style_logo {
+    font-size: 2.5em;
+    color: var(--color3);
+    font-family: var(--fonte-logo);
+}
+
+.style_logo strong {
+    display: inline-block; /* Necessário para aplicar transformações */  
+    transition: transform 0.2s ease, padding 0.5s ease; /* Suavização da rotação */
+}
+
+.style_logo:hover strong {
+    transform: rotate(360deg) scale(1.3); /* Gira 360 graus */
+}
+
+.itens__sidebar a {
+    color: var(--color3);
+}
+
+.item__sidebar {
+    margin: 0.2em;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.item__sidebar:hover {
+    background-color: var(--color2);
+    margin: 0.2em;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.container__pricinpal {
+    text-align: center;
+    padding-top: 6em;
+    position: relative; /* Necessário para que o z-index tenha efeito */
+    z-index: -1; /* Valor menor para garantir que fique atrás da sidebar */
+}
+
+.container__pricinpal__titulo {
+    color: var(--color3);
+}
+
+.container__pricinpal.opacity {
+    filter: blur(0.8px); /* Ajuste o valor para definir o nível de desfoque */   
+}
+
+
+
