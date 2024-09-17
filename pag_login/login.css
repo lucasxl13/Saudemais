@@ -1,3 +1,5 @@
+@import url('../main.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,8 +7,8 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #00ffd5;
+    font-family: var(--fonte-logo);
+    background-color: var(--color1);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,15 +37,15 @@ body {
 }
 
 .titulo-logo {
-    font-size: 30px;
+    font-size: 35px;
     color: #000000;
     margin-top: 25px;
-    margin-bottom: 0px;
+    margin-bottom: 25px;
 }
 
 .subtitulo__texto {
-    font-size: 30px;
-    color: #00ffc8;
+    font-size: 35px;
+    color: var(--color1);
 }
 
 
@@ -64,6 +66,30 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+.senha-container {
+    position: relative; /* Necessário para o posicionamento absoluto do botão */
+    display: flex;
+    align-items: center;
+  }
+
+  .senha-container button img {
+    width: 15px; /* Ajuste o tamanho da imagem conforme necessário */
+    height: 15px;
+  }
+
+  .senha-container button {
+    position: absolute; /* Posiciona o botão de forma absoluta dentro do contêiner */
+    right: 5px; /* Ajusta a posição do botão em relação à borda direita do contêiner */
+    top: 55%; /* Centraliza verticalmente o botão em relação ao campo de entrada */
+    transform: translateY(-50%); /* Corrige a centralização vertical */
+    border: none;
+    background: none;
+    font-size: 20px; /* Ajusta o tamanho da fonte do botão */
+    cursor: pointer;
+    z-index: 1; /* Garante que o botão fique acima do campo de entrada */
+  }
+  
 
 input.erro {
     border-color: red;
@@ -104,7 +130,7 @@ input.erro {
 }
 
 .check input[type="checkbox"]:checked {
-    background-color: #00ffd5; /* Cor de fundo quando marcada */
+    background-color:var(--color6); /* Cor de fundo quando marcada */
     border-color: #000000; /* Cor da borda quando marcada */
 }
 
@@ -117,7 +143,7 @@ input.erro {
 .btn {
     width: 100%;
     padding: 10px;
-    background-color: #00ffd5;
+    background-color: var(--color1);
     border: none;
     border-radius: 4px;
     color: #fff;
@@ -127,14 +153,14 @@ input.erro {
 }
 
 .btn:hover {
-    background-color: #01b698;
+    background-color:  var(--color6);
 }
 
-.botao-reg-esqueceu{
-    display: flex; 
-    justify-content: space-between;
+.botao-reg-esqueceu {
+    display: flex;
+    align-items: center; 
     margin-top: 15px;
-    color: aquamarine;
+    gap: 20px;  
 }
 
 .registro
@@ -144,7 +170,7 @@ input.erro {
 }
 
 .registro:hover{
-    color: aqua;
+    color: var(--color4);
 }
 
 

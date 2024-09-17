@@ -1,12 +1,15 @@
+@import url('../main.css');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 13px;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #00ffd5;
+  font-family: var(--fonte-logo);
+  background-color: var(--color1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,15 +27,15 @@ body {
 }
 
 .titulo-logo {
-  font-size: 30px;
+  font-size: 35px;
   color: #000000;
   margin-top: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .subtitulo__texto {
-  font-size: 30px;
-  color: #00ffc8;
+  font-size: 35px;
+  color: var(--color1);
 }
 
 
@@ -63,14 +66,18 @@ body {
 .entrada input {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #acacac;
   border-radius: 4px;
+}
+.senha-container button img {
+  width: 15px; /* Ajuste o tamanho da imagem conforme necessário */
+  height: 15px;
 }
 
 .senha-container button {
   position: absolute; /* Posiciona o botão de forma absoluta dentro do contêiner */
   right: 5px; /* Ajusta a posição do botão em relação à borda direita do contêiner */
-  top: 50%; /* Centraliza verticalmente o botão em relação ao campo de entrada */
+  top: 55%; /* Centraliza verticalmente o botão em relação ao campo de entrada */
   transform: translateY(-50%); /* Corrige a centralização vertical */
   border: none;
   background: none;
@@ -79,13 +86,8 @@ body {
   z-index: 1; /* Garante que o botão fique acima do campo de entrada */
 }
 
-.senha-container button:hover {
-  background: none;
-  color: #ff0000;
-}
-
 .entrada {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: left;
   display: flex; 
   flex-direction: column;
@@ -170,5 +172,70 @@ input.erro {
 }
 
 .texto_cadastro {
-  font-size: 12px;
+  font-size: 13px;
 }
+
+input[type="range"] {
+  appearance: none; /* Fallback geral */
+  -webkit-appearance: none; /* Para WebKit (Chrome, Safari) */
+  width: 100%;
+  height: 10px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none; /* Fallback */
+  -webkit-appearance: none; /* Para WebKit */
+  width: 20px;
+  height: 20px;
+  background: var(--color4);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#data {
+  margin-bottom: 20px; /* Afasta o campo Data de nascimento do campo Peso */
+}
+
+.entrada input[type="range"] {
+  margin-top: 10px; /* Adiciona espaçamento entre o texto e o slider */
+}
+
+#peso{
+ margin-bottom: 20px;
+}
+
+#altura{
+  margin-bottom: 20px;
+}
+
+.sexo-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espaçamento entre os botões */
+}
+
+.sexo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+  font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.sexo-btn.selected {
+  color:var(--color6); /* Opcional: Muda a cor do texto para indicar seleção */
+}
+

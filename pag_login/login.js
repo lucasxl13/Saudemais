@@ -43,3 +43,26 @@ document.getElementById('senha').addEventListener('input', function() {
     this.classList.remove('erro');
     document.getElementById('senha-erro').style.display = 'none';
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona os botões e os campos de entrada
+    const mostrarsenha = document.getElementById('mostrarsenha');
+    const m_senha = document.getElementById('senha');
+    const senhaIcon = document.getElementById('senha-icon');
+
+
+    // Função para alternar a visibilidade da senha e mudar o ícone
+    function togglePasswordVisibility(input, icon) {
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.src = '../hide.png'; // Muda o ícone para o ocultar senha
+        } else {
+            input.type = 'password';
+            icon.src = '../show.png'; // Muda o ícone para mostrar senha
+        }
+    }
+
+    mostrarsenha.addEventListener('click', function() {
+        togglePasswordVisibility(m_senha, senhaIcon);
+    });
+});

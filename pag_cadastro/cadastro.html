@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="cadastro.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.6.0/dist/nouislider.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.6.0/dist/nouislider.min.js"></script>
 </head>
 
 <body>
@@ -33,18 +35,23 @@
                 <div class="entrada">
                     <h1 class="texto_cadastro">Senha</h1>
                     <div class="senha-container">
-                        <input type="password" id="senha" name="senha" placeholder="Senha">
-                        <button type="button" class="mostrarsenha" id="mostrarsenha">👁</button>
+                        <input type="password" id="senha" name="senha" placeholder="Senha" maxlength="18">
+                        <button type="button" class="mostrarsenha" id="mostrarsenha">
+                            <img src="../show.png" alt="Mostrar senha" id="senha-icon">
+                        </button>
                     </div>
-                    
+
                     <span class="mensagem-erro" id="senha-erro">Por favor, insira a senha.</span>
                 </div>
 
                 <div class="entrada">
                     <h1 class="texto_cadastro">Confirmação de senha</h1>
                     <div class="senha-container">
-                        <input type="password" id="c_senha" name="c_senha" placeholder="Confirmar a Senha">
-                        <button type="button" class="mostrarsenha" id="mostrarcsenha">👁</button>
+                        <input type="password" id="c_senha" name="c_senha" placeholder="Confirmar a Senha"
+                            maxlength="18">
+                        <button type="button" class="mostrarsenha" id="mostrarcsenha">
+                            <img src="../show.png" alt="Mostrar senha" id="csenha-icon">
+                        </button>
                     </div>
                     <span class="mensagem-erro" id="csenha-erro">Por favor, confirme a senha.</span>
                 </div>
@@ -55,13 +62,10 @@
                 <div class="entrada">
 
                     <h1 class="texto_cadastro">Data de nascimento</h1>
-
                     <input type="text" id="data" placeholder="Nascimento">
 
                     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
                     <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
-
                     <script>
                         flatpickr("#data", {
                             dateFormat: "d/m/Y",
@@ -69,11 +73,26 @@
                             minDate: "01.01.1900",
                             maxDate: "today",
                         });
-
                     </script>
-
                     <span class="mensagem-erro" id="Nascimento-erro">Por favor, insira sua data de nascimento.</span>
 
+                    <h1 class="texto_cadastro">Peso (kg): <span id="peso-valor">70</span> kg </h1>
+                    <input type="range" id="peso" name="peso" min="15" max="200" value="60"
+                        oninput="atualizaPeso(this.value)">
+
+                    <h1 class="texto_cadastro">Altura (cm): <span id="altura-valor">150</span> cm </h1>
+                    <input type="range" id="altura" name="altura" min="30" max="260" value="150"
+                        oninput="atualizaAltura(this.value)">
+
+                    <h1 class="texto_cadastro">Sexo</h1>
+                    <div class="sexo-container">
+                        <button type="button" class="sexo-btn" id="sexo-feminino" onclick="selecionaSexo('feminino')">
+                            ♀️ Feminino
+                        </button>
+                        <button type="button" class="sexo-btn" id="sexo-masculino" onclick="selecionaSexo('masculino')">
+                            ♂️ Masculino
+                    </div>
+                    <span class="mensagem-erro" id="sexo-erro">Por favor, selecione seu sexo.</span>
                 </div>
 
             </div>
@@ -93,8 +112,8 @@
         </form>
 
     </div>
-
     <script src="cadastro.js"></script>
+
 
 </body>
 

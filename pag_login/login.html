@@ -22,7 +22,12 @@
             </div>
 
             <div class="entrada">
-                <input type="password" id="senha" name="senha" placeholder="Senha">
+                <div class="senha-container">
+                    <input type="password" id="senha" name="senha" placeholder="Senha" maxlength="18">
+                    <button type="button" class="mostrarsenha" id="mostrarsenha">
+                        <img src="../show.png" alt="Mostrar senha" id="senha-icon">
+                    </button>
+                </div>
                 <span class="mensagem-erro" id="senha-erro">Por favor, insira a senha.</span>
             </div>
 
