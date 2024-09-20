@@ -205,7 +205,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #data {
-  margin-bottom: 20px; /* Afasta o campo Data de nascimento do campo Peso */
+  margin-bottom:14px; /* Afasta o campo Data de nascimento do campo Peso */
 }
 
 .entrada input[type="range"] {
@@ -213,11 +213,11 @@ input[type="range"]::-moz-range-thumb {
 }
 
 #peso{
- margin-bottom: 20px;
+ margin-bottom: 3px;
 }
 
 #altura{
-  margin-bottom: 20px;
+  margin-bottom: 3px;
 }
 
 .sexo-container {
@@ -233,9 +233,17 @@ input[type="range"]::-moz-range-thumb {
   outline: none;
   padding: 10px;
   font-size: 18px; /* Ajuste o tamanho da fonte conforme necessário */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre a imagem e o texto */
 }
 
-.sexo-btn.selected {
-  color:var(--color6); /* Opcional: Muda a cor do texto para indicar seleção */
+.sexo-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #000; /* Cor padrão do SVG */
 }
 
+.sexo-btn svg.selected {
+  fill: var(--color6); /* Cor do SVG quando está selecionado */
+}

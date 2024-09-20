@@ -1,9 +1,17 @@
 let page = 0;
+let contador = 0;
+let pesado;
+let alturado;
+let sexodo;
+
+
+
+document.getElementById('btn1').style.display = 'none';
+
 dot1.classList.add('active');
 
 document.getElementById('register').addEventListener('submit', function (event) {
     event.preventDefault();
-
     let valido = true;
     const usuario = document.getElementById('usuario');
     const email = document.getElementById('email');
@@ -19,14 +27,16 @@ document.getElementById('register').addEventListener('submit', function (event) 
     const dot2 = document.getElementById('dot2');
     const dot3 = document.getElementById('dot3');
 
-    usuario.classList.remove('erro');
-    senha.classList.remove('erro');
-    csenha.classList.remove('erro');
-    e_erro.classList.remove('erro')
+    u_erro.classList.remove('erro');
+    s_erro.classList.remove('erro');
+    cs_erro.classList.remove('erro');
+    e_erro.classList.remove('erro');
+
     u_erro.style.display = 'none';
     s_erro.style.display = 'none';
     cs_erro.style.display = 'none';
     e_erro.style.display = 'none';
+
 
     // Verificar se o usuário está vazio
     if (usuario.value.trim() === '') {
@@ -65,27 +75,35 @@ document.getElementById('register').addEventListener('submit', function (event) 
     }
 
     if (valido) {
+
         switch (page) {
             case 0:
+                contador=0;
                 dot1.classList.add('active');
                 dot2.classList.remove('active');
                 dot3.classList.remove('active');
+            
+                document.getElementById('btn1').style.display = 'none';
                 document.getElementById('pag1').style.display = 'block';
                 document.getElementById('pag2').style.display = 'none';
                 break;
 
             case 1:
+                contador=1;
                 dot1.classList.remove('active');
                 dot2.classList.add('active');
                 dot3.classList.remove('active');
+                document.getElementById('btn1').style.display = 'block';
                 document.getElementById('pag1').style.display = 'none';
                 document.getElementById('pag2').style.display = 'block';
                 break;
 
             case 2:
+                
                 dot1.classList.remove('active');
                 dot2.classList.remove('active');
                 dot3.classList.add('active');
+                document.getElementById('btn1').style.display = 'block';
                 document.getElementById('pag1').style.display = 'none';
                 document.getElementById('pag2').style.display = 'none';
                 break;
@@ -118,6 +136,20 @@ document.getElementById('c_senha').addEventListener('input', function () {
     document.getElementById('csenha-erro').style.display = 'none';
 });
 
+document.getElementById('data').addEventListener('input', function () {
+    this.classList.remove('erro');
+    document.getElementById('nascimento-erro').style.display = 'none';
+});
+
+document.getElementById('peso').addEventListener('input', function () {
+    this.classList.remove('erro');
+    document.getElementById('peso-erro').style.display = 'none';
+});
+
+document.getElementById('altura').addEventListener('input', function () {
+    this.classList.remove('erro');
+    document.getElementById('altura-erro').style.display = 'none';
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     // Seleciona os botões e os campos de entrada
@@ -155,16 +187,31 @@ document.getElementById('btn2').addEventListener('click', function () {
 
     // Somente avança a página se o formulário for válido
     const valido = validarForm();
-    if (valido && page < 3) {
+    let valido2 = validarForm2();
+    let valido3=true;
+
+    if (valido && page === 0) {
         page++;
+        valido2 = false;
     }
+
+    if(valido2 && page===1)
+    {      
+        page++;
+        valido3 = false;
+    }
+
+    if(valido3 && page===2)
+        {   
+            page++;
+        }
+
 });
 
 document.getElementById('btn1').addEventListener('click', function () {
     // Simula o envio do formulário e executa a lógica de validação
     document.getElementById('register').dispatchEvent(new Event('submit'));
 
-    // Somente retrocede a página se o formulário for válido
     if (page > 0) {
         page--;
     }
@@ -183,21 +230,119 @@ function validarForm() {
     }
     return valido;
 }
+
+function validarForm2() {
+    // Implementa a mesma lógica de validação aqui
+    let valido2=true;
+
+    const data = document.getElementById('data');
+    const peso = document.getElementById('peso');
+    const altura = document.getElementById('altura');
+    const sexo = document.getElementById('sexo-btn');
+
+    const n_erro = document.getElementById('nascimento-erro');
+    const p_erro = document.getElementById('peso-erro');
+    const a_erro = document.getElementById('altura-erro');
+    const sx_erro = document.getElementById('sexo-erro');
+
+    n_erro.classList.remove('erro')
+    n_erro.style.display = 'none';
+    p_erro.classList.remove('erro')
+    p_erro.style.display = 'none';
+    a_erro.classList.remove('erro')
+    a_erro.style.display = 'none';
+    sx_erro.classList.remove('erro')
+    sx_erro.style.display = 'none';
+
+    if(contador===0){
+        data.classList.remove('erro');
+        n_erro.style.display = 'none';
+
+        altura.classList.remove('erro');
+        a_erro.style.display = 'none';   
+
+        peso.classList.remove('erro');
+        p_erro.style.display = 'none';
+
+        sexo.classList.remove('erro');
+        sx_erro.style.display = 'none';
+    }
+
+    if (data.value.trim() === '' && contador===1) {
+        data.classList.add('erro');
+        n_erro.style.display = 'block';
+        valido2 = false;
+        }
+
+    if (pesado === undefined && contador===1) {
+        peso.classList.add('erro');
+        p_erro.style.display = 'block';
+        valido2 = false;
+    } 
+
+    if (alturado === undefined && contador===1) {
+        altura.classList.add('erro');
+        a_erro.style.display = 'block';
+        valido2 = false;
+    } 
+
+    if (sexodo === undefined && contador===1) {
+        sexo.classList.add('erro');
+        sx_erro.style.display = 'block';
+        valido2 = false;
+    } 
+
+    console.log("sexo: ",sexodo);
+
+    return valido2;
+}
+
+
+
 function atualizaPeso(valor) {
-    document.getElementById('peso-valor').textContent = valor;
+    pesado = valor;
+    document.getElementById('peso-valor').textContent = valor + ' kg';
   }
 
 function atualizaAltura(valor) {
-    document.getElementById('altura-valor').textContent = valor;
+    alturado = valor;
+    document.getElementById('altura-valor').textContent = valor + ' cm';
   }
 
-
   function selecionaSexo(sexo) {
-    const botoesSexo = document.querySelectorAll('.sexo-btn');
-    
-    // Remove a classe 'selected' de todos os botões
-    botoesSexo.forEach(btn => btn.classList.remove('selected'));
+    const sexo2 = document.getElementById('sexo-btn');
 
-    // Adiciona a classe 'selected' ao botão clicado
-    document.getElementById(`sexo-${sexo}`).classList.add('selected');
-}
+    var botoesSexo = document.querySelectorAll('.sexo-btn svg');
+
+    botoesSexo.forEach(svg => svg.classList.remove('selected'));
+    
+    document.querySelector(`#sexo-${sexo} svg`).classList.add('selected');
+
+    document.getElementById('sexo-btn').textContent = sexo.charAt(0).toUpperCase() + sexo.slice(1);
+
+    const selecionado = document.querySelector('.sexo-btn svg.selected');
+    
+    if (selecionado) {
+        switch (sexo) {
+            case 'feminino':
+                sexodo = 'f';
+                sexo2.classList.remove('erro');
+                document.getElementById('sexo-erro').style.display = 'none';
+                break;
+
+            case 'masculino':
+                sexodo = 'm';
+                sexo2.classList.remove('erro');
+                document.getElementById('sexo-erro').style.display = 'none';
+                break;
+
+            default:
+                sexodo = 0; 
+        }
+    } 
+    else {
+        sexodo = null; 
+    }  
+    }
+
+
