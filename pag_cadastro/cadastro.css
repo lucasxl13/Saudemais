@@ -50,6 +50,28 @@ body {
   position: relative;
 }
 
+#dcadastrais{
+  text-align: center;
+  font-size: 15x;
+  margin-bottom: 15px;
+  display: block;
+}
+
+#dpessoais{
+  text-align: center;
+  font-size: 15x;
+  margin-bottom: 15px;
+  display: none;
+}
+
+#objetivos{
+  text-align: center;
+  font-size: 15x;
+  margin-bottom: 15px;
+  display: none;
+}
+
+
 .register {
   display: flex;
   flex-direction: column;
@@ -246,4 +268,44 @@ input[type="range"]::-moz-range-thumb {
 
 .sexo-btn svg.selected {
   fill: var(--color6); /* Cor do SVG quando está selecionado */
+}
+
+.pag3{
+  display:none;
+}
+
+
+.metas {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px; 
+}
+
+#metaicon{
+  width: 50px;
+  height: 50px;
+}
+
+.meta-text {
+  display: flex;
+  flex-direction: column;
+}
+
+#meta,#meta2,#meta3{
+  font-size: 15px;
+  cursor: pointer;
+  text-align: left;
+}
+
+#meta:hover,#meta2:hover,#meta3:hover{
+  color: var(--color6);
+}
+
+#subtexto {
+  font-size: 11px;
+  font-weight: normal;
+  margin-top: 5px;
+  text-align: justify; 
+  text-align-last: left; 
 }

@@ -1,8 +1,15 @@
 let page = 0;
 let contador = 0;
+
+let usuariodo;
+let emaildo;
+let senhado;
+
 let pesado;
 let alturado;
 let sexodo;
+let datado;
+let metado;
 
 
 
@@ -13,6 +20,7 @@ dot1.classList.add('active');
 document.getElementById('register').addEventListener('submit', function (event) {
     event.preventDefault();
     let valido = true;
+
     const usuario = document.getElementById('usuario');
     const email = document.getElementById('email');
     const senha = document.getElementById('senha');
@@ -76,6 +84,10 @@ document.getElementById('register').addEventListener('submit', function (event) 
 
     if (valido) {
 
+        usuariodo  = usuario.value;
+        senhado  = senha.value;
+        emaildo = email.value;
+
         switch (page) {
             case 0:
                 contador=0;
@@ -86,6 +98,11 @@ document.getElementById('register').addEventListener('submit', function (event) 
                 document.getElementById('btn1').style.display = 'none';
                 document.getElementById('pag1').style.display = 'block';
                 document.getElementById('pag2').style.display = 'none';
+                document.getElementById('pag3').style.display = 'none';
+
+                document.getElementById('dcadastrais').style.display = 'block';
+                document.getElementById('dpessoais').style.display = 'none';
+                document.getElementById('objetivos').style.display = 'none';
                 break;
 
             case 1:
@@ -96,20 +113,31 @@ document.getElementById('register').addEventListener('submit', function (event) 
                 document.getElementById('btn1').style.display = 'block';
                 document.getElementById('pag1').style.display = 'none';
                 document.getElementById('pag2').style.display = 'block';
+                document.getElementById('pag3').style.display = 'none';
+
+                document.getElementById('dcadastrais').style.display = 'none';
+                document.getElementById('dpessoais').style.display = 'block';
+                document.getElementById('objetivos').style.display = 'none';
                 break;
 
             case 2:
-                
+                contador=2;
                 dot1.classList.remove('active');
                 dot2.classList.remove('active');
                 dot3.classList.add('active');
                 document.getElementById('btn1').style.display = 'block';
                 document.getElementById('pag1').style.display = 'none';
                 document.getElementById('pag2').style.display = 'none';
+                document.getElementById('pag3').style.display = 'block';
+
+                document.getElementById('dcadastrais').style.display = 'none';
+                document.getElementById('dpessoais').style.display = 'none';
+                document.getElementById('objetivos').style.display = 'block';
                 break;
 
             case 3:
-                window.location.href = '../pag_login/login.html';
+                console.log("FOI");
+                // window.location.href = '../pag_login/login.html';
                 break;
 
         }
@@ -151,6 +179,22 @@ document.getElementById('altura').addEventListener('input', function () {
     document.getElementById('altura-erro').style.display = 'none';
 });
 
+document.getElementById('meta').addEventListener('click', function () {
+    this.classList.remove('erro');
+    document.getElementById('meta-erro').style.display = 'none';
+});
+
+document.getElementById('meta2').addEventListener('click', function () {
+    this.classList.remove('erro');
+    document.getElementById('meta-erro').style.display = 'none';
+});
+
+document.getElementById('meta3').addEventListener('click', function () {
+    this.classList.remove('erro');
+    document.getElementById('meta-erro').style.display = 'none';
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Seleciona os botões e os campos de entrada
     const mostrarsenha = document.getElementById('mostrarsenha');
@@ -188,7 +232,7 @@ document.getElementById('btn2').addEventListener('click', function () {
     // Somente avança a página se o formulário for válido
     const valido = validarForm();
     let valido2 = validarForm2();
-    let valido3=true;
+    let valido3= validarForm3();
 
     if (valido && page === 0) {
         page++;
@@ -202,7 +246,8 @@ document.getElementById('btn2').addEventListener('click', function () {
     }
 
     if(valido3 && page===2)
-        {   
+        {      
+            window.location.href = '../pag_login/login.html';
             page++;
         }
 
@@ -239,11 +284,13 @@ function validarForm2() {
     const peso = document.getElementById('peso');
     const altura = document.getElementById('altura');
     const sexo = document.getElementById('sexo-btn');
+    const meta = document.getElementById('meta');
 
     const n_erro = document.getElementById('nascimento-erro');
     const p_erro = document.getElementById('peso-erro');
     const a_erro = document.getElementById('altura-erro');
     const sx_erro = document.getElementById('sexo-erro');
+    const m_erro = document.getElementById('meta-erro');
 
     n_erro.classList.remove('erro')
     n_erro.style.display = 'none';
@@ -292,11 +339,30 @@ function validarForm2() {
         valido2 = false;
     } 
 
-    console.log("sexo: ",sexodo);
+    datado = data.value;
 
     return valido2;
 }
 
+function validarForm3() {
+
+    let valido3=true;
+
+    const meta = document.getElementById('meta');
+    const m_erro = document.getElementById('meta-erro');
+
+    m_erro.classList.remove('erro')
+    m_erro.style.display = 'none';
+
+    if (metado === undefined && contador===2) {
+        meta.classList.add('erro');
+        m_erro.style.display = 'block';
+        m_erro.style.textAlign = "center";
+        valido3 = false;
+    } 
+
+    return valido3;
+}
 
 
 function atualizaPeso(valor) {
@@ -308,6 +374,7 @@ function atualizaAltura(valor) {
     alturado = valor;
     document.getElementById('altura-valor').textContent = valor + ' cm';
   }
+
 
   function selecionaSexo(sexo) {
     const sexo2 = document.getElementById('sexo-btn');
@@ -345,4 +412,36 @@ function atualizaAltura(valor) {
     }  
     }
 
+    document.addEventListener('DOMContentLoaded', function() {
 
+        const meta1 = document.getElementById('meta');
+        const meta2 = document.getElementById('meta2');
+        const meta3 = document.getElementById('meta3');
+    
+        const color6 = getComputedStyle(document.documentElement).getPropertyValue('--color6').trim();
+    
+        meta1.addEventListener('click', function() {
+            metado = 1;
+            resetColors();
+            meta1.style.color = color6; 
+        });
+    
+        meta2.addEventListener('click', function() {
+            metado = 2;
+            resetColors();
+            meta2.style.color = color6;
+        });
+    
+        meta3.addEventListener('click', function() {
+            metado = 3;
+            resetColors();
+            meta3.style.color = color6;
+        });
+    
+        function resetColors() {
+            meta1.style.color = '';
+            meta2.style.color = '';
+            meta3.style.color = '';
+        }
+    });
+    
