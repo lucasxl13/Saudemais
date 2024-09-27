@@ -1,3 +1,5 @@
+let contador = 0;
+
 document.getElementById('login').addEventListener('submit', function(event) {
     console.log('Submit event triggered'); // Verifica se o evento está sendo disparado
     event.preventDefault();

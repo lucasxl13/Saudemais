@@ -11,8 +11,6 @@ let sexodo;
 let datado;
 let metado;
 
-
-
 document.getElementById('btn1').style.display = 'none';
 
 dot1.classList.add('active');
@@ -34,6 +32,7 @@ document.getElementById('register').addEventListener('submit', function (event) 
     const dot1 = document.getElementById('dot1');
     const dot2 = document.getElementById('dot2');
     const dot3 = document.getElementById('dot3');
+    const dot4 = document.getElementById('dot4');
 
     u_erro.classList.remove('erro');
     s_erro.classList.remove('erro');
@@ -94,15 +93,22 @@ document.getElementById('register').addEventListener('submit', function (event) 
                 dot1.classList.add('active');
                 dot2.classList.remove('active');
                 dot3.classList.remove('active');
+                dot4.classList.remove('active');
             
                 document.getElementById('btn1').style.display = 'none';
                 document.getElementById('pag1').style.display = 'block';
                 document.getElementById('pag2').style.display = 'none';
                 document.getElementById('pag3').style.display = 'none';
+                document.getElementById('pag4').style.display = 'none';
 
                 document.getElementById('dcadastrais').style.display = 'block';
                 document.getElementById('dpessoais').style.display = 'none';
                 document.getElementById('objetivos').style.display = 'none';
+                document.getElementById('confirmacao').style.display = 'none';
+                document.getElementById('termos').style.display = 'none';
+
+                document.getElementById('termos2').style.display = 'none';
+                document.getElementById('aceito').style.display = 'none';
                 break;
 
             case 1:
@@ -110,14 +116,22 @@ document.getElementById('register').addEventListener('submit', function (event) 
                 dot1.classList.remove('active');
                 dot2.classList.add('active');
                 dot3.classList.remove('active');
+                dot4.classList.remove('active');
+
                 document.getElementById('btn1').style.display = 'block';
                 document.getElementById('pag1').style.display = 'none';
                 document.getElementById('pag2').style.display = 'block';
                 document.getElementById('pag3').style.display = 'none';
+                document.getElementById('pag4').style.display = 'none';
 
                 document.getElementById('dcadastrais').style.display = 'none';
                 document.getElementById('dpessoais').style.display = 'block';
                 document.getElementById('objetivos').style.display = 'none';
+                document.getElementById('confirmacao').style.display = 'none';
+                document.getElementById('termos').style.display = 'none';
+
+                document.getElementById('termos2').style.display = 'none';
+                document.getElementById('aceito').style.display = 'none';
                 break;
 
             case 2:
@@ -125,19 +139,70 @@ document.getElementById('register').addEventListener('submit', function (event) 
                 dot1.classList.remove('active');
                 dot2.classList.remove('active');
                 dot3.classList.add('active');
+                dot4.classList.remove('active');
+
                 document.getElementById('btn1').style.display = 'block';
                 document.getElementById('pag1').style.display = 'none';
                 document.getElementById('pag2').style.display = 'none';
                 document.getElementById('pag3').style.display = 'block';
+                document.getElementById('pag4').style.display = 'none';
 
                 document.getElementById('dcadastrais').style.display = 'none';
                 document.getElementById('dpessoais').style.display = 'none';
                 document.getElementById('objetivos').style.display = 'block';
+                document.getElementById('confirmacao').style.display = 'none';
+                document.getElementById('termos').style.display = 'none';
+
+                document.getElementById('termos2').style.display = 'none';
+                document.getElementById('aceito').style.display = 'none';
                 break;
 
             case 3:
-                console.log("FOI");
-                // window.location.href = '../pag_login/login.html';
+                contador=3;
+                dot1.classList.remove('active');
+                dot2.classList.remove('active');
+                dot3.classList.remove('active');
+                dot4.classList.add('active');
+
+                document.getElementById("user").textContent = usuariodo;
+                document.getElementById("mail").textContent = emaildo;
+                document.getElementById("nasci").textContent = datado;
+                document.getElementById("quilos").textContent = pesado + " Kg";
+                document.getElementById("alto").textContent = alturado + " cm";
+                document.getElementById("sexo2").textContent = sexodo;
+
+                if(metado === 1){
+                    document.getElementById("obj").textContent = "Perca de peso";
+                }
+
+                else if(metado ===2) {
+                    document.getElementById("obj").textContent = "Ganho de massa";
+                }
+
+                else if(metado ===3) {
+                    document.getElementById("obj").textContent = "Manutenção do peso";
+                }
+                
+
+                document.getElementById('btn1').style.display = 'block';
+                document.getElementById('pag1').style.display = 'none';
+                document.getElementById('pag2').style.display = 'none';
+                document.getElementById('pag3').style.display = 'none';
+                document.getElementById('pag4').style.display = 'block';
+
+                document.getElementById('dcadastrais').style.display = 'none';
+                document.getElementById('dpessoais').style.display = 'none';
+                document.getElementById('objetivos').style.display = 'none';
+                document.getElementById('confirmacao').style.display = 'block';
+                document.getElementById('termos').style.display = 'block';
+
+                document.getElementById('termos2').style.display = 'block';
+                document.getElementById('aceito').style.display = 'flex';
+
+                break;
+
+            case 4:
+                window.location.href = '../pag_login/login.html';
                 break;
 
         }
@@ -194,6 +259,11 @@ document.getElementById('meta3').addEventListener('click', function () {
     document.getElementById('meta-erro').style.display = 'none';
 });
 
+document.getElementById('termosaceitos').addEventListener('click', function () {
+    this.classList.remove('erro');
+    document.getElementById('termos-erro').style.display = 'none';
+});
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Seleciona os botões e os campos de entrada
@@ -233,6 +303,7 @@ document.getElementById('btn2').addEventListener('click', function () {
     const valido = validarForm();
     let valido2 = validarForm2();
     let valido3= validarForm3();
+    let valido4 = validarForm4();
 
     if (valido && page === 0) {
         page++;
@@ -247,7 +318,12 @@ document.getElementById('btn2').addEventListener('click', function () {
 
     if(valido3 && page===2)
         {      
-            window.location.href = '../pag_login/login.html';
+            page++;
+            valido4 = false;
+        }
+    
+    if(valido4 && page===3)
+        {    
             page++;
         }
 
@@ -364,6 +440,21 @@ function validarForm3() {
     return valido3;
 }
 
+function validarForm4() {
+    let valido4 = true;
+    const checkbox = document.getElementById('termosaceitos');
+    const checkboxErro = document.getElementById('termos-erro'); 
+
+    checkboxErro.classList.remove('erro');
+    checkboxErro.style.display = 'none'; 
+
+    if (!checkbox.checked && page===3) {
+        checkboxErro.classList.add('erro');
+        checkboxErro.style.display = 'block';
+        valido4 = false; 
+    }
+    return valido4;
+}
 
 function atualizaPeso(valor) {
     pesado = valor;
@@ -392,13 +483,13 @@ function atualizaAltura(valor) {
     if (selecionado) {
         switch (sexo) {
             case 'feminino':
-                sexodo = 'f';
+                sexodo = 'feminino';
                 sexo2.classList.remove('erro');
                 document.getElementById('sexo-erro').style.display = 'none';
                 break;
 
             case 'masculino':
-                sexodo = 'm';
+                sexodo = 'masculino';
                 sexo2.classList.remove('erro');
                 document.getElementById('sexo-erro').style.display = 'none';
                 break;
@@ -445,3 +536,4 @@ function atualizaAltura(valor) {
         }
     });
     
+

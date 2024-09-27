@@ -110,10 +110,6 @@ input.erro {
     margin-bottom: 15px;
 }
 
-.check label {
-    cursor: pointer;
-}
-
 .check input[type="checkbox"] {
     -webkit-appearance: none; 
     appearance: none;
@@ -172,5 +168,3 @@ input.erro {
 .registro:hover{
     color: var(--color4);
 }
-
-
