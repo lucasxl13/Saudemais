@@ -10,7 +10,7 @@
 
 <body>
 
-    <div class="caixa-centro">
+    <div class="caixa-centro" id="fundo">
         <img src="logo.svg" alt="Saúde mais" class="registro-logo">
         <h1 class="titulo-logo">SAÚDE <strong class="subtitulo__texto">+</strong></h1>
 
@@ -28,6 +28,7 @@
                     </button>
                 </div>
                 <span class="mensagem-erro" id="senha-erro">Por favor, insira a senha.</span>
+                <span class="mensagem-erro" id="login-erro">Usuario ou senha inválida.</span>
             </div>
 
             <div class="check">
@@ -38,12 +39,24 @@
             <button type="submit" class="btn" id="btn">Entrar</button>
             <div class="botao-reg-esqueceu">
                 <a href="..\pag_cadastro\cadastro.html" class="registro">Primeiro acesso</a>
-                <a href="" id="esqueciSenhaBtn" class="registro">Esqueci a senha</a>
+                <a href="javascript:void(0)" id="esqueciSenhaBtn" class="registro">Esqueci a senha</a>
             </div>
         </form>
     </div>
-    <script src="login.js"></script>
 
+<!-- Modal de Recuperação de Senha -->
+<div id="modal_recuperacao" class="modal oculto">
+    <div class="modal-content">
+        <h2>Recuperar senha</h2>
+        <form>
+            <input type="text" id="emailRecuperacao" class="emailRecuperacao" placeholder="Digite seu email">
+        </form>
+        <span class="mensagem-erro" id="rec-erro">Por favor, insira um email.</span>
+        <button  type="button" id="btn-rec" class="btn-recuperar">Recuperar</button>
+    </div>
+</div>
+
+    <script src="login.js"></script>
 </body>
 
 </html>

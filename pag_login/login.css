@@ -92,7 +92,8 @@ body {
   
 
 input.erro {
-    border-color: red;
+    background-color: rgba(255, 0, 0, 0.055);
+    border-color: #ff0000;
 }
 
 .mensagem-erro {
@@ -167,4 +168,70 @@ input.erro {
 
 .registro:hover{
     color: var(--color4);
+}
+
+/* Oculta o modal por padrão */
+.modal.oculto {
+    display: none;
+}
+
+/* Estilo do modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro */
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+}
+
+/* Efeito de desfoque no fundo */
+.desfocado {
+    filter: blur(5px);
+}
+
+.modal-content h2{
+    margin-bottom: 25px;
+}
+
+/* Estilo do formulário dentro do modal */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre o email e o botão */
+}
+
+/* Estilo do campo de email */
+.emailRecuperacao {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.btn-recuperar {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: var(--color1);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-recuperar:hover {
+    background-color:  var(--color6);
 }

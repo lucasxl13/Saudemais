@@ -4,7 +4,6 @@ let contador = 0;
 let usuariodo;
 let emaildo;
 let senhado;
-
 let pesado;
 let alturado;
 let sexodo;
@@ -14,6 +13,30 @@ let metado;
 document.getElementById('btn1').style.display = 'none';
 
 dot1.classList.add('active');
+
+document.getElementById('usuario').addEventListener('keydown', function(e) {
+    if (e.key === ' ') {
+      e.preventDefault();  // Impede que o espaço seja inserido
+    }
+  });
+
+  document.getElementById('email').addEventListener('keydown', function(e) {
+    if (e.key === ' ') {
+      e.preventDefault();  // Impede que o espaço seja inserido
+    }
+  });
+
+  document.getElementById('senha').addEventListener('keydown', function(e) {
+    if (e.key === ' ') {
+      e.preventDefault();  // Impede que o espaço seja inserido
+    }
+  });
+
+  document.getElementById('c_senha').addEventListener('keydown', function(e) {
+    if (e.key === ' ') {
+      e.preventDefault();  // Impede que o espaço seja inserido
+    }
+  });
 
 document.getElementById('register').addEventListener('submit', function (event) {
     event.preventDefault();
@@ -306,12 +329,16 @@ document.getElementById('btn2').addEventListener('click', function () {
     let valido4 = validarForm4();
 
     if (valido && page === 0) {
+        sessionStorage.setItem('usuariox', usuariodo.toLowerCase());
+        sessionStorage.setItem('emailx', emaildo);
+        sessionStorage.setItem('senhax', senhado);
+
         page++;
         valido2 = false;
     }
 
     if(valido2 && page===1)
-    {      
+    {   
         page++;
         valido3 = false;
     }
@@ -536,4 +563,3 @@ function atualizaAltura(valor) {
         }
     });
     
-
