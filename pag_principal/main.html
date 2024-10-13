@@ -8,29 +8,6 @@
     <link rel="stylesheet" href="./main.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        @import url('../main.css');
-
-        .sidebar {
-            height: 100%;
-            position: fixed;
-            top: 2em;
-            width: 250px;
-            padding-top: 56px;
-            /* Espaço para a navbar fixa */
-            transition: transform 0.3s ease;
-            transform: translateX(-100%);
-            background-color: var(--color1);
-        }
-
-        .sidebar.show {
-            transform: translateX(0);
-        }
-
-        .content {
-            margin-left: 250px;
-        }
-    </style>
 </head>
 
 <body>
@@ -46,11 +23,29 @@
     <!-- SideBar -->
     <div class="sidebar" id="sidebar">
         <ul class="nav flex-column itens__sidebar">
-            <li class="nav-item item__sidebar">
-                <a class="nav-link " href="#">Link</a>
+            <li class="nav-item item__sidebar" id="item_sideBar">
+                <a class="nav-link" href="#">
+                    <img src="./icons/droplet-fill2.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
+                    <span class="item-text">Hidratação</span> <!-- Texto -->
+                </a>
             </li>
-            <li class="nav-item item__sidebar">
-                <a class="nav-link item__sidebar__texto" href="#">Outro Link</a>
+            <li class="nav-item item__sidebar" id="item_sideBar">
+                <a class="nav-link" href="#">
+                    <img src="./icons/FireSimple1.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
+                    <span class="item-text">Calorias</span> <!-- Texto -->
+                </a>
+            </li>
+            <li class="nav-item item__sidebar" id="item_sideBar">
+                <a class="nav-link" href="#">
+                    <i>a</i> <!-- Ícone -->
+                    <span class="item-text">Dieta</span> <!-- Texto -->
+                </a>
+            </li>
+            <li class="nav-item item__sidebar" id="item_sideBar">
+                <a class="nav-link" href="#">
+                    <i>a</i> <!-- Ícone -->
+                    <span class="item-text">Configurações</span> <!-- Texto -->
+                </a>
             </li>
         </ul>
     </div>
@@ -71,11 +66,67 @@
             </div>
         </div>
 
+        <!-- Containers para Hidratação, Calorias e Dieta -->
+        <div class="container">
+            <h2>Categorias</h2>
+            <div class="custom_container container_hidratacao">
+                <div class="conteudo_container">
+                    <div>
+                        <h2 class="titulo_container titulo_container_hidratacao">Hidratação</h2>
+                    </div>
+                    <div class="descricao_container">
+                        <canvas id="graficoHidratacao" width="400" height="100"></canvas> <!-- Área do Gráfico -->
+                        <div class="circle_hidratacao">
+                            <img src="./icons/droplet-fill2.svg" alt="Descrição do Ícone" class="icon_container_hidratacao"/>
+                            <span class="hover_text_hidratacao">100%</span>
+                        </div>                          
+                        <img src="./icons/water bottle.svg" alt="Descrição do Ícone" />
+                    </div>
+                </div>
+            </div>
+            <div class="custom_container container_caloria">
+                <div class="conteudo_container">
+                    <div>
+                        <h2 class="titulo_container titulo_container_caloria">Calorias</h2>
+                    </div>
+                    <div class="descricao_container">
+                        <canvas id="graficoCalorias" width="300" height="70"></canvas> <!-- Área do Gráfico -->
+                        <div class="circle_calorias">
+                            <img src="./icons/FireSimple1.svg" alt="Descrição do Ícone"  class="icon_container_calorias"/>
+                            <span class="hover_text_calorias">100%</span>
+                        </div>                          
+                        <img src="./icons/apple.svg" alt="Descrição do Ícone" class="icone_caloria"/>
+                    </div>
+                </div>
+            </div>
+            <div class="custom_container container_dieta">
+                <div class="conteudo_container">
+                    <div>
+                        <h2 class="titulo_container titulo_container_dieta">Dieta</h2>
+                    </div>
+                    <div class="descricao_container">
+                        <div class="menu-container">
+                            <div class="menu-item">
+                                <img src="./icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta"/>
+                                <p>Dieta 1</p>
+                            </div>
+                            <div class="menu-item">
+                                <img src="./icons/dietas/21.svg" alt="Descrição do Ícone 2"  class="img_dieta"/>
+                                <p>Dieta 2</p>
+                            </div>
+                            <div class="menu-item">
+                                <img src="./icons/dietas/3.svg" alt="Descrição do Ícone 3"  class="img_dieta"/>
+                                <p>Dieta 3</p>
+                            </div>
+                        </div>                        
+                    </div>
+                                   
+                </div>
+            </div>
+        </div>
     </section>
-
-
-
-    <!-- Bootstrap JS e Popper.js -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
     <script src="main.js"></script>

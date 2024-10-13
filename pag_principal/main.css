@@ -31,8 +31,27 @@ body {
     margin: 0.2em;
     border-radius: 5px;
     font-size: 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, align-items 1s ease; /* Adicione opacity à transição */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
+
+.icon_sideBar {
+    width: 1.5rem;
+}
+
+
+.item__sidebar.show {
+    margin: 0.2em;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease, align-items 1s ease; /* Adicione opacity à transição */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 
 .item__sidebar:hover {
     background-color: var(--color2);
@@ -45,7 +64,7 @@ body {
     text-align: center;
     padding-top: 6em;
     position: relative; /* Necessário para que o z-index tenha efeito */
-    z-index: -1; /* Valor menor para garantir que fique atrás da sidebar */
+    z-index: 0.9; /* Valor menor para garantir que fique atrás da sidebar */
 }
 
 .container__pricinpal__titulo {
@@ -54,6 +73,232 @@ body {
 
 .container__pricinpal.opacity {
     filter: blur(0.8px); /* Ajuste o valor para definir o nível de desfoque */   
+}
+
+
+.sidebar {
+    z-index: 1;
+    height: 100%;
+    position: fixed;
+    top: 2em;
+    width: 250px;
+    padding-top: 56px;
+    /* Espaço para a navbar fixa */
+    transition: transform 0.3s ease;
+    transform: translateX(-80%);
+    background-color: var(--color1);
+}
+
+.sidebar.show {
+    transform: translateX(0);
+}
+
+/* Quando a sidebar não tiver a classe .show (fechada), mostrar apenas ícones */
+.sidebar .nav-link .item-text {
+    display: none; /* Esconde o texto */
+}
+
+.sidebar .nav-link img {
+    font-size: 1.5rem; /* Tamanho maior para ícones quando a sidebar está fechada */
+}
+
+/* Quando a sidebar tiver a classe .show (aberta), mostrar o texto e ajustar os ícones */
+.sidebar.show .nav-link .item-text {
+    display: inline; /* Mostra o texto */
+    margin-left: 10px; /* Espaçamento entre o ícone e o texto */
+}
+
+.sidebar.show .nav-link img {
+    font-size: 1rem; /* Reduz o tamanho dos ícones */
+}
+
+.content {
+    margin-left: 250px;
+}
+
+.container {
+    align-items: center;
+    font-family: var(--fonte-logo);
+}
+
+.custom_container {
+    margin: 1rem;
+    height: 12em; /* Ajuste a altura aqui */
+    display: flex;
+    border-radius: 5px; /* Bordas arredondadas */
+    overflow: visible; /* Permitir que o ícone cresça além das bordas */
+    position: relative; /* Para controlar o layout */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+.descricao_container img {
+    transition: transform 0.3s ease;
+}
+
+.descricao_container img:hover {
+    transform: scale(1.4); /* Ajuste o valor conforme necessário */
+}
+
+.descricao_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.circle_hidratacao {
+    width: 80px;
+    height: 80px;
+    border: 5px solid #3498db; /* Apenas a borda */
+    border-radius: 50%; /* Deixa como círculo */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center;
+    font-size: 18px;
+    color: #3498db;
+    transition: transform 0.3s ease;
+}
+
+.circle_hidratacao:hover {
+    transform: scale(1.2); /* Ajuste o valor conforme necessário */
+  }
+
+.circle_calorias {
+    width: 80px;
+    height: 80px;
+    border: 5px solid #FF6B00; /* Apenas a borda */
+    border-radius: 50%; /* Deixa como círculo */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center;
+    font-size: 18px;
+    color: #FF6B00;
+    transition: transform 0.3s ease;
+}
+
+.circle_calorias:hover {
+    transform: scale(1.2); /* Ajuste o valor conforme necessário */
+}
+
+  .icon_container_hidratacao {
+    transition: opacity 0.3s ease; /* Transição suave ao desaparecer */
+  }
+
+  .icon_container_calorias {
+    transition: opacity 0.3s ease; /* Transição suave ao desaparecer */
+  }
+  
+  .hover_text_hidratacao {
+    position: absolute;
+    font-size: 24px;
+    color: #3498db;
+    opacity: 0; /* Inicialmente escondido */
+    transition: opacity 0.3s ease;
+  }
+
+  .hover_text_calorias {
+    position: absolute;
+    font-size: 24px;
+    color: #FF6B00;
+    opacity: 0; /* Inicialmente escondido */
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Quando o mouse passa sobre o círculo */
+  .circle_hidratacao:hover .icon_container_hidratacao {
+    opacity: 0; /* Esconde a imagem */
+  }
+
+  /* Quando o mouse passa sobre o círculo */
+  .circle_hidratacao:hover .icon_container_calorias {
+    opacity: 0; /* Esconde a imagem */
+  }
+  
+  .circle_hidratacao:hover .hover_text_hidratacao {
+    opacity: 1; /* Mostra o texto */
+  }
+
+   /* Quando o mouse passa sobre o círculo */
+   .circle_calorias:hover .icon_container_hidratacao {
+    opacity: 0; /* Esconde a imagem */
+  }
+
+  /* Quando o mouse passa sobre o círculo */
+  .circle_calorias:hover .icon_container_calorias {
+    opacity: 0; /* Esconde a imagem */
+  }
+  
+  .circle_calorias:hover .hover_text_calorias {
+    opacity: 1; /* Mostra o texto */
+  }
+  
+.custom_container:hover {
+    transform: scale(1.05) !important; /* Aumenta 5% ao passar o mouse */
+}
+
+.container_hidratacao {
+    background-color: #00b3ff37;
+}
+
+.titulo_container_hidratacao {
+    color: #4F40FF;
+}
+
+.container_caloria {
+    background-color: #ffb70037;
+}
+
+.titulo_container_caloria {
+    color: #FFB700;
+}
+
+.container_dieta {
+    background-color: #33ff4738;
+}
+
+.titulo_container_dieta {
+    color: #33FF47;
+}
+
+.conteudo_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1em;
+}
+
+.titulo_container {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.icone_caloria {
+    width: 80px;
+}
+
+.menu-container {
+    display: flex; /* Usamos flexbox para alinhar os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    gap: 20px; /* Espaçamento entre os itens */
+    padding: 20px; /* Adiciona um pouco de espaço ao redor do contêiner */
+}
+
+.menu-item {
+    background-color: white; /* Fundo branco */
+    border-radius: 20px; /* Bordas arredondadas */
+    padding: 20px; /* Espaço interno */
+    text-align: center; /* Centraliza o texto */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+    transition: transform 0.3s; /* Transição suave ao passar o mouse */
+}
+
+.img_dieta {
+    width: 80%;
 }
 
 
