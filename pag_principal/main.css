@@ -303,3 +303,163 @@ body {
 
 
 
+
+/* Ajustes gerais para telas pequenas */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .content {
+        margin-left: 100px;
+    }
+
+    .custom_container {
+        height: auto;
+        flex-direction: column;
+        margin: 0.5rem;
+    }
+
+    .circle_hidratacao, 
+    .circle_calorias {
+        width: 60px;
+        height: 60px;
+        font-size: 14px;
+    }
+
+    .style_logo {
+        font-size: 1.5em;
+    }
+
+    .titulo_container {
+        font-size: 2rem;
+    }
+}
+
+/* Ajustes para telas ainda menores */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    .style_logo {
+        font-size: 1.8em; /* Reduz o tamanho da logo */
+        text-align: center;
+    }
+
+    .item-text {
+        font-size: 0.8em;
+    }
+
+    .item__sidebar {
+        flex-direction: row; /* Elementos lado a lado */
+        align-items: center; 
+        font-size: 16px; /* Texto menor */
+    }
+
+    .icon_sideBar {
+        width: 1.2rem; /* Ícones menores */
+    }
+
+    .sidebar {
+        width: 100px; /* Sidebar menor */
+        transform: translateX(-100%); /* Mais escondida por padrão */
+    }
+
+    .sidebar.show {
+        width: 40%; /* Sidebar ocupa maior parte da tela ao abrir */
+    }
+
+    .container__pricinpal {
+        padding-top: 4em; /* Menor espaço superior */
+    }
+
+    .custom_container {
+        height: 8em; /* Menor altura nos containers */
+        flex-direction: column; /* Alinha em coluna */
+        margin: 0.5rem; /* Margem menor */
+    }
+
+    .descricao_container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row; /* Ajuste para coluna */
+        gap: 1em; /* Menor espaçamento entre os elementos */
+    }
+
+    .circle_hidratacao,
+    .circle_calorias {
+        width: 50px;
+        height: 50px;
+        font-size: 7px; /* Ajuste do tamanho do texto */
+    }
+
+    .garrafa_hidratacao, .icone_caloria {
+        width: 15%;
+    }
+
+    .hover_text_hidratacao,
+    .hover_text_calorias {
+        font-size: 18px; /* Tamanho menor do texto */
+    }
+
+    .container {
+        padding: 1em;
+    }
+
+    .conteudo_container {
+        flex-direction: column; /* Alinhar verticalmente */
+        gap: 1em; /* Espaçamento entre os itens */
+        text-align: center;
+    }
+
+    .titulo_container {
+        font-size: 1.2rem; /* Texto reduzido */
+    }
+
+    .menu-container {
+        flex-direction: column; /* Itens empilhados */
+        gap: 10px; /* Menor espaço entre os itens */
+    }
+
+    .menu-item {
+        padding: 10px; /* Menor espaço interno */
+    }
+
+    .img_dieta {
+        width: 100%; /* Imagem ajustada para preencher o container */
+    }
+
+    .sidebar .nav-link img {
+        width: 1.2rem; /* Ícones menores na sidebar */
+    }
+
+    .content {
+        margin-left: 0; /* Sem margem lateral */
+        padding: 1em; /* Adiciona espaço interno */
+    }
+
+    .container_caloria, .container_hidratacao, .container_dieta {
+        width: 100%; /* Containers ocupam toda a largura */
+        margin: 0.5em 0;
+    }
+
+    .icone_caloria {
+        width: 60px; /* Ícone menor */
+    }
+
+    .circle_hidratacao:hover,
+    .circle_calorias:hover {
+        transform: scale(1.1); /* Redução no efeito hover */
+    }
+
+    .graficoCalorias, .graficoHidratacao {
+        display: none;
+    }
+
+
+}
+
+
+

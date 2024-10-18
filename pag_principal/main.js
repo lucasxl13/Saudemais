@@ -30,6 +30,28 @@ toggleButton.addEventListener('click', () => {
         item.classList.toggle('show'); // Aplica a mudança em todos os itens
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const graficoHidratacao = document.getElementById('graficoHidratacao');
+    const graficoCalorias = document.getElementById('graficoCalorias');
+
+    function toggleGraficos() {
+        if (window.innerWidth <= 768) {
+            graficoHidratacao.style.display = 'none';
+            graficoCalorias.style.display = 'none';
+        } else {
+            graficoHidratacao.style.display = 'block';
+            graficoCalorias.style.display = 'block';
+        }
+    }
+
+    // Chama a função no load e ao redimensionar a tela
+    toggleGraficos();
+    window.addEventListener('resize', toggleGraficos);
+});
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('graficoHidratacao').getContext('2d');
 
