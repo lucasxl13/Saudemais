@@ -343,6 +343,10 @@ body {
         margin: 0;
     }
 
+    .menu_dieta {
+        display: none;
+    }
+
     .style_logo {
         font-size: 1.8em; /* Reduz o tamanho da logo */
         text-align: center;
