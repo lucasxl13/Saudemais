@@ -304,9 +304,7 @@ body {
 
 
 /* Títulos principais */
-/* Estrutura geral */
 .perfil__container {
-    background-color: var(--color3); /* Cor de fundo para a área de perfil */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
     padding: 2em;
@@ -319,8 +317,12 @@ body {
     transition: transform 0.3s ease; /* Suaviza transições */
 }
 
-.perfil__container:hover {
-    transform: scale(1.01); /* Aumenta um pouco ao passar o mouse */
+.card {
+    border: none !important; /* Remove qualquer borda aplicada ao card */
+}
+
+.card_perfil {
+    background-color: var(--color3);
 }
 
 /* Títulos de perfil */

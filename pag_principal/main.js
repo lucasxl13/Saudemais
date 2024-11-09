@@ -8,16 +8,15 @@ const itemSideBar = document.querySelectorAll('.item__sidebar'); // Alterado par
 
 const botaoPerfil = document.getElementById('perfilLink');
 
-
-
-
 document.getElementById('perfilLink').addEventListener('click', (event) => {
     event.preventDefault(); // Impede o comportamento padrão do link
     window.location.href = '../pag_user/main.html'; // Redireciona para outra tela
 });
 
-
-
+document.getElementById('button_menu').addEventListener('click', (event) => {
+    event.preventDefault(); // Impede o comportamento padrão do link
+    window.location.href = '../pag_principal/main.html'; // Redireciona para outra tela
+});
 
 
 toggleButton.addEventListener('click', () => {

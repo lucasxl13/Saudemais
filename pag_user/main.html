@@ -16,7 +16,7 @@
     <header class="navbar navbar-expand-lg navbar-dark fixed-top style_bg_nav">
         <div class="container-fluid">
             <button class="btn btn-outline-dark" id="toggleSidebar">Menu</button>
-            <a class="style_logo" href="#">Saúde <strong id="itemMais_logo">+</strong></a>
+            <a id="button_menu" class="style_logo" href="#">Saúde <strong id="itemMais_logo">+</strong></a>
         </div>
     </header>
 
@@ -51,46 +51,61 @@
     </div>
 
     <section class="container__pricinpal">
-      <div class="perfil__container row">
-        <h1 class="perfil__titulo col-12 text-center">User</h1>
+      <div class="perfil__container row justify-content-center">
+        <!-- Card de perfil -->
+        <div class="col-lg-8 col-md-10 col-12">
+          <div class="card">
+            <div class="card-header text-center bg-dark text-dark">
+              <h1 class="perfil__titulo">User Profile</h1>
+            </div>
     
-        <div class="perfil__detalhes col-md-6">
-          <div class="perfil__secao_titulo">Informações Pessoais</div>
-          <div class="perfil__campo">
-            <label class="perfil__label">Nome:</label>
-            <p class="perfil__info_texto">teste</p>
-          </div>
-          <div class="perfil__campo">
-            <label class="perfil__label">Idade:</label>
-            <p class="perfil__info_texto">25 anos</p>
-          </div>
-          <div class="perfil__campo">
-            <label class="perfil__label">Localização:</label>
-            <p class="perfil__info_texto">São Paulo, SP</p>
-          </div>
-          <div class="perfil__campo">
-            <label class="perfil__label">Sexo:</label>
-            <p class="perfil__info_texto">Masculino</p>
-          </div>
-          <div class="perfil__campo">
-            <label class="perfil__label">Data de nascimento:</label>
-            <p class="perfil__info_texto">01/01/1999</p>
-          </div>
-          <div class="perfil__campo">
-            <label class="perfil__label">Objetivo principal:</label>
-            <p class="perfil__info_texto">Saúde Ideal</p>
-          </div>
-        </div>
+            <div class="card_perfil card-body">
+              <div class="row">
+                <!-- Foto de Perfil e Informações Pessoais -->
+                <div class="col-md-4 text-center">
+                  <img src="https://via.placeholder.com/150" alt="Foto de Perfil" class="img-fluid rounded-circle border border-white mb-3" style="max-width: 150px;">
+                </div>
     
-        <div class="perfil__acoes col-md-6">
-          <button class="btn btn-secondary w-100" id="logout">Sair</button>
+                <!-- Informações do Usuário -->
+                <div class="col-md-8">
+                  <div class="perfil__campo">
+                    <label class="perfil__label">Nome:</label>
+                    <p class="perfil__info_texto">Teste</p>
+                  </div>
+                  <div class="perfil__campo">
+                    <label class="perfil__label">Idade:</label>
+                    <p class="perfil__info_texto">25 anos</p>
+                  </div>
+                  <div class="perfil__campo">
+                    <label class="perfil__label">Localização:</label>
+                    <p class="perfil__info_texto">São Paulo, SP</p>
+                  </div>
+                  <div class="perfil__campo">
+                    <label class="perfil__label">Sexo:</label>
+                    <p class="perfil__info_texto">Masculino</p>
+                  </div>
+                  <div class="perfil__campo">
+                    <label class="perfil__label">Data de nascimento:</label>
+                    <p class="perfil__info_texto">01/01/1999</p>
+                  </div>
+                  <div class="perfil__campo">
+                    <label class="perfil__label">Objetivo principal:</label>
+                    <p class="perfil__info_texto">Saúde Ideal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Botão de Sair -->
+            <div class="card-footer text-center bg-dark text-dark">
+              <button class="btn btn-danger w-50" id="logout">Sair</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
     
     
-  
-  
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

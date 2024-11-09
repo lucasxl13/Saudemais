@@ -20,6 +20,11 @@ document.getElementById('logout').addEventListener('click', (event) => {
     window.location.href = '../pag_login/login.html'; // Redireciona para outra tela
 });
 
+document.getElementById('button_menu').addEventListener('click', (event) => {
+    event.preventDefault(); // Impede o comportamento padrão do link
+    window.location.href = '../pag_principal/main.html'; // Redireciona para outra tela
+});
+
 
 toggleButton.addEventListener('click', () => {
     sidebar.classList.toggle('show');
