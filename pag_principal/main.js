@@ -5,21 +5,20 @@ const campoLogo = document.querySelector('.style_logo');
 const itemLogo = document.getElementById('itemMais_logo');
 const itemSideBar = document.querySelectorAll('.item__sidebar'); // Alterado para querySelectorAll
 
-const nomeUsuario = sessionStorage.getItem('usuariox');
-console.log(nomeUsuario)
 
-// Seleciona o elemento <h1> pela classe 'nome_usuario'
-const elementoNome = document.querySelector('.nome_usuario');
+const botaoPerfil = document.getElementById('perfilLink');
 
-// Se o valor existir, atualiza o conteúdo do <h1>
-if (nomeUsuario) {
-    elementoNome.textContent = nomeUsuario;
-}
+
+
 
 document.getElementById('perfilLink').addEventListener('click', (event) => {
     event.preventDefault(); // Impede o comportamento padrão do link
-    window.location.href = '/pag_user/main.html'; // Redireciona para outra tela
+    window.location.href = '../pag_user/main.html'; // Redireciona para outra tela
 });
+
+
+
+
 
 toggleButton.addEventListener('click', () => {
     sidebar.classList.toggle('show');
