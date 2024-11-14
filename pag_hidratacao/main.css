@@ -136,7 +136,7 @@ body {
 }
 
 .descricao_container img:hover {
-    transform: scale(1.1); /* Ajuste o valor conforme necessário */
+    transform: scale(1.4); /* Ajuste o valor conforme necessário */
 }
 
 .descricao_container {
@@ -144,18 +144,6 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 2em;
-    margin-left: 2rem;
-    width: 100%; /* O gráfico ocupará toda a largura do contêiner pai */
-}
-
-#graficoHidratacao {
-    width: 100%; /* O gráfico se ajustará à largura do contêiner */
-    height: 100%; /* O gráfico ocupará toda a altura disponível no contêiner */
-}
-
-#graficoCalorias {
-    width: 100%; /* O gráfico se ajustará à largura do contêiner */
-    height: 100%; /* O gráfico ocupará toda a altura disponível no contêiner */
 }
 
 .circle_hidratacao {
@@ -247,7 +235,7 @@ body {
   }
   
 .custom_container:hover {
-    transform: scale(1.01) !important; /* Aumenta 5% ao passar o mouse */
+    transform: scale(1.05) !important; /* Aumenta 5% ao passar o mouse */
 }
 
 .container_hidratacao {
@@ -255,7 +243,7 @@ body {
 }
 
 .titulo_container_hidratacao {
-    color: #406dff;
+    color: #4F40FF;
 }
 
 .container_caloria {
@@ -278,25 +266,14 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 1em;
 }
 
-.objetivos_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.objetivos_container h2{
-    width: 12.5rem;
-}
-
-
 .titulo_container {
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 .icone_caloria {
@@ -411,7 +388,6 @@ body {
     .descricao_container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
         flex-direction: row; /* Ajuste para coluna */
         gap: 1em; /* Menor espaçamento entre os elementos */
     }

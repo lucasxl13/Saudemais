@@ -9,6 +9,7 @@ const itemSideBar = document.querySelectorAll('.item__sidebar'); // Alterado par
 const botaoPerfil = document.getElementById('perfilLink');
 const botaoHidratacao = document.getElementById('hidratacaoLink');
 
+
 botaoPerfil.addEventListener('click', (event) => {
     event.preventDefault(); // Impede o comportamento padrão do link
     window.location.href = '../pag_user/main.html'; // Redireciona para outra tela
@@ -17,11 +18,6 @@ botaoPerfil.addEventListener('click', (event) => {
 botaoHidratacao.addEventListener('click', (event) => {
     event.preventDefault(); // Impede o comportamento padrão do link
     window.location.href = '../pag_hidratacao/main.html'; // Redireciona para outra tela
-});
-
-document.getElementById('button_menu').addEventListener('click', (event) => {
-    event.preventDefault(); // Impede o comportamento padrão do link
-    window.location.href = '../pag_principal/main.html'; // Redireciona para outra tela
 });
 
 
@@ -53,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleGraficos();
     window.addEventListener('resize', toggleGraficos);
 });
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('graficoHidratacao').getContext('2d');
@@ -97,11 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-    });
-
-    // Redimensionar o gráfico quando a janela for redimensionada
-    window.addEventListener('resize', () => {
-        meuGrafico.resize();
     });
 });
 
@@ -149,10 +142,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-
-    // Redimensionar o gráfico quando a janela for redimensionada
-    window.addEventListener('resize', () => {
-        meuGrafico.resize();
-    });
 });
-
