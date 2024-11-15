@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="./user.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-lg navbar-dark fixed-top style_bg_nav">
+        <div class="container-fluid">
+            <button class="btn btn-outline-dark" id="toggleSidebar">Menu</button>
+            <a id="button_menu" class="style_logo" href="#">Saúde <strong id="itemMais_logo">+</strong></a>
+        </div>
+    </header>
+
+    <!-- SideBar -->
+    <div class="sidebar" id="sidebar">
+        <ul class="nav flex-column itens__sidebar">
+            <li class="nav-item item__sidebar">
+                <a class="nav-link" href="#" id="hidratacaoLink">
+                    <img src="../icons/gota_container.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Hidratação</span>
+                </a>
+            </li>
+            <li class="nav-item item__sidebar">
+                <a class="nav-link" href="#">
+                    <img src="../icons/calorias_container.svg" alt="Ícone Calorias" class="icon_sideBar" />
+                    <span class="item-text">Calorias</span>
+                </a>
+            </li>
+            <li class="nav-item item__sidebar">
+                <a class="nav-link" href="#">
+                    <img src="../icons/Group.svg" alt="Ícone Dieta" class="icon_sideBar" />
+                    <span class="item-text">Dieta</span>
+                </a>
+            </li>
+            <li class="nav-item item__sidebar">
+                <a class="nav-link" href="#" id="perfilLink">
+                    <img src="../icons/account_circle.svg" alt="Ícone Perfil" class="icon_sideBar" />
+                    <span class="item-text">Perfil</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="container__principal">
+        <div class="bodyuser">
+            <!-- Ícone e Nome do Usuário -->
+            <div class="user-header">
+                <div class="user-icon">U</div>
+                <div class="user-name">Nome do Usuário</div>
+            </div>
+            <div class="user-fields">
+                <div class="user-metam"><b>DADOS DE USUÁRIO</b> </div>
+                <div class="user-meta">Sexo: <span id="sexo"></span></div>
+                <div class="user-meta">Idade: <span id="idade"></span>anos</div>
+
+                <div class="user-metam"><b>DADOS FISIOLÓGICOS</b> </div>
+                <div class="user-meta">Peso atual: <span id="peso"></span>Kg <button class="bnt_modif" id="btn_peso">Alterar</button></div>
+                
+                <div class="user-meta">Altura: <span id="altura"></span>cm <button class="bnt_modif" id="btn_altura">Alterar</button></div>
+                <div class="user-meta">Objetivo: <span id="objetivo"></span> <button class="bnt_modif" id="btn_obj">Alterar</button></div>
+
+                <div class="user-metam"><b>METRICAS</b> </div>
+                <div class="user-meta">IMC: <span id="imc"></span></div>
+                <div class="user-meta">Metabolismo basal: <span id="metabolismo"></span>Kcal</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+    <script src="user.js"></script>
+</body>
+
+</html>

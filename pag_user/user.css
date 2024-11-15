@@ -1,0 +1,143 @@
+@import url('../main.css');
+
+/* Body */
+body {
+    background-color: var(--color3);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.style_bg_nav {
+    background-color: var(--color1);
+}
+
+.style_logo {
+    font-size: 2.5em;
+    color: var(--color3);
+    font-family: var(--fonte-logo);
+}
+
+.style_logo strong {
+    display: inline-block;
+    transition: transform 0.2s ease, padding 0.5s ease;
+}
+
+.style_logo:hover strong {
+    transform: rotate(360deg) scale(1.3);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    height: calc(100% - 56px);
+    width: 50px; /* Largura reduzida (apenas ícones) */
+    background-color: var(--color1);
+    overflow-y: auto;
+    transition: width 0.3s ease;
+}
+
+.sidebar .nav-item:first-child {
+    margin-top: 40px; /* Ajusta a posição do primeiro ícone */
+}
+
+.sidebar .nav {
+    gap: 20px; /* Define o espaço entre os itens da lista */
+}
+
+.sidebar.expanded {
+    width: 250px; /* Largura expandida (ícones + texto) */
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    color: var(--color3);
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--color2);
+    border-radius: 5px;
+}
+
+.icon_sideBar {
+    width: 1.5rem;
+    height: auto;
+}
+
+.sidebar .item-text {
+    display: none;
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+.sidebar.expanded .item-text {
+    display: inline-block;
+}
+
+.container__principal {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* Ocupa a altura total da tela */
+    background-color: var(--white);
+}
+
+.bodyuser {
+    display: flex;
+    flex-direction: column; /* Posiciona os itens verticalmente */
+    align-items: left; /* Centraliza os itens horizontalmente */
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    padding: 20px;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    gap: 20px; /* Espaço entre o cabeçalho e os campos */
+}
+
+/* Ícone e Nome do Usuário */
+.user-header {
+    display: flex;
+    align-items: center; /* Centraliza verticalmente o ícone e o nome */
+    gap: 15px; /* Espaço entre o ícone e o nome */
+}
+
+.user-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #d9e2ec;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4a5568;
+}
+
+.user-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+/* Campos adicionais */
+.user-fields {
+    display: flex;
+    flex-direction: column; /* Campos alinhados verticalmente */
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    gap: 15px; /* Espaço entre os campos */
+}
+
+.bnt_modif{
+    border: none;
+}
+
+.bnt_modif:hover{
+    color:var(--color6);
+}

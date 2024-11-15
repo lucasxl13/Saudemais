@@ -11,7 +11,7 @@ const botaoHidratacao = document.getElementById('hidratacaoLink');
 
 botaoPerfil.addEventListener('click', (event) => {
     event.preventDefault(); // Impede o comportamento padrão do link
-    window.location.href = '../pag_user/main.html'; // Redireciona para outra tela
+    window.location.href = '../pag_user/user.html'; // Redireciona para outra tela
 });
 
 botaoHidratacao.addEventListener('click', (event) => {
