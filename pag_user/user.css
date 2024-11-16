@@ -141,3 +141,7 @@ body {
 .bnt_modif:hover{
     color:var(--color6);
 }
+
+.letra {
+    transition: color 0.2s ease; /* Suaviza a transição de cor */
+}

@@ -46,6 +46,7 @@ document.getElementById('register').addEventListener('submit', function (event) 
     const email = document.getElementById('email');
     const senha = document.getElementById('senha');
     const csenha = document.getElementById('c_senha');
+   
 
     const u_erro = document.getElementById('usuario-erro');
     const s_erro = document.getElementById('senha-erro');
@@ -444,6 +445,8 @@ function validarForm2() {
 
     datado = data.value;
 
+    sessionStorage.setItem('datax', datado);
+
     return valido2;
 }
 
@@ -486,11 +489,16 @@ function validarForm4() {
 function atualizaPeso(valor) {
     pesado = valor;
     document.getElementById('peso-valor').textContent = valor + ' kg';
+
+    sessionStorage.setItem('pesox', pesado);
+    
   }
 
 function atualizaAltura(valor) {
     alturado = valor;
     document.getElementById('altura-valor').textContent = valor + ' cm';
+
+    sessionStorage.setItem('alturax', alturado);
   }
 
 
@@ -510,15 +518,21 @@ function atualizaAltura(valor) {
     if (selecionado) {
         switch (sexo) {
             case 'feminino':
-                sexodo = 'feminino';
+                sexodo = 'Feminino';
                 sexo2.classList.remove('erro');
                 document.getElementById('sexo-erro').style.display = 'none';
+
+                sessionStorage.setItem('sexox', sexodo);
+
                 break;
 
             case 'masculino':
-                sexodo = 'masculino';
+                sexodo = 'Masculino';
                 sexo2.classList.remove('erro');
                 document.getElementById('sexo-erro').style.display = 'none';
+
+                sessionStorage.setItem('sexox', sexodo);
+
                 break;
 
             default:
@@ -542,18 +556,21 @@ function atualizaAltura(valor) {
             metado = 1;
             resetColors();
             meta1.style.color = color6; 
+            sessionStorage.setItem('metax', metado);
         });
     
         meta2.addEventListener('click', function() {
             metado = 2;
             resetColors();
             meta2.style.color = color6;
+            sessionStorage.setItem('metax', metado);
         });
     
         meta3.addEventListener('click', function() {
             metado = 3;
             resetColors();
             meta3.style.color = color6;
+            sessionStorage.setItem('metax', metado);
         });
     
         function resetColors() {
@@ -561,5 +578,7 @@ function atualizaAltura(valor) {
             meta2.style.color = '';
             meta3.style.color = '';
         }
+
+        
     });
     

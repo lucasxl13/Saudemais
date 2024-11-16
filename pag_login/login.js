@@ -211,6 +211,9 @@ console.log("Usuário:" + usuariox);
 const senhax = sessionStorage.getItem('senhax');
 console.log("Senha:" + senhax);
 
+const pesox = sessionStorage.getItem('pesox');
+console.log("Peso:" + pesox);
+
 const mantery = getItemWithExpiration('manterx');
 const manterbky = localStorage.getItem('manterbk');
 
