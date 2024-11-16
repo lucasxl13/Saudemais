@@ -69,68 +69,82 @@
         <!-- Containers para Hidratação, Calorias e Dieta -->
         <div class="container">
             <h2>Categorias</h2>
-            <div class="custom_container container_hidratacao">
-                <div class="conteudo_container">
-                    <div class="objetivos_container">
-                        <h2 class="titulo_container titulo_container_hidratacao">Hidratação</h2>
-                        <div class="circle_hidratacao">
-                            <img src="../icons/droplet-fill2.svg" alt="Descrição do Ícone" class="icon_container_hidratacao"/>
-                            <span class="hover_text_hidratacao">100%</span>
-                        </div> 
+            <!-- Linha 1: Calorias e Hidratação -->
+            <div class="row">
+                <div class="col custom_container container_caloria">
+                    <div class="circle_calorias">
+                        <img src="../icons/FireSimple1.svg" alt="Descrição do Ícone" class="icon_container_calorias" />
+                        <span class="hover_text_calorias">100%</span>
                     </div>
-                    <div class="descricao_container">  
-                        <p> Consumido: 500 ml | Meta: 2000 ml </p>   
-                        <p> Consumido: 500 ml | Meta: 2000 ml </p>   
-                        <canvas id="graficoHidratacao"></canvas> <!-- Área do Gráfico -->                        
+                    <h2 class="titulo_container titulo_container_caloria">Calorias</h2>
+                    <p class="descricao_meta_container">2500kcal / 2500kcal</p>
+                </div>
+                <div class="col custom_container container_hidratacao">
+                    <div class="circle_hidratacao">
+                        <img src="../icons/droplet-fill2.svg" alt="Descrição do Ícone" class="icon_container_hidratacao" />
+                        <span class="hover_text_hidratacao">100%</span>
+                    </div>
+                    <h2 class="titulo_container titulo_container_hidratacao">Hidratação</h2>
+                    <p class="descricao_meta_container">2500ml / 2500ml</p>
+                </div>
+            </div>
+            
+            <!-- Linha 2: Peso atual e IMC -->
+            <div class="row">
+                <div class="col custom_container container_peso">
+                    <h2 class="titulo_container">Peso Atual</h2>
+                    <p class="descricao_meta_container">75 kg</p> <!-- Exemplo -->
+
+                </div>
+                <div class="col custom_container container_imc">
+                    <h2 class="titulo_container">IMC Atual</h2>
+                    <p class="descricao_meta_container">24.5</p> <!-- Exemplo -->
+                </div>
+            </div>
+
+            <!-- Linha 3: Dieta -->
+            <div class="row">
+                <div class="col-12 custom_container container_dieta">
+                    <h2 class="titulo_container titulo_container_dieta">Dieta</h2>
+                    <div class="menu-container menu_dieta">
+                        <div class="menu-item">
+                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Dieta 1</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Dieta 1</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Dieta 1</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Dieta 1</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Dieta 1</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Dieta 1</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Dieta 1</p>
+                        </div>
+                        <!-- Adicione mais itens de dieta aqui -->
                     </div>
                 </div>
             </div>
-            <div class="custom_container container_caloria">
-                <div class="conteudo_container">
-                    <div class="objetivos_container">
-                        <h2 class="titulo_container titulo_container_caloria">Calorias</h2>
-                        <div class="circle_calorias">
-                            <img src="../icons/FireSimple1.svg" alt="Descrição do Ícone"  class="icon_container_calorias"/>
-                            <span class="hover_text_calorias">100%</span>
-                        </div> 
-                    </div>
-                    <div class="descricao_container">
-                        <p> "Meta: 2000 kcal | Restantes: 500 kcal".</p>   
-                        <p> "Meta: 2000 kcal | Restantes: 500 kcal".</p>   
-                        <canvas id="graficoCalorias"></canvas> <!-- Área do Gráfico -->                   
-                    </div>
-                </div>
-            </div>
-            <div class="custom_container container_dieta">
-                <div class="conteudo_container">
-                    <div>
-                        <h2 class="titulo_container titulo_container_dieta">Dieta</h2>
-                    </div>
-                    <div class="descricao_container">
-                        <div class="menu-container menu_dieta">
-                            <div class="menu-item">
-                                <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta"/>
-                                <p>Dieta 1</p>
-                            </div>
-                            <div class="menu-item">
-                                <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta"/>
-                                <p>Dieta 1</p>
-                            </div>
-                            <div class="menu-item">
-                                <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta"/>
-                                <p>Dieta 1</p>
-                            </div>
-                            <div class="menu-item">
-                                <img src="../icons/dietas/21.svg" alt="Descrição do Ícone 2"  class="img_dieta"/>
-                                <p>Dieta 2</p>
-                            </div>
-                            <div class="menu-item">
-                                <img src="../icons/dietas/3.svg" alt="Descrição do Ícone 3"  class="img_dieta"/>
-                                <p>Dieta 3</p>
-                            </div>
-                        </div>                        
-                    </div>
-                                   
+            
+            <!-- Linha 4: Exercícios -->
+            <div class="row">
+                <div class="col-12 custom_container container_exercicios">
+                    <h2 class="titulo_container">Exercícios</h2>
+                    <p>Detalhes sobre os exercícios</p> <!-- Exemplo -->
                 </div>
             </div>
         </div>

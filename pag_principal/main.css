@@ -123,8 +123,11 @@ body {
 
 .custom_container {
     margin: 1rem;
-    height: 12em; /* Ajuste a altura aqui */
+    height: 14em; /* Ajuste a altura aqui */
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 5px; /* Bordas arredondadas */
     overflow: visible; /* Permitir que o ícone cresça além das bordas */
     position: relative; /* Para controlar o layout */
@@ -173,7 +176,7 @@ body {
 }
 
 .circle_hidratacao:hover {
-    transform: scale(1.2); /* Ajuste o valor conforme necessário */
+    transform: scale(1.1); /* Ajuste o valor conforme necessário */
   }
 
 .circle_calorias {
@@ -190,8 +193,32 @@ body {
     transition: transform 0.3s ease;
 }
 
+.descricao_meta_container {
+    font-family: 'Roboto', sans-serif; /* Fonte moderna */
+    font-size: 1.2rem; /* Tamanho maior */
+    color: #525252; /* Texto escuro para melhor legibilidade */
+    background: #f4f4f4; /* Fundo neutro, cinza claro */
+    border-radius: 12px; /* Bordas suaves */
+    padding: 15px 20px; /* Espaçamento interno maior */
+    text-align: center; /* Centralização do texto */
+    font-weight: 600; /* Peso de fonte mais suave */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
+    width: fit-content; /* Adapta ao conteúdo */
+    margin: 0 auto; /* Centralização na página */
+    transition: all 0.3s ease; /* Transição suave para hover */
+}
+
+/* Efeito ao passar o mouse */
+.descricao_meta_container:hover {
+    background: #e0e0e0; /* Fundo levemente mais escuro */
+    transform: scale(1.05); /* Pequeno zoom */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+}
+
+
+
 .circle_calorias:hover {
-    transform: scale(1.2); /* Ajuste o valor conforme necessário */
+    transform: scale(1.1); /* Ajuste o valor conforme necessário */
 }
 
   .icon_container_hidratacao {
@@ -262,16 +289,47 @@ body {
     background-color: #ffb70037;
 }
 
+/* Peso Atual */
+.container_peso {
+    background-color: #014074a9; /* Azul claro */
+    color: #ffffff; /* Texto branco */
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* IMC Atual */
+.container_imc {
+    background-color: #9c17b47c; /* Roxo claro */
+    color: #ffffff; /* Texto branco */
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito hover para ambos */
+.container_peso:hover,
+.container_imc:hover {
+    transform: scale(1.05); /* Leve aumento no hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+}
+
+
 .titulo_container_caloria {
     color: #FFB700;
 }
 
 .container_dieta {
+    height: 18rem;
     background-color: #33ff4738;
 }
 
 .titulo_container_dieta {
-    color: #33FF47;
+    color: #009a0f;
 }
 
 .conteudo_container {
@@ -329,18 +387,34 @@ body {
 
 /* Ajustes gerais para telas pequenas */
 @media (max-width: 768px) {
+
+    .descricao_meta_container {
+        font-family: 'Roboto', sans-serif; /* Fonte moderna */
+        font-size: 0.9rem; /* Tamanho legível */
+        color: #333333; /* Texto escuro para maior contraste com fundo */
+        background: #f4f4f4; /* Fundo neutro, cinza claro */
+        border-radius: 12px; /* Bordas suaves */
+        padding: 10px 15px; /* Espaçamento interno */
+        text-align: center; /* Centralização do texto */
+        font-weight: normal; /* Peso de fonte mais suave */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
+        width: fit-content; /* Adapta ao conteúdo */
+        margin: 0 auto; /* Centralização na página */
+        transition: all 0.3s ease; /* Transição suave para hover */
+    }
+    
+    /* Efeito ao passar o mouse */
+    .descricao_meta_container:hover {
+        background: #e0e0e0; /* Fundo levemente mais escuro */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+    }
+
     .sidebar {
         width: 100px;
     }
 
     .content {
         margin-left: 100px;
-    }
-
-    .custom_container {
-        height: auto;
-        flex-direction: column;
-        margin: 0.5rem;
     }
 
     .circle_hidratacao, 
@@ -357,10 +431,7 @@ body {
     .titulo_container {
         font-size: 2rem;
     }
-}
 
-/* Ajustes para telas ainda menores */
-@media (max-width: 768px) {
     body {
         padding: 0;
         margin: 0;
@@ -403,9 +474,10 @@ body {
     }
 
     .custom_container {
-        height: 8em; /* Menor altura nos containers */
-        flex-direction: column; /* Alinha em coluna */
-        margin: 0.5rem; /* Margem menor */
+        height: 10em; /* Menor altura nos containers */
+        flex-direction: row; /* Alinha em coluna */
+        margin: 1rem; /* Margem menor */
+
     }
 
     .descricao_container {
