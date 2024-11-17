@@ -165,9 +165,24 @@ if (datax) {
 
 const imcx = pesox / ((alturax / 100) * (alturax / 100));
 document.getElementById("imc").textContent = imcx.toFixed(2);
+if(imcx<18.50){
+    document.getElementById("imcstatus").textContent = ' - Magreza';
+}
+else if(imcx>=18.50 && imcx<=24.99){
+    document.getElementById("imcstatus").textContent = ' - Normal'; 
+}
+else if(imcx>24.99 && imcx<=29.99){
+    document.getElementById("imcstatus").textContent = ' - Sobrepeso'; 
+}
+else if(imcx>29.99 && imcx<=39.99){
+    document.getElementById("imcstatus").textContent = ' - 	Obesidade'; 
+}
+else if(imcx>39.99){
+    document.getElementById("imcstatus").textContent = ' - 	Obesidade Grave'; 
+}
+
 
 let metabolismo;
-console.log(datay);
 
 if(sexox=='Feminino'){
     metabolismo = 655 + (9.6*pesox) + (1.8 * alturax) - (4.7 * datay);
@@ -177,4 +192,109 @@ if(sexox=='Masculino'){
     metabolismo = 66 + (13.7*pesox) + (5 * alturax) - (6.8 * datay);
 }
 
-document.getElementById("metabolismo").textContent = metabolismo;
+document.getElementById("metabolismo").textContent = metabolismo.toFixed(2);;
+
+
+
+
+// PESO
+const btnpeso = document.getElementById('btn_peso');
+const btncpeso = document.getElementById('btn_cpeso');
+const pesomodif = document.querySelector('.pesomodif');
+const pesoValorSpan = document.getElementById('peso-valor');
+const pesoSlider = document.getElementById('peso-slider');
+
+// Inicializa o slider de peso
+if (pesox) {
+    pesoSlider.value = pesox; 
+    pesoValorSpan.textContent = `${pesox} kg`;
+} else {
+    pesoSlider.value = 70;
+    pesoValorSpan.textContent = `70 kg`;
+}
+
+// Exibe o controle do peso
+btnpeso.addEventListener('click', () => {
+    document.querySelector('.user-metap').style.display = "none";
+    pesomodif.style.display = "block";
+});
+
+// Atualiza o valor do peso
+function atualizaPeso(valor) {
+    pesoValorSpan.textContent = `${valor} kg`;
+    sessionStorage.setItem('pesox', valor);
+}
+
+// Fecha o controle de peso
+btncpeso.addEventListener('click', () => {
+    document.querySelector('.user-metap').style.display = "block";
+    pesomodif.style.display = "none";
+    location.reload();
+});
+
+// ALTURA
+const btnaltura = document.getElementById('btn_altura');
+const btncaltura = document.getElementById('btn_caltura');
+const alturamodif = document.querySelector('.alturamodif');
+const alturaValorSpan = document.getElementById('altura-valor');
+const alturaSlider = document.getElementById('altura-slider');
+
+// Inicializa o slider de altura
+if (alturax) {
+    alturaSlider.value = alturax; 
+    alturaValorSpan.textContent = `${alturax} cm`;
+} else {
+    alturaSlider.value = 150;
+    alturaValorSpan.textContent = `150 cm`;
+}
+
+// Exibe o controle da altura
+btnaltura.addEventListener('click', () => {
+    document.querySelector('.user-metaa').style.display = "none";
+    alturamodif.style.display = "block";
+});
+
+// Atualiza o valor da altura
+function atualizaAltura(valor) {
+    alturaValorSpan.textContent = `${valor} cm`;
+    sessionStorage.setItem('alturax', valor);
+}
+
+// Fecha o controle da altura
+btncaltura.addEventListener('click', () => {
+    document.querySelector('.user-metaa').style.display = "block";
+    alturamodif.style.display = "none";
+    location.reload();
+});
+
+const btnobj = document.getElementById('btn_obj');
+const btncobj1 = document.getElementById('obj1');
+const btncobj2 = document.getElementById('obj2');
+const btncobj3 = document.getElementById('obj3');
+const objmodif = document.querySelector('.objmodif');
+
+btnobj.addEventListener('click', () => {
+    document.querySelector('.user-metao').style.display = "none";
+    objmodif.style.display = "block";
+});
+
+btncobj1.addEventListener('click', () => {
+    document.querySelector('.user-metao').style.display = "block";
+    objmodif.style.display = "none";
+    sessionStorage.setItem('metax',1);
+    location.reload();
+});
+
+btncobj2.addEventListener('click', () => {
+    document.querySelector('.user-metao').style.display = "block";
+    objmodif.style.display = "none";
+    sessionStorage.setItem('metax',2);
+    location.reload();
+});
+
+btncobj3.addEventListener('click', () => {
+    document.querySelector('.user-metao').style.display = "block";
+    objmodif.style.display = "none";
+    sessionStorage.setItem('metax',3);
+    location.reload();
+});

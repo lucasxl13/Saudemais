@@ -50,6 +50,7 @@
     </div>
 
     <!-- Conteúdo principal -->
+    <div class="background"></div>
     <div class="container__principal">
         <div class="bodyuser">
             <!-- Ícone e Nome do Usuário -->
@@ -63,17 +64,62 @@
                 <div class="user-meta">Idade: <span id="idade"></span></div>
 
                 <div class="user-metam"><b>DADOS FISIOLÓGICOS</b> </div>
-                <div class="user-meta">Peso atual: <span id="peso"></span> Kg <button class="bnt_modif" id="btn_peso">Alterar</button></div>
-                
-                <div class="user-meta">Altura: <span id="altura"></span> cm <button class="bnt_modif" id="btn_altura">Alterar</button></div>
-                <div class="user-meta">Objetivo: <span id="objetivo"></span> <button class="bnt_modif" id="btn_obj">Alterar</button></div>
 
+                <div class="user-metap">Peso: <span id="peso"></span> Kg
+                    <button class="bnt_modif" id="btn_peso">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="pesomodif" style="display: none;">Peso: <span id="peso-valor">70</span>
+                    <input type="range" id="peso-slider" name="peso" min="15" max="200" value="70" oninput="atualizaPeso(this.value)">
+                    <button class="bnt_modif" id="btn_cpeso">
+                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    </button>
+                </div>
+                
+                
+                <div class="user-metaa">Altura: <span id="altura"></span> cm
+                    <button class="bnt_modif" id="btn_altura">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="alturamodif" style="display: none;">Altura: <span id="altura-valor">150</span>
+                    <input type="range" id="altura-slider" name="altura" min="30" max="250" value="150" oninput="atualizaAltura(this.value)">
+                    <button class="bnt_modif" id="btn_caltura">
+                        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M335 175L224 286.1L176.1 239c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l64 64C211.7 341.7 217.8 344 224 344s12.28-2.344 16.97-7.031l128-128c9.375-9.375 9.375-24.56 0-33.94S344.4 165.7 335 175zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-114.7 0-208-93.31-208-208S141.3 48 256 48s208 93.31 208 208S370.7 464 256 464z"/></svg>
+                    </button>
+                </div>
+
+                <div class="user-metao">Objetivo: <span id="objetivo"></span>
+                    <button class="bnt_modif" id="btn_obj">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="objmodif" style="display: none;"> Escolha um objetivo:
+                    <button class="obj" id="obj1">1-Perca de peso</button>
+                    <button class="obj" id="obj2">2-Ganho de massa</button>
+                    <button class="obj" id="obj3">3-Manutenção do peso</button>
+                </div>
+                
                 <div class="user-metam"><b>METRICAS</b> </div>
-                <div class="user-meta">IMC: <span id="imc"></span></div>
+                <div class="user-meta">IMC: <span id="imc"></span> <span id="imcstatus"></span></div>
                 <div class="user-meta">Metabolismo basal: <span id="metabolismo"></span> Kcal</div>
             </div>
         </div>
     </div>
+
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

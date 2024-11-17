@@ -9,7 +9,8 @@
 
 body {
   font-family: var(--fonte-logo);
-  background-color: var(--color1);
+  /* background-image: var(--color1); */
+  background-image: url('teste5.png');
   display: flex;
   justify-content: center;
   align-items: center;
