@@ -24,14 +24,14 @@
     <div class="sidebar" id="sidebar">
         <ul class="nav flex-column itens__sidebar">
             <li class="nav-item item__sidebar" id="item_sideBar">
-                <a class="nav-link" href="#" id="hidratacaoLink">
-                    <img src="../icons/droplet-fill2.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
+                <a class="nav-link hidratacaoLink" href="#">
+                    <img src="../icons/gota_container.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
                     <span class="item-text">Hidratação</span> <!-- Texto -->
                 </a>
             </li>
             <li class="nav-item item__sidebar" id="item_sideBar">
                 <a class="nav-link" href="#">
-                    <img src="../icons/FireSimple1.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
+                    <img src="../icons/calorias_container.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
                     <span class="item-text">Calorias</span> <!-- Texto -->
                 </a>
             </li>
@@ -50,9 +50,52 @@
         </ul>
     </div>
 
-    <section class="container__pricinpal">
-       
+    <section class="container__principal">
+        <div id="textCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <h1 class="container__principal__titulo">Gerenciar Lembretes</h1>
+            </div>
+        </div>
+    
+        <!-- Grid com dois containers -->
+        <div class="row mt-4">
+            <!-- Container de Criação de Lembrete -->
+            <div class="col-lg-5 col-md-12 mb-4">
+                <div class="container__lembre p-4">
+                    <h2 class="text-center">Criar Lembrete</h2>
+                    <form id="formLembrete">
+                        <div class="mb-3">
+                            <label for="tituloLembrete" class="form-label">Título</label>
+                            <input type="text" class="form-control" id="tituloLembrete" placeholder="Digite o título do lembrete" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="descricaoLembrete" class="form-label">Descrição</label>
+                            <textarea class="form-control" id="descricaoLembrete" rows="4" placeholder="Digite a descrição" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Salvar Lembrete</button>
+                    </form>
+                </div>
+            </div>
+    
+            <!-- Container de Exibição de Lembretes -->
+            <div class="col-lg-5 col-md-12 mb-4">
+                <div class="container__tabela p-4">
+                    <h2 class="text-center">Lembretes</h2>
+                    <div>
+                        <h4>Ativos</h4>
+                        <ul id="lembretesAtivos" class="list-group mb-3">
+                            <!-- Lista de lembretes ativos será inserida aqui dinamicamente -->
+                        </ul>
+                        <h4>Desativados</h4>
+                        <ul id="lembretesDesativados" class="list-group">
+                            <!-- Lista de lembretes desativados será inserida aqui dinamicamente -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+    
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

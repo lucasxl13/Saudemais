@@ -1,16 +1,16 @@
 @import url('../main.css');
 
 body {
-    background-color: var(--color3);
+    background-color: #aec1ff;
 }
 
 .style_bg_nav {
-    background-color: var(--color1);
+    background-color: #406dff;
 }
 
 .style_logo {
     font-size: 2.5em;
-    color: var(--color3);
+    color: whitesmoke;
     font-family: var(--fonte-logo);
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 .itens__sidebar a {
-    color: var(--color3);
+    color: whitesmoke;
 }
 
 .item__sidebar {
@@ -54,11 +54,20 @@ body {
 
 
 .item__sidebar:hover {
-    background-color: var(--color2);
+    background-color: rgba(245, 245, 245, 0.089);
     margin: 0.2em;
     border-radius: 5px;
     font-size: 20px;
 }
+
+.container__lembre,
+.container__tabela {
+    width: 90%; /* Ajuste a largura */
+    max-width: 400px; /* Tamanho máximo */
+    height: auto; /* Deixe a altura ajustável */
+    margin: 0 auto; /* Centraliza os containers */
+}
+
 
 .container__pricinpal {
     text-align: center;
@@ -68,7 +77,7 @@ body {
 }
 
 .container__pricinpal__titulo {
-    color: var(--color3);
+    color: #3498db;
 }
 
 .container__pricinpal.opacity {
@@ -86,7 +95,7 @@ body {
     /* Espaço para a navbar fixa */
     transition: transform 0.3s ease;
     transform: translateX(-80%);
-    background-color: var(--color1);
+    background-color: #406dff;
 }
 
 .sidebar.show {

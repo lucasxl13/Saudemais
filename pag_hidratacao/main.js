@@ -1,6 +1,6 @@
 const toggleButton = document.getElementById('toggleSidebar');
 const sidebar = document.getElementById('sidebar');
-const containerPrincipal = document.querySelector('.container__pricinpal');
+const containerPrincipal = document.querySelector('.container__principal');
 const campoLogo = document.querySelector('.style_logo');
 const itemLogo = document.getElementById('itemMais_logo');
 const itemSideBar = document.querySelectorAll('.item__sidebar'); // Alterado para querySelectorAll
@@ -8,18 +8,21 @@ const itemSideBar = document.querySelectorAll('.item__sidebar'); // Alterado par
 
 const botaoPerfil = document.getElementById('perfilLink');
 const botaoHidratacao = document.getElementById('hidratacaoLink');
-
+-
 
 botaoPerfil.addEventListener('click', (event) => {
     event.preventDefault(); // Impede o comportamento padrão do link
     window.location.href = '../pag_user/user.html'; // Redireciona para outra tela
 });
 
-botaoHidratacao.addEventListener('click', (event) => {
-    event.preventDefault(); // Impede o comportamento padrão do link
-    window.location.href = '../pag_hidratacao/main.html'; // Redireciona para outra tela
-});
+const botoesHidratacao = document.querySelectorAll('.hidratacaoLink');
 
+botoesHidratacao.forEach((botao) => {
+    botao.addEventListener('click', (event) => {
+        event.preventDefault(); // Impede comportamento padrão do link, se necessário
+        window.location.href = '../pag_hidratacao/main.html'; // Redireciona para outra tela
+    });
+});
 
 toggleButton.addEventListener('click', () => {
     sidebar.classList.toggle('show');
@@ -31,115 +34,53 @@ toggleButton.addEventListener('click', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const graficoHidratacao = document.getElementById('graficoHidratacao');
-    const graficoCalorias = document.getElementById('graficoCalorias');
+const formLembrete = document.getElementById('formLembrete');
+const lembretesAtivos = document.getElementById('lembretesAtivos');
+const lembretesDesativados = document.getElementById('lembretesDesativados');
 
-    function toggleGraficos() {
-        if (window.innerWidth <= 768) {
-            graficoHidratacao.style.display = 'none';
-            graficoCalorias.style.display = 'none';
+// Array para armazenar lembretes
+let lembretes = [];
+
+// Função para renderizar lembretes
+function renderizarLembretes() {
+    lembretesAtivos.innerHTML = '';
+    lembretesDesativados.innerHTML = '';
+
+    lembretes.forEach((lembrete, index) => {
+        const item = document.createElement('li');
+        item.className = 'list-group-item';
+
+        item.innerHTML = `
+            <span>${lembrete.titulo} - ${lembrete.descricao}</span>
+            <button class="btn btn-sm ${lembrete.ativo ? 'btn-danger' : 'btn-success'}">
+                ${lembrete.ativo ? 'Desativar' : 'Ativar'}
+            </button>
+        `;
+
+        // Evento para ativar/desativar lembrete
+        item.querySelector('button').addEventListener('click', () => {
+            lembretes[index].ativo = !lembretes[index].ativo;
+            renderizarLembretes();
+        });
+
+        if (lembrete.ativo) {
+            lembretesAtivos.appendChild(item);
         } else {
-            graficoHidratacao.style.display = 'block';
-            graficoCalorias.style.display = 'block';
-        }
-    }
-
-    // Chama a função no load e ao redimensionar a tela
-    toggleGraficos();
-    window.addEventListener('resize', toggleGraficos);
-});
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const ctx = document.getElementById('graficoHidratacao').getContext('2d');
-
-    const hoje = new Date();
-    const dias = [...Array(4)].map((_, i) => {
-        const data = new Date();
-        data.setDate(hoje.getDate() - i);
-        return data.toLocaleDateString('pt-BR'); // Formato DD/MM/YYYY
-    }).reverse();
-
-    const meuGrafico = new Chart(ctx, {
-        type: 'line', // Gráfico de linha
-        data: {
-            labels: dias,
-            datasets: [
-                {
-                    label: 'Água (Litros)',
-                    data: [2, 2.5, 1.8, 3], 
-                    backgroundColor: 'rgba(52, 152, 219, 0.2)', // Azul claro
-                    borderColor: 'rgba(52, 152, 219, 1)', // Azul
-                    borderWidth: 2,
-                    tension: 0.3, // Suaviza a linha
-                    fill: true, // Preenche a área abaixo da linha
-                },
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Consumo (Litros)',
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    position: 'top',
-                }
-            }
+            lembretesDesativados.appendChild(item);
         }
     });
-});
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const ctx = document.getElementById('graficoCalorias').getContext('2d');
+// Evento de envio do formulário
+formLembrete.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-    const hoje = new Date();
-    const dias = [...Array(4)].map((_, i) => {
-        const data = new Date();
-        data.setDate(hoje.getDate() - i);
-        return data.toLocaleDateString('pt-BR');
-    }).reverse();
+    const titulo = document.getElementById('tituloLembrete').value;
+    const descricao = document.getElementById('descricaoLembrete').value;
 
-    const meuGrafico = new Chart(ctx, {
-        type: 'line', // Gráfico de linha
-        data: {
-            labels: dias,
-            datasets: [
-                {
-                    label: 'Calorias Consumidas (kcal)',
-                    data: [2100, 1800, 2200, 1950],
-                    backgroundColor: 'rgba(255, 107, 0, 0.2)', // Laranja claro
-                    borderColor: 'rgba(231, 76, 60, 1)', // Vermelho
-                    borderWidth: 2,
-                    tension: 0.3, // Linha suave
-                    fill: true, // Preenche a área
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Calorias (kcal)',
-                    }
-                }
-            },
-            plugins: {
-                legend: {
-                    position: 'top',
-                }
-            }
-        }
-    });
+    lembretes.push({ titulo, descricao, ativo: true });
+    renderizarLembretes();
+
+    // Limpa o formulário
+    formLembrete.reset();
 });
