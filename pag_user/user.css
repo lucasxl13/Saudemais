@@ -37,27 +37,29 @@ body {
     height: calc(100% - 56px);
     width: 50px; /* Largura reduzida (apenas ícones) */
     background-color: var(--color1);
-    overflow-y: auto;
+    overflow: hidden; /* Esconde conteúdo excedente */
     transition: width 0.3s ease;
 }
 
 .sidebar .nav-item:first-child {
-    margin-top: 40px; /* Ajusta a posição do primeiro ícone */
+    margin-top: 20px; /* Ajusta a posição do primeiro ícone */
 }
 
-.sidebar .nav {
-    gap: 20px; /* Define o espaço entre os itens da lista */
-}
+
 
 .sidebar.expanded {
-    width: 250px; /* Largura expandida (ícones + texto) */
+    width: 150px; /* Largura expandida (ícones + texto) */
 }
 
 .sidebar .nav-link {
     display: flex;
-    align-items: center;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: start; /* Alinha horizontalmente */
     padding: 0.5rem;
+    height: 50px; /* Altura fixa */
     color: var(--color3);
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .sidebar .nav-link:hover {
@@ -71,13 +73,16 @@ body {
 }
 
 .sidebar .item-text {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     margin-left: 10px;
     font-size: 1rem;
+    transition: opacity 0.3s ease;
 }
 
 .sidebar.expanded .item-text {
-    display: inline-block;
+    visibility: visible;
+    opacity: 1;
 }
 
 .background {
@@ -204,4 +209,29 @@ body {
 
 .obj:hover{
     color:var(--color6);
+}
+
+
+@media (max-width: 768px) {
+    /* Sidebar em telas menores */
+    .sidebar {
+        width: 40px; /* Sidebar recolhida */
+        position: fixed;
+        left: 0;
+        top: 56px;
+        height: calc(100% - 56px);
+        z-index: 1000;
+    }
+
+    .sidebar.expanded {
+        width: 150px; 
+    }
+
+    .container__principal {
+        margin-left: 50px;
+        margin-right: 10px;
+        transition: margin-left 0.3s ease;
+    }
+
+    
 }

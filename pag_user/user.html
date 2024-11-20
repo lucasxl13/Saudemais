@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body id="fundo">
     <!-- Navbar -->
     <header class="navbar navbar-expand-lg navbar-dark fixed-top style_bg_nav">
         <div class="container-fluid">
@@ -19,33 +19,54 @@
         </div>
     </header>
 
+
     <!-- SideBar -->
     <div class="sidebar" id="sidebar">
         <ul class="nav flex-column itens__sidebar">
+
             <li class="nav-item item__sidebar">
-                <a class="nav-link" href="#" id="hidratacaoLink">
+                <a class="nav-link" id="homeLink">
+                    <img src="../icons\home.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Home</span>
+                </a>
+            </li>
+
+            <li class="nav-item item__sidebar">
+                <a class="nav-link"  id="hidratacaoLink">
                     <img src="../icons/gota_container.svg" alt="Ícone Hidratação" class="icon_sideBar" />
                     <span class="item-text">Hidratação</span>
                 </a>
             </li>
+
             <li class="nav-item item__sidebar">
-                <a class="nav-link" href="#">
+                <a class="nav-link"  id="calorialink">
                     <img src="../icons/calorias_container.svg" alt="Ícone Calorias" class="icon_sideBar" />
                     <span class="item-text">Calorias</span>
                 </a>
             </li>
+
             <li class="nav-item item__sidebar">
-                <a class="nav-link" href="#">
+                <a class="nav-link"  id="dietalink">
                     <img src="../icons/Group.svg" alt="Ícone Dieta" class="icon_sideBar" />
                     <span class="item-text">Dieta</span>
                 </a>
             </li>
+
             <li class="nav-item item__sidebar">
-                <a class="nav-link" href="#" id="perfilLink">
+                <a class="nav-link" id="perfilLink">
                     <img src="../icons/account_circle.svg" alt="Ícone Perfil" class="icon_sideBar" />
                     <span class="item-text">Perfil</span>
                 </a>
             </li>
+
+            <li class="nav-item item__sidebar">
+                <a class="nav-link" id="logoutlink">
+                    <img src="../icons/logout.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Sair</span>
+                </a>
+            </li>
+
+
         </ul>
     </div>
 
@@ -119,7 +140,6 @@
             </div>
         </div>
     </div>
-
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

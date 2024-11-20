@@ -4,22 +4,56 @@ const itemLogo = document.getElementById('itemMais_logo');
 const itemSideBar = document.querySelectorAll('.item__sidebar'); // Alterado para querySelectorAll
 let datay;
 
-const botaoPerfil = document.getElementById('perfilLink');
+const botaoHome = document.getElementById('homeLink');
 const botaoHidratacao = document.getElementById('hidratacaoLink');
+const botaoCalorias = document.getElementById('calorialink');
+const botaoDieta = document.getElementById('dietalink');
+const botaoPerfil= document.getElementById('perfilLink');
+const botaoLogout = document.getElementById('logoutlink');
 
-botaoPerfil.addEventListener('click', (event) => {
-    event.preventDefault(); // Impede o comportamento padrão do link
-    window.location.href = '../pag_user/user.html'; // Redireciona para outra tela
+
+botaoHome.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    window.location.href = '../pag_principal/main.html';  
 });
 
 botaoHidratacao.addEventListener('click', (event) => {
-    event.preventDefault(); // Impede o comportamento padrão do link
-    window.location.href = '../pag_hidratacao/main.html'; // Redireciona para outra tela
+    event.preventDefault(); 
+    window.location.href = '../pag_hidratacao/main.html';  
 });
 
+botaoCalorias.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    window.location.href = '../pag_calorias/calorias.html';  
+});
+
+botaoDieta.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    window.location.href = '../pag_dieta/dieta.html';  
+});
+
+botaoPerfil.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    window.location.href = '../pag_user/user.html'; 
+});
+
+botaoLogout.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    
+    // Exibe uma janela de confirmação
+    const confirmacao = confirm("Tem certeza de que deseja sair?");
+    
+    if (confirmacao) {
+        // Se o usuário confirmar, redireciona para a página de login
+        window.location.href = '../pag_login/login.html';
+        localStorage.removeItem('manterx');
+    } 
+});
+
+
 document.getElementById('button_menu').addEventListener('click', (event) => {
-    event.preventDefault(); // Impede o comportamento padrão do link
-    window.location.href = '../pag_principal/main.html'; // Redireciona para outra tela
+    event.preventDefault(); 
+    window.location.href = '../pag_principal/main.html';  
 });
 
 const toggleSidebar = document.getElementById('toggleSidebar');
