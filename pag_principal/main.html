@@ -23,30 +23,49 @@
     <!-- SideBar -->
     <div class="sidebar" id="sidebar">
         <ul class="nav flex-column itens__sidebar">
-            <li class="nav-item item__sidebar" id="item_sideBar">
-                <a class="nav-link hidratacaoLink" href="#">
-                    <img src="../icons/gota_container.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
-                    <span class="item-text">Hidratação</span> <!-- Texto -->
+
+            <li class="nav-item item__sidebar">
+                <a class="homeLink nav-link">
+                    <img src="../icons\home.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Home</span>
                 </a>
             </li>
-            <li class="nav-item item__sidebar" id="item_sideBar">
-                <a class="nav-link" href="#">
-                    <img src="../icons/calorias_container.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
-                    <span class="item-text">Calorias</span> <!-- Texto -->
+
+            <li class="nav-item item__sidebar">
+                <a class="nav-link hidratacaoLink">
+                    <img src="../icons/gota_container.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Hidratação</span>
                 </a>
             </li>
-            <li class="nav-item item__sidebar" id="item_sideBar">
-                <a class="nav-link" href="#">
-                    <img src="../icons/Group.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
-                    <span class="item-text">Dieta</span> <!-- Texto -->
+
+            <li class="nav-item item__sidebar">
+                <a class="nav-link calorialink">
+                    <img src="../icons/calorias_container.svg" alt="Ícone Calorias" class="icon_sideBar" />
+                    <span class="item-text">Calorias</span>
                 </a>
             </li>
-            <li class="nav-item item__sidebar" id="item_sideBar">
-                <a class="nav-link" href="#" id="perfilLink">
-                    <img src="../icons/account_circle.svg" alt="Descrição do Ícone" class="icon_sideBar"/>
-                    <span class="item-text">Perfil</span> <!-- Texto -->
+
+            <li class="nav-item item__sidebar">
+                <a class="nav-link dietalink">
+                    <img src="../icons/Group.svg" alt="Ícone Dieta" class="icon_sideBar" />
+                    <span class="item-text">Dieta</span>
                 </a>
             </li>
+
+            <li class="nav-item item__sidebar">
+                <a class="nav-link perfilLink">
+                    <img src="../icons/account_circle.svg" alt="Ícone Perfil" class="icon_sideBar" />
+                    <span class="item-text">Perfil</span>
+                </a>
+            </li>
+
+            <li class="nav-item item__sidebar">
+                <a class="nav-link logoutlink">
+                    <img src="../icons/logout.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Sair</span>
+                </a>
+            </li>
+
         </ul>
     </div>
 
@@ -79,7 +98,7 @@
                     <h2 class="titulo_container titulo_container_caloria">Calorias</h2>
                     <p class="descricao_meta_container">2500kcal / 2500kcal</p>
                 </div>
-                <div class="col custom_container container_hidratacao hidratacaoLink">
+                <div id="hidratacaoLink" class="col custom_container container_hidratacao hidratacaoLink">
                     <div class="circle_hidratacao">
                         <img src="../icons/droplet-fill2.svg" alt="Descrição do Ícone" class="icon_container_hidratacao" />
                         <span class="hover_text_hidratacao">100%</span>

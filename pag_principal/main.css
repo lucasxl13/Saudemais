@@ -63,8 +63,6 @@ body {
 .container__pricinpal {
     text-align: center;
     padding-top: 6em;
-    position: relative; /* Necessário para que o z-index tenha efeito */
-    z-index: 0.9; /* Valor menor para garantir que fique atrás da sidebar */
 }
 
 .container__pricinpal__titulo {
@@ -398,7 +396,7 @@ body {
         color: #333333; /* Texto escuro para maior contraste com fundo */
         background: #f4f4f4; /* Fundo neutro, cinza claro */
         border-radius: 12px; /* Bordas suaves */
-        padding: 10px 15px; /* Espaçamento interno */
+        padding: 0.5em 0.5em; /* Espaçamento interno */
         text-align: center; /* Centralização do texto */
         font-weight: normal; /* Peso de fonte mais suave */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
@@ -478,10 +476,9 @@ body {
     }
 
     .custom_container {
-        height: 10em; /* Menor altura nos containers */
+        height: 8em; /* Menor altura nos containers */
         flex-direction: row; /* Alinha em coluna */
-        margin: 1rem; /* Margem menor */
-
+        margin: 0.5rem; /* Margem menor */
     }
 
     .descricao_container {

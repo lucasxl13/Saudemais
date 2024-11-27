@@ -60,20 +60,147 @@ body {
     font-size: 20px;
 }
 
-.container__lembre,
-.container__tabela {
-    width: 90%; /* Ajuste a largura */
-    max-width: 400px; /* Tamanho máximo */
-    height: auto; /* Deixe a altura ajustável */
-    margin: 0 auto; /* Centraliza os containers */
+.col-lg-5,
+.col-md-12 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Ajustes nos campos para todos terem o mesmo tamanho */
+.form-control {
+    width: 100%; /* Garante que todos os campos ocupem 100% da largura disponível */
+    margin-bottom: 15px; /* Adiciona um espaçamento entre os campos */
+}
+
+/* Estilo dos containers */
+.container__lembrete {
+    background-color: #6387ff; /* Cor de fundo azul */
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
-.container__pricinpal {
-    text-align: center;
-    padding-top: 6em;
-    position: relative; /* Necessário para que o z-index tenha efeito */
-    z-index: 0.9; /* Valor menor para garantir que fique atrás da sidebar */
+
+/* Estilo das listas de lembretes */
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botão de Desativar e Reativar */
+.btn-desativar {
+    background-color: #f0ad4e;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-desativar:hover {
+    background-color: #ec971f;
+}
+
+/* Botão de Reativar */
+.btn-reativar {
+    background-color: #5bc0de;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-reativar:hover {
+    background-color: #31b0d5;
+}
+
+/* Estilo para o título */
+.titulo-lembrete {
+    text-align: left; /* Alinha o título à esquerda */
+    color: #ffffff;
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}
+
+/* Transição suave para esconder o conteúdo */
+#lembretesContainer {
+    transition: all 0.3s ease;
+}
+
+/* Quando o container é minimizado, esconder a lista */
+.minimizado #lembretesContainer {
+    height: 50px; /* Altura reduzida quando minimizado */
+    overflow: hidden; /* Ocultar o conteúdo dentro do container */
+}
+
+
+.container__tabela {
+    display: flex;
+    flex-direction: column;
+    background-color: #6387ff; /* Azul claro */
+    color: white; /* Texto branco */
+    width: 50rem;
+    margin: 0 auto; /* Centraliza os containers */
+    padding: 20px;
+    border: 1px solid #5074d3; /* Bordas em tom de azul mais escuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.container__lembrete {
+    display: flex;
+    flex-direction: column;
+    background-color: #6387ff; /* Azul claro */
+    justify-content: space-between;
+    color: white; /* Texto branco */
+    width: 50rem;
+    margin: 0 auto; /* Centraliza os containers */
+    padding: 20px;
+    border: 1px solid #5074d3; /* Bordas em tom de azul mais escuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.container__principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 7rem;
+}
+
+/* Estilo dos títulos */
+h2.text-center {
+    text-align: left; /* Alinha o título à esquerda */
+    color: #ffffff; /* Cor do título para contraste */
+    font-size: 1.75rem; /* Tamanho maior para dar destaque */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Botões */
+.btn-primary {
+    background-color: #4e6bb4; /* Azul mais escuro para o botão */
+    border-color: #4e6bb4;
+}
+
+.btn-primary:hover {
+    background-color: #3b5481; /* Azul mais escuro ao passar o mouse */
+    border-color: #3b5481;
+}
+
+/* Estilo das listas */
+.list-group-item {
+    background-color: #5074d3; /* Azul mais escuro para os itens da lista */
+    color: white; /* Texto branco para os itens */
+    border: none; /* Remove bordas */
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .container__pricinpal__titulo {
@@ -321,6 +448,16 @@ body {
 
     .content {
         margin-left: 100px;
+    }
+
+    .container__lembrete,
+    .container__tabela {
+        width: 20rem;
+        margin: 0 auto; /* Centraliza os containers */
+        padding: 20px;
+        border: 1px solid #ccc; /* Adiciona borda para visualização */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
     }
 
     .custom_container {
