@@ -88,181 +88,219 @@ toggleButton.addEventListener('click', () => {
     });
 });
 
-// Função para criar um lembrete
-document.getElementById('formLembrete').addEventListener('submit', function(event) {
+ // Função para criar um lembrete
+ document.getElementById('formLembrete')?.addEventListener('submit', function(event) {
     event.preventDefault();
     
     const titulo = document.getElementById('tituloLembrete').value;
     const descricao = document.getElementById('descricaoLembrete').value;
     const repeticao = document.getElementById('repeticaoLembrete').value;
-    const quantidadeAgua = document.getElementById('quantidadeAgua').value; // Novo campo de quantidade de água
+    const quantidadeAgua = document.getElementById('quantidadeAgua').value;
     const diaHorario = document.getElementById('diaHorarioLembrete').value;
     
-    // Criar o lembrete no formato desejado
     const lembrete = {
         titulo,
         descricao,
         repeticao,
-        quantidadeAgua,  // Inclui quantidade de água no lembrete
+        quantidadeAgua,
         diaHorario,
-        ativo: true // Lembrete começa como ativo
+        ativo: true
     };
     
-    // Inserir o lembrete na lista de lembretes ativos
-    const lembretesAtivosList = document.getElementById('lembretesAtivos');
     const li = document.createElement('li');
     li.classList.add('list-group-item');
-    li.dataset.lembrete = JSON.stringify(lembrete); // Armazenar os dados do lembrete
+    li.dataset.lembrete = JSON.stringify(lembrete);
+    
     li.innerHTML = `
-        <strong>${titulo}</strong> - ${descricao} <br>
-        Repetir: ${repeticao} <br>
-        Água: ${quantidadeAgua} ml <br>
-        Dia e Hora: ${diaHorario} <br>
-        <button class="btn btn-warning" onclick="desativarLembrete(this)">Desativar</button>
-        <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
+        <div class="reminder-header">
+            <strong>${titulo}</strong>
+            <span>${diaHorario}</span>
+        </div>
+        <div class="reminder-content">
+            <p>${descricao}</p>
+            <div class="reminder-meta">
+                <div>Repetir: ${repeticao}</div>
+                <div>Água: ${quantidadeAgua} ml</div>
+            </div>
+            <div>
+                <button class="btn btn-warning" onclick="desativarLembrete(this)">Desativar</button>
+                <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
+            </div>
+        </div>
     `;
     
-    lembretesAtivosList.appendChild(li);
-    
-    // Atualizar o localStorage
+    document.getElementById('lembretesAtivos').appendChild(li);
     atualizarLocalStorage();
-
-    // Limpar o formulário após o envio
     event.target.reset();
 });
 
-// Função para excluir lembrete
 function excluirLembrete(button) {
-    const item = button.parentElement;
+    const item = button.closest('.list-group-item');
     item.remove();
-    // Atualizar o localStorage
     atualizarLocalStorage();
 }
 
-// Função para desativar o lembrete
 function desativarLembrete(button) {
-    const item = button.parentElement;
-    const lembrete = JSON.parse(item.dataset.lembrete); // Recuperar os dados armazenados
-    
-    // Mover para a lista de lembretes desativados
-    const lembretesDesativadosList = document.getElementById('lembretesDesativados');
+    const item = button.closest('.list-group-item');
+    const lembrete = JSON.parse(item.dataset.lembrete);
     
     const li = document.createElement('li');
     li.classList.add('list-group-item');
-    li.dataset.lembrete = JSON.stringify(lembrete); // Armazenar os dados do lembrete
+    li.dataset.lembrete = JSON.stringify(lembrete);
     
     li.innerHTML = `
-        <strong>${lembrete.titulo}</strong> - Lembrete desativado <br>
-        ${lembrete.descricao} <br>
-        Repetir: ${lembrete.repeticao} <br>
-        Água: ${lembrete.quantidadeAgua} ml <br>
-        Dia e Hora: ${lembrete.diaHorario} <br>
-        <button class="btn btn-success" onclick="reativarLembrete(this)">Reativar</button>
+        <div class="reminder-header">
+            <strong>${lembrete.titulo}</strong>
+            <span>${lembrete.diaHorario}</span>
+        </div>
+        <div class="reminder-content">
+            <p>${lembrete.descricao}</p>
+            <div class="reminder-meta">
+                <div>Repetir: ${lembrete.repeticao}</div>
+                <div>Água: ${lembrete.quantidadeAgua} ml</div>
+            </div>
+            <div>
+                <button class="btn btn-success" onclick="reativarLembrete(this)">Reativar</button>
+            </div>
+        </div>
     `;
     
-    lembretesDesativadosList.appendChild(li);
-    
-    // Remover da lista de ativos
+    document.getElementById('lembretesDesativados').appendChild(li);
     item.remove();
-
-    // Atualizar o localStorage
     atualizarLocalStorage();
 }
 
-// Função para reativar o lembrete
 function reativarLembrete(button) {
-    const item = button.parentElement;
-    const lembrete = JSON.parse(item.dataset.lembrete); // Recuperar os dados armazenados
-    
-    // Mover para a lista de lembretes ativos
-    const lembretesAtivosList = document.getElementById('lembretesAtivos');
+    const item = button.closest('.list-group-item');
+    const lembrete = JSON.parse(item.dataset.lembrete);
     
     const li = document.createElement('li');
     li.classList.add('list-group-item');
-    li.dataset.lembrete = JSON.stringify(lembrete); // Armazenar os dados do lembrete
+    li.dataset.lembrete = JSON.stringify(lembrete);
     
     li.innerHTML = `
-        <strong>${lembrete.titulo}</strong> - ${lembrete.descricao} <br>
-        Repetir: ${lembrete.repeticao} <br>
-        Água: ${lembrete.quantidadeAgua} ml <br>
-        Dia e Hora: ${lembrete.diaHorario} <br>
-        <button class="btn btn-warning" onclick="desativarLembrete(this)">Desativar</button>
-        <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
+        <div class="reminder-header">
+            <strong>${lembrete.titulo}</strong>
+            <span>${lembrete.diaHorario}</span>
+        </div>
+        <div class="reminder-content">
+            <p>${lembrete.descricao}</p>
+            <div class="reminder-meta">
+                <div>Repetir: ${lembrete.repeticao}</div>
+                <div>Água: ${lembrete.quantidadeAgua} ml</div>
+            </div>
+            <div>
+                <button class="btn btn-warning" onclick="desativarLembrete(this)">Desativar</button>
+                <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
+            </div>
+        </div>
     `;
     
-    lembretesAtivosList.appendChild(li);
-    
-    // Remover da lista de desativados
+    document.getElementById('lembretesAtivos').appendChild(li);
     item.remove();
-
-    // Atualizar o localStorage
     atualizarLocalStorage();
 }
 
-// Função para atualizar o localStorage com os lembretes
 function atualizarLocalStorage() {
-    const lembretesAtivosList = document.getElementById('lembretesAtivos');
-    const lembretesDesativadosList = document.getElementById('lembretesDesativados');
-    
     const lembretesAtivos = [];
     const lembretesDesativados = [];
     
-    // Coletar lembretes ativos
-    lembretesAtivosList.querySelectorAll('.list-group-item').forEach(item => {
+    document.querySelectorAll('#lembretesAtivos .list-group-item').forEach(item => {
         const lembrete = JSON.parse(item.dataset.lembrete);
         lembretesAtivos.push(lembrete);
     });
     
-    // Coletar lembretes desativados
-    lembretesDesativadosList.querySelectorAll('.list-group-item').forEach(item => {
+    document.querySelectorAll('#lembretesDesativados .list-group-item').forEach(item => {
         const lembrete = JSON.parse(item.dataset.lembrete);
         lembretesDesativados.push(lembrete);
     });
     
-    // Salvar os lembretes no localStorage
     localStorage.setItem('lembretesAtivos', JSON.stringify(lembretesAtivos));
     localStorage.setItem('lembretesDesativados', JSON.stringify(lembretesDesativados));
 }
 
-// Função para carregar lembretes do localStorage
-function carregarLembretes() {
+// Carregar lembretes ao iniciar a página
+window.onload = function() {
     const lembretesAtivos = JSON.parse(localStorage.getItem('lembretesAtivos') || '[]');
     const lembretesDesativados = JSON.parse(localStorage.getItem('lembretesDesativados') || '[]');
     
-    // Carregar lembretes ativos
-    const lembretesAtivosList = document.getElementById('lembretesAtivos');
     lembretesAtivos.forEach(lembrete => {
         const li = document.createElement('li');
         li.classList.add('list-group-item');
         li.dataset.lembrete = JSON.stringify(lembrete);
+        
         li.innerHTML = `
-            <strong>${lembrete.titulo}</strong> - ${lembrete.descricao} <br>
-            Repetir: ${lembrete.repeticao} <br>
-            Água: ${lembrete.quantidadeAgua} ml <br>
-            Dia e Hora: ${lembrete.diaHorario} <br>
-            <button class="btn btn-warning" onclick="desativarLembrete(this)">Desativar</button>
-            <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
+            <div class="reminder-header">
+                <strong>${lembrete.titulo}</strong>
+                <span>${lembrete.diaHorario}</span>
+            </div>
+            <div class="reminder-content">
+                <p>${lembrete.descricao}</p>
+                <div class="reminder-meta">
+                    <div>Repetir: ${lembrete.repeticao}</div>
+                    <div>Água: ${lembrete.quantidadeAgua} ml</div>
+                </div>
+                <div>
+                    <button class="btn btn-warning" onclick="desativarLembrete(this)">Desativar</button>
+                    <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
+                </div>
+            </div>
         `;
-        lembretesAtivosList.appendChild(li);
+        
+        document.getElementById('lembretesAtivos').appendChild(li);
     });
     
-    // Carregar lembretes desativados
-    const lembretesDesativadosList = document.getElementById('lembretesDesativados');
     lembretesDesativados.forEach(lembrete => {
         const li = document.createElement('li');
         li.classList.add('list-group-item');
         li.dataset.lembrete = JSON.stringify(lembrete);
+        
         li.innerHTML = `
-            <strong>${lembrete.titulo}</strong> - Lembrete desativado <br>
-            ${lembrete.descricao} <br>
-            Repetir: ${lembrete.repeticao} <br>
-            Água: ${lembrete.quantidadeAgua} ml <br>
-            Dia e Hora: ${lembrete.diaHorario} <br>
-            <button class="btn btn-success" onclick="reativarLembrete(this)">Reativar</button>
+            <div class="reminder-header">
+                <strong>${lembrete.titulo}</strong>
+                <span>${lembrete.diaHorario}</span>
+            </div>
+            <div class="reminder-content">
+                <p>${lembrete.descricao}</p>
+                <div class="reminder-meta">
+                    <div>Repetir: ${lembrete.repeticao}</div>
+                    <div>Água: ${lembrete.quantidadeAgua} ml</div>
+                </div>
+                <div>
+                    <button class="btn btn-success" onclick="reativarLembrete(this)">Reativar</button>
+                </div>
+            </div>
         `;
-        lembretesDesativadosList.appendChild(li);
+        
+        document.getElementById('lembretesDesativados').appendChild(li);
     });
-}
+};
 
-// Carregar os lembretes quando a página for carregada
-window.onload = carregarLembretes;
+document.getElementById('toggleButton').addEventListener('click', () => {
+    const container = document.getElementById('lembretesContainer');
+    container.classList.toggle('flipped');
+});
+
+  // Definir os dados do gráfico
+  const ctx = document.getElementById('historicoConsumo').getContext('2d');
+  const historicoConsumoChart = new Chart(ctx, {
+      type: 'bar', // Tipo do gráfico
+      data: {
+          labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'], // Rótulos dos dias
+          datasets: [{
+              label: 'Consumo de Água (ml)', // Rótulo do gráfico
+              data: [200, 150, 180, 210, 250, 220, 190], // Valores de consumo para cada dia
+              backgroundColor: 'rgba(75, 192, 192, 0.2)', // Cor de fundo das barras
+              borderColor: 'rgba(75, 192, 192, 1)', // Cor das bordas das barras
+              borderWidth: 1 // Espessura das bordas
+          }]
+      },
+      options: {
+          responsive: true, // Torna o gráfico responsivo
+          scales: {
+              y: {
+                  beginAtZero: true // Garante que o gráfico comece do zero no eixo Y
+              }
+          }
+      }
+  });

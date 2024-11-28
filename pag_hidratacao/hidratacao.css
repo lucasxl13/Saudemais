@@ -5,7 +5,7 @@ body {
 }
 
 .style_bg_nav {
-    background-color: #406dff;
+    background-color: #4fc3f7;
 }
 
 .style_logo {
@@ -136,16 +136,103 @@ body {
     overflow: hidden; /* Ocultar o conteúdo dentro do container */
 }
 
+#lembretesContainer {
+    padding: 16px;
+    background-color: #f1faff; /* Fundo suave azul claro */
+    border: 1px solid #d0e8f2; /* Azul claro */
+    border-radius: 8px;
+}
+
+/* Estilo geral para os títulos */
+#lembretesContainer h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #0b4566; /* Azul escuro */
+    font-weight: bold;
+}
+
+/* Garantir que o container de lembretes tenha altura e rolagem adequadas */
+#lembretesAtivos, #lembretesDesativados {
+    max-height: 300px; /* Ajuste a altura conforme necessário */
+    overflow-y: auto;  /* Adiciona rolagem quando o conteúdo excede a altura */
+    padding-right: 10px; /* Para não sobrepor a rolagem ao conteúdo */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaçamento entre os lembretes */
+}
+
+
+/* Lista de lembretes ativos */
+#lembretesAtivos {
+    background-color: #e6f7ff; /* Azul muito claro */
+    border: 1px solid #b3e5fc; /* Azul claro */
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#lembretesAtivos .list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #81d4fa; /* Azul suave */
+    color: #0277bd; /* Azul escuro */
+    margin-bottom: 6px;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#lembretesAtivos .list-group-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Lista de lembretes desativados */
+#lembretesDesativados {
+    background-color: #eef3f7; /* Cinza azulado */
+    border: 1px solid #cfd8dc; /* Cinza suave */
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#lembretesDesativados .list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #b0bec5; /* Cinza claro */
+    color: #546e7a; /* Cinza escuro */
+    margin-bottom: 6px;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#lembretesDesativados .list-group-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adicionar ícones ao lado dos lembretes */
+.list-group-item::before {
+    content: '\2022'; /* Bolinha */
+    font-size: 16px;
+    margin-right: 8px;
+}
+
+/* Personalizar ícones para ativos e desativados */
+#lembretesAtivos .list-group-item::before {
+    color: #4fc3f7; /* Azul claro */
+}
+
+#lembretesDesativados .list-group-item::before {
+    color: #90a4ae; /* Cinza neutro */
+}
+
 
 .container__tabela {
     display: flex;
     flex-direction: column;
-    background-color: #6387ff; /* Azul claro */
-    color: white; /* Texto branco */
+    background-color: #04a6f267; /* Azul claro */
+    color: #2c3b42; /* Cinza escuro */
     width: 50rem;
+    height: 45em;
     margin: 0 auto; /* Centraliza os containers */
     padding: 20px;
-    border: 1px solid #5074d3; /* Bordas em tom de azul mais escuro */
+    border: 1px solid #a6bcfa; /* Bordas em tom de azul mais escuro */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
@@ -153,13 +240,14 @@ body {
 .container__lembrete {
     display: flex;
     flex-direction: column;
-    background-color: #6387ff; /* Azul claro */
-    justify-content: space-between;
-    color: white; /* Texto branco */
+    background-color: #04a6f267; /* Azul claro */
+    justify-content: space-around;
+    color: #2c3b42; /* Cinza escuro */
+    font-weight: 700;
     width: 50rem;
     margin: 0 auto; /* Centraliza os containers */
     padding: 20px;
-    border: 1px solid #5074d3; /* Bordas em tom de azul mais escuro */
+    border: 1px solid #a6bcfa; /* Bordas em tom de azul mais escuro */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
@@ -173,8 +261,7 @@ body {
 
 /* Estilo dos títulos */
 h2.text-center {
-    text-align: left; /* Alinha o título à esquerda */
-    color: #ffffff; /* Cor do título para contraste */
+    color: #005177; /* Cinza escuro */
     font-size: 1.75rem; /* Tamanho maior para dar destaque */
     margin-bottom: 20px; /* Espaçamento abaixo do título */
 }
@@ -222,7 +309,7 @@ h2.text-center {
     /* Espaço para a navbar fixa */
     transition: transform 0.3s ease;
     transform: translateX(-80%);
-    background-color: #406dff;
+    background-color: #4fc3f7;
 }
 
 .sidebar.show {
@@ -435,6 +522,40 @@ h2.text-center {
 
 .img_dieta {
     width: 80%;
+}
+
+.flip-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+}
+.back {
+    transform: rotateY(180deg);
+    background-color: #f8f9fa;
+}
+.flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+}
+
+#historicoConsumo {
+    width: 100% !important;  /* O gráfico irá ocupar toda a largura do container */
+    height: 300px;           /* Definindo uma altura fixa, mas você pode ajustar conforme necessário */
 }
 
 

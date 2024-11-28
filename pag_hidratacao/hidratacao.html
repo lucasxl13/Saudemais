@@ -114,21 +114,38 @@
                 </div>
             </div>
         
-            <!-- Container de Exibição de Lembretes -->
+           <!-- Container de Exibição de Lembretes -->
             <div class="col-lg-5 col-md-12 mb-4">
                 <div class="container__tabela p-4">
                     <h2 class="text-center">Lembretes</h2>
-                    
-                    <div id="lembretesContainer">
-                        <h4>Ativos</h4>
-                        <ul id="lembretesAtivos" class="list-group mb-3">
-                            <!-- Lista de lembretes ativos será inserida aqui dinamicamente -->
-                        </ul>
-                        <h4>Desativados</h4>
-                        <ul id="lembretesDesativados" class="list-group">
-                            <!-- Lista de lembretes desativados será inserida aqui dinamicamente -->
-                        </ul>
+
+                    <div id="lembretesContainer" class="flip-container">
+                        <div class="flipper">
+                            <!-- Frente do container -->
+                            <div class="front">
+                                <h4>Ativos</h4>
+                                <ul id="lembretesAtivos" class="list-group mb-3">
+                                    <!-- Lista de lembretes ativos será inserida aqui dinamicamente -->
+                                </ul>
+                                <h4>Desativados</h4>
+                                <ul id="lembretesDesativados" class="list-group">
+                                    <!-- Lista de lembretes desativados será inserida aqui dinamicamente -->
+                                </ul>
+                            </div>
+                            <!-- Verso do container -->
+                            <div class="back">
+                                <h4>Novos Lembretes</h4>
+                                <p>Adicione ou edite seus lembretes aqui.</p>
+                                <!-- Conteúdo adicional -->
+
+                                <canvas id="historicoConsumo"></canvas>
+
+                            </div>
+                        </div>
                     </div>
+
+                    <!-- Botão para girar o container -->
+                    <button id="toggleButton" class="btn btn-primary mt-3">Trocar Visualização</button>
                 </div>
             </div>
         </div>        
@@ -139,6 +156,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
     <script src="hidratacao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
