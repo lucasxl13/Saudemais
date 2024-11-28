@@ -98,12 +98,23 @@ toggleButton.addEventListener('click', () => {
     const quantidadeAgua = document.getElementById('quantidadeAgua').value;
     const diaHorario = document.getElementById('diaHorarioLembrete').value;
     
+
+    // Formatar a data e hora no padrão brasileiro (dd/mm/yyyy HH:mm)
+    const dateObj = new Date(diaHorario);
+    const diaHorarioFormatado = dateObj.toLocaleString('pt-BR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    });
+        
     const lembrete = {
         titulo,
         descricao,
         repeticao,
         quantidadeAgua,
-        diaHorario,
+        diaHorario: diaHorarioFormatado,  
         ativo: true
     };
     
@@ -114,7 +125,7 @@ toggleButton.addEventListener('click', () => {
     li.innerHTML = `
         <div class="reminder-header">
             <strong>${titulo}</strong>
-            <span>${diaHorario}</span>
+            <span>${diaHorarioFormatado}</span>
         </div>
         <div class="reminder-content">
             <p>${descricao}</p>
@@ -161,6 +172,7 @@ function desativarLembrete(button) {
             </div>
             <div>
                 <button class="btn btn-success" onclick="reativarLembrete(this)">Reativar</button>
+                <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
             </div>
         </div>
     `;
@@ -191,7 +203,6 @@ function reativarLembrete(button) {
             </div>
             <div>
                 <button class="btn btn-warning" onclick="desativarLembrete(this)">Desativar</button>
-                <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
             </div>
         </div>
     `;
@@ -242,7 +253,6 @@ window.onload = function() {
                 </div>
                 <div>
                     <button class="btn btn-warning" onclick="desativarLembrete(this)">Desativar</button>
-                    <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
                 </div>
             </div>
         `;
@@ -268,6 +278,7 @@ window.onload = function() {
                 </div>
                 <div>
                     <button class="btn btn-success" onclick="reativarLembrete(this)">Reativar</button>
+                    <button class="btn btn-primary" onclick="excluirLembrete(this)">Excluir</button>
                 </div>
             </div>
         `;
@@ -289,7 +300,7 @@ document.getElementById('toggleButton').addEventListener('click', () => {
           labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'], // Rótulos dos dias
           datasets: [{
               label: 'Consumo de Água (ml)', // Rótulo do gráfico
-              data: [200, 150, 180, 210, 250, 220, 190], // Valores de consumo para cada dia
+              data: [2000, 1500, 1800, 2100, 2500, 2200, 1900], // Valores de consumo para cada dia
               backgroundColor: 'rgba(75, 192, 192, 0.2)', // Cor de fundo das barras
               borderColor: 'rgba(75, 192, 192, 1)', // Cor das bordas das barras
               borderWidth: 1 // Espessura das bordas
@@ -304,3 +315,39 @@ document.getElementById('toggleButton').addEventListener('click', () => {
           }
       }
   });
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    // Verifica se o usuário já escolheu não mostrar novamente
+    if (!localStorage.getItem('naoMostrarModal') || localStorage.getItem('naoMostrarModal') === 'false') {
+        // Exibe o modal
+        var myModal = new bootstrap.Modal(document.getElementById('modalHidratacao'));
+        myModal.show();
+    }
+});
+
+// Quando o botão "Salvar" for clicado
+document.getElementById('salvarQuantidadeAgua').addEventListener('click', function () {
+    const quantidadeAgua = document.getElementById('quantidadeAguaModal').value;
+    alert(`Você adicionou ${quantidadeAgua}ml de água.`);
+
+    // Verifica se o usuário marcou a opção de "Não mostrar novamente"
+    if (document.getElementById('naoMostrarNovamente').checked) {
+        localStorage.setItem('naoMostrarModal', 'true'); // Salva a preferência do usuário
+    }
+    else {
+        localStorage.setItem('naoMostrarModal', 'false'); // Salva a preferência do usuário
+    }
+
+    // Fecha o modal
+    var myModal = bootstrap.Modal.getInstance(document.getElementById('modalHidratacao'));
+    myModal.hide();
+});
+
+// Quando o modal for fechado diretamente (não pela opção de "Salvar")
+document.querySelector('.btn-close').addEventListener('click', function () {
+    // Se o checkbox não estiver marcado, ainda assim armazena 'true' para garantir que o modal não apareça novamente
+    localStorage.setItem('naoMostrarModal', 'true');
+});
+
+
+  

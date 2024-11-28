@@ -153,12 +153,12 @@ body {
 
 /* Garantir que o container de lembretes tenha altura e rolagem adequadas */
 #lembretesAtivos, #lembretesDesativados {
-    max-height: 300px; /* Ajuste a altura conforme necessário */
+    max-height: 230px; /* Ajuste a altura conforme necessário */
     overflow-y: auto;  /* Adiciona rolagem quando o conteúdo excede a altura */
     padding-right: 10px; /* Para não sobrepor a rolagem ao conteúdo */
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espaçamento entre os lembretes */
+    gap: 5px; /* Espaçamento entre os lembretes */
 }
 
 
@@ -241,9 +241,10 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #04a6f267; /* Azul claro */
-    justify-content: space-around;
+    justify-content: start;
     color: #2c3b42; /* Cinza escuro */
     font-weight: 700;
+    height: 45em;
     width: 50rem;
     margin: 0 auto; /* Centraliza os containers */
     padding: 20px;
@@ -256,7 +257,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 7rem;
+    padding-top: 6.5rem;
 }
 
 /* Estilo dos títulos */

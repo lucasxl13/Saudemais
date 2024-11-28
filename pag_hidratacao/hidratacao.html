@@ -70,9 +70,13 @@
 </div>
 
     <section class="container__principal">
+        <!-- Botão para Adicionar Água -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalHidratacao">
+            Adicionar consumo
+        </button>
         <div id="textCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <h1 class="container__principal__titulo">Gerenciar Lembretes</h1>
+                <h3 class="container__principal__titulo">Gerenciar Lembretes</h1>
             </div>
         </div>
     
@@ -134,8 +138,8 @@
                             </div>
                             <!-- Verso do container -->
                             <div class="back">
-                                <h4>Novos Lembretes</h4>
-                                <p>Adicione ou edite seus lembretes aqui.</p>
+                                <h4>Gráfico de consumo</h4>
+                                <p>Veja o histórico de consumo!</p>
                                 <!-- Conteúdo adicional -->
 
                                 <canvas id="historicoConsumo"></canvas>
@@ -150,6 +154,32 @@
             </div>
         </div>        
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalHidratacao" tabindex="-1" aria-labelledby="modalHidratacaoLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalHidratacaoLabel">Adicionar Quantidade de Água</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <label for="quantidadeAguaModal" class="form-label">Quantidade de Água (em ml)</label>
+              <input type="number" class="form-control" id="quantidadeAguaModal" placeholder="Digite a quantidade de água" required>
+              <div class="form-check mt-3">
+                <input type="checkbox" class="form-check-input" id="naoMostrarNovamente">
+                <label class="form-check-label" for="naoMostrarNovamente">Não mostrar novamente</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-primary" id="salvarQuantidadeAgua">Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  
     
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
