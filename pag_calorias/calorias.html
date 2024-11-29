@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorias</title>
+    <link rel="stylesheet" href="./calorias.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-lg navbar-dark fixed-top style_bg_nav">
+        <div class="container-fluid">
+            <button class="btn btn-outline-dark" id="toggleSidebar">Menu</button>
+            <a id="button_menu" class="style_logo" href="#">Saúde <strong id="itemMais_logo">+</strong></a>
+        </div>
+    </header>
+
+  <!-- SideBar -->
+  <div class="sidebar" id="sidebar">
+    <ul class="nav flex-column itens__sidebar">
+
+        <li class="nav-item item__sidebar">
+            <a class="homeLink nav-link">
+                <img src="../icons\home.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                <span class="item-text">Home</span>
+            </a>
+        </li>
+
+        <li class="nav-item item__sidebar">
+            <a class="nav-link hidratacaoLink">
+                <img src="../icons/gota_container.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                <span class="item-text">Hidratação</span>
+            </a>
+        </li>
+
+        <li class="nav-item item__sidebar">
+            <a class="nav-link calorialink">
+                <img src="../icons/calorias_container.svg" alt="Ícone Calorias" class="icon_sideBar" />
+                <span class="item-text">Calorias</span>
+            </a>
+        </li>
+
+        <li class="nav-item item__sidebar">
+            <a class="nav-link dietalink">
+                <img src="../icons/Group.svg" alt="Ícone Dieta" class="icon_sideBar" />
+                <span class="item-text">Dieta</span>
+            </a>
+        </li>
+
+        <li class="nav-item item__sidebar">
+            <a class="nav-link perfilLink">
+                <img src="../icons/account_circle.svg" alt="Ícone Perfil" class="icon_sideBar" />
+                <span class="item-text">Perfil</span>
+            </a>
+        </li>
+
+        <li class="nav-item item__sidebar">
+            <a class="nav-link logoutlink">
+                <img src="../icons/logout.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                <span class="item-text">Sair</span>
+            </a>
+        </li>
+
+    </ul>
+</div>
+
+<section class="container__principal">
+    <!-- Cabeçalho da Tela de Calorias -->
+    <header class="calorias-header text-center py-4" style="background-color: #ff9a51; color: white; border-radius: 15px; padding: 0.5em;">
+        <h1 class="calorias-title">Controle de Calorias</h1>
+        <p class="calorias-subtitle">Acompanhe o seu consumo diário e atinja suas metas.</p>
+    </header>    
+    
+    <!-- Resumo de Consumo e Meta -->
+    <div class="row my-4">
+        <div class="col-md-6">
+            <div class="card text-center shadow-sm" style="border-color: #ff9a51;">
+                <div class="card-body">
+                    <h2>Calorias Consumidas</h2>
+                    <p id="calorias-consumidas" class="display-4">0 kcal</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-center shadow-sm" style="border-color: #ff9a51;">
+                <div class="card-body" style="padding: 0,5em;">
+                    <h2>Meta de Calorias</h2>
+                    <p id="calorias-meta" class="display-4">2000 kcal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gráfico de Consumo (placeholder para futura implementação) -->
+    <div class="grafico-container" style="max-width: 800px; margin: 0 auto; padding-top: 30px;">
+        <canvas id="graficoCalorias"></canvas>
+    </div>
+
+    <!-- Detalhes das Refeições -->
+    <section class="calorias-refeicoes my-4">
+        <h2 class="text-center">Detalhes das Refeições</h2>
+        <div class="list-group">
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <h5>Refeição 1</h5>
+                <span class="badge badge-pill" style="background-color: #ff9a51;">500 kcal</span>
+            </div>
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <h5>Refeição 2</h5>
+                <span class="badge badge-pill" style="background-color: #ff9a51;">400 kcal</span>
+            </div>
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <h5>Refeição 3</h5>
+                <span class="badge badge-pill" style="background-color: #ff9a51;">600 kcal</span>
+            </div>
+        </div>
+    </section>
+</section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+    <script src="calorias.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d"></script>
+
+</body>
+
+</html>

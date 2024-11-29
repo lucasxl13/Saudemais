@@ -349,6 +349,10 @@ body {
     cursor: pointer;
 }
 
+.calorialink {
+    cursor: pointer;
+}
+
 .objetivos_container h2{
     width: 12.5rem;
 }

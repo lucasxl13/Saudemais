@@ -195,16 +195,33 @@ document.getElementById('register').addEventListener('submit', function (event) 
                 document.getElementById("alto").textContent = alturado + " cm";
                 document.getElementById("sexo2").textContent = sexodo;
 
+                // Calculando o IMC
+                const alturaEmMetros = alturado / 100; // Converter altura para metros
+                const imc = (pesado / (alturaEmMetros ** 2)).toFixed(2); // Fórmula do IMC
+
+                localStorage.setItem("imc", imc);
+
+                localStorage.setItem("user", usuariodo);
+                localStorage.setItem("password", senhado);
+                localStorage.setItem("mail", emaildo);
+                localStorage.setItem("nasci", datado);
+                localStorage.setItem("quilos", pesado + " Kg");
+                localStorage.setItem("alto", alturado + " cm");
+                localStorage.setItem("sexo", sexodo);
+
                 if(metado === 1){
                     document.getElementById("obj").textContent = "Perca de peso";
+                    localStorage.setItem("obj", "Perca de peso");
                 }
 
                 else if(metado ===2) {
                     document.getElementById("obj").textContent = "Ganho de massa";
+                    localStorage.setItem("obj", "Ganho de massa");
                 }
 
                 else if(metado ===3) {
                     document.getElementById("obj").textContent = "Manutenção do peso";
+                    localStorage.setItem("obj", "Manutenção do peso");
                 }
                 
 

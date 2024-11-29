@@ -1,10 +1,9 @@
 const toggleButton = document.getElementById('toggleSidebar');
 const sidebar = document.getElementById('sidebar');
-const containerPrincipal = document.querySelector('.container__pricinpal');
+const containerPrincipal = document.querySelector('.container__principal');
 const campoLogo = document.querySelector('.style_logo');
 const itemLogo = document.getElementById('itemMais_logo');
 const itemSideBar = document.querySelectorAll('.item__sidebar'); // Alterado para querySelectorAll
-
 
 const botaoHome = document.querySelectorAll('.homeLink');
 const botoesHidratacao = document.querySelectorAll('.hidratacaoLink');
@@ -79,7 +78,6 @@ if (buttonMenu) {
     });
 }
 
-
 toggleButton.addEventListener('click', () => {
     sidebar.classList.toggle('show');
     containerPrincipal.classList.toggle('opacity');
@@ -90,13 +88,46 @@ toggleButton.addEventListener('click', () => {
     });
 });
 
-// Exemplo de nome do usuário
-const nomeUsuario = localStorage.getItem("user") || "Pedro";
-const pesoUsuario = localStorage.getItem("quilos") || "80 kg";
-const imcUsuario = localStorage.getItem("imc") || "24.5"
-
-  // Atualizando o título com o nome do usuário
-  document.getElementById("welcome").textContent = `Bem-Vindo, ${nomeUsuario}!`;
-  document.getElementById("pesoContainer").textContent = `${pesoUsuario}`;
-  document.getElementById("imcUser").textContent = `${imcUsuario}`;
-
+const ctx = document.getElementById('graficoCalorias').getContext('2d');
+    
+const graficoCalorias3D = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['01/06', '02/06', '03/06', '04/06', '05/06', '06/06', '07/06', 'Hoje'], // Datas para uma semana
+      datasets: [{
+        label: 'Calorias Consumidas',
+        data: [1500, 1800, 2200, 2400, 2000, 2300, 2500, 2428], // Dados de calorias consumidas para cada dia
+        backgroundColor: '#ff9a51', // Cor das barras
+        borderRadius: 10, // Arredondamento das bordas
+        barPercentage: 0.6
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        chart3d: {
+          enabled: true, // Habilita o 3D
+          depth: 100, // Profundidade do gráfico
+          axis: {
+            x: {
+              angle: 60 // Ângulo do eixo X
+            },
+            y: {
+              angle: 30 // Ângulo do eixo Y
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 3500, // Defina o valor máximo para o gráfico
+        }
+      },
+      plugins: {
+        legend: {
+          display: false, // Desabilita a legenda
+        },
+      },
+    }
+});

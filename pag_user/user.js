@@ -19,7 +19,7 @@ botaoHome.addEventListener('click', (event) => {
 
 botaoHidratacao.addEventListener('click', (event) => {
     event.preventDefault(); 
-    window.location.href = '../pag_hidratacao/main.html';  
+    window.location.href = '../pag_hidratacao/hidratacao.html';  
 });
 
 botaoCalorias.addEventListener('click', (event) => {

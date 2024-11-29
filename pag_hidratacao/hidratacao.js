@@ -324,24 +324,47 @@ document.getElementById('toggleButton').addEventListener('click', () => {
         myModal.show();
     }
 });
+// Função para atualizar o total consumido na interface
+function atualizarTotalConsumido() {
+    const consumoAtual = localStorage.getItem('consumoAgua') || '0';
+    document.getElementById('totalConsumido').textContent = `${consumoAtual}ml`;
+}
 
 // Quando o botão "Salvar" for clicado
 document.getElementById('salvarQuantidadeAgua').addEventListener('click', function () {
-    const quantidadeAgua = document.getElementById('quantidadeAguaModal').value;
-    alert(`Você adicionou ${quantidadeAgua}ml de água.`);
+    const quantidadeAgua = parseInt(document.getElementById('quantidadeAguaModal').value, 10);
+
+    if (isNaN(quantidadeAgua) || quantidadeAgua <= 0) {
+        alert('Por favor, insira uma quantidade válida de água em ml.');
+        return;
+    }
+
+    // Recupera o valor existente no localStorage (ou define como 0 se não existir)
+    const consumoExistente = parseInt(localStorage.getItem('consumoAgua') || '0', 10);
+
+    // Atualiza o total de consumo
+    const novoConsumo = consumoExistente + quantidadeAgua;
+    localStorage.setItem('consumoAgua', novoConsumo);
+
+    alert(`Você adicionou ${quantidadeAgua}ml de água. Total consumido hoje: ${novoConsumo}ml.`);
+
+    // Atualiza a interface com o novo valor
+    atualizarTotalConsumido();
 
     // Verifica se o usuário marcou a opção de "Não mostrar novamente"
     if (document.getElementById('naoMostrarNovamente').checked) {
         localStorage.setItem('naoMostrarModal', 'true'); // Salva a preferência do usuário
-    }
-    else {
+    } else {
         localStorage.setItem('naoMostrarModal', 'false'); // Salva a preferência do usuário
     }
 
     // Fecha o modal
-    var myModal = bootstrap.Modal.getInstance(document.getElementById('modalHidratacao'));
+    const myModal = bootstrap.Modal.getInstance(document.getElementById('modalHidratacao'));
     myModal.hide();
 });
+
+// Atualiza o total consumido ao carregar a página
+document.addEventListener('DOMContentLoaded', atualizarTotalConsumido);
 
 // Quando o modal for fechado diretamente (não pela opção de "Salvar")
 document.querySelector('.btn-close').addEventListener('click', function () {

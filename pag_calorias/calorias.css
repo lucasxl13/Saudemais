@@ -1,16 +1,16 @@
 @import url('../main.css');
 
 body {
-    background-color: #aec1ff;
+    background-color: white;
 }
 
 .style_bg_nav {
-    background-color: #4fc3f7;
+    background-color: #ff9a51;
 }
 
 .style_logo {
     font-size: 2.5em;
-    color: whitesmoke;
+    color: rgb(18, 18, 18);
     font-family: var(--fonte-logo);
 }
 
@@ -75,7 +75,7 @@ body {
 
 /* Estilo dos containers */
 .container__lembrete {
-    background-color: #6387ff; /* Cor de fundo azul */
+    background-color: #FF6B00; /* Cor de fundo azul */
     width: 100%;
     padding: 20px;
     border-radius: 8px;
@@ -260,21 +260,8 @@ body {
     padding-top: 6.5rem;
 }
 
-.cusmidoHoje {
-    flex: 1; /* O elemento ocupa todo o espaço restante */
-    display: flex; /* Opcional: Para alinhar os itens dentro do div */
-    justify-content: center; /* Opcional: Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Opcional: Centraliza o conteúdo verticalmente */
-}
-
-#totalConsumido {
-    font-size: 4.5em;
-}
-
-
 /* Estilo dos títulos */
 h2.text-center {
-    color: #005177; /* Cinza escuro */
     font-size: 1.75rem; /* Tamanho maior para dar destaque */
     margin-bottom: 20px; /* Espaçamento abaixo do título */
 }
@@ -322,7 +309,7 @@ h2.text-center {
     /* Espaço para a navbar fixa */
     transition: transform 0.3s ease;
     transform: translateX(-80%);
-    background-color: #4fc3f7;
+    background-color: #ff9a51;
 }
 
 .sidebar.show {
@@ -570,20 +557,32 @@ h2.text-center {
     width: 100% !important;  /* O gráfico irá ocupar toda a largura do container */
     height: 300px;           /* Definindo uma altura fixa, mas você pode ajustar conforme necessário */
 }
+  
 
-.container__principal__titulo {
-    padding-top: 1em;
+.grafico-container {
+    margin-top: 30px;
 }
+
+.calorias-header {
+background-color: #ff9a51;
+color: white;
+border-radius: 15px;
+}
+
+.calorias-status {
+background-color: #ff9a51;
+color: white;
+padding: 15px;
+border-radius: 15px;
+margin-top: 20px;
+}
+
 
 
 
 
 /* Ajustes gerais para telas pequenas */
 @media (max-width: 768px) {
-    #totalConsumido {
-        font-size: 4em;
-    }    
-
     .sidebar {
         width: 100px;
     }
@@ -629,6 +628,18 @@ h2.text-center {
     body {
         padding: 0;
         margin: 0;
+    }
+
+    .row {
+        width: 80%;
+    }
+
+    .container__principal {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 6.5rem;
     }
 
     .menu_dieta {

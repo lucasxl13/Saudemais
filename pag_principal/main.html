@@ -72,7 +72,7 @@
     <section class="container__pricinpal">
         <div id="textCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <h1 class="container__pricinpal__titulo">Bem-Vindo!</h1>
+                <h1 id="welcome" class="container__principal__titulo">Bem-Vindo!</h1>
                 <div class="carousel-item active">
                     <p class="carousel-text">Cuide da sua saúde.</p>
                 </div>
@@ -90,14 +90,6 @@
             <h2>Categorias</h2>
             <!-- Linha 1: Calorias e Hidratação -->
             <div class="row">
-                <div class="col custom_container container_caloria">
-                    <div class="circle_calorias">
-                        <img src="../icons/FireSimple1.svg" alt="Descrição do Ícone" class="icon_container_calorias" />
-                        <span class="hover_text_calorias">100%</span>
-                    </div>
-                    <h2 class="titulo_container titulo_container_caloria">Calorias</h2>
-                    <p class="descricao_meta_container">2500kcal / 2500kcal</p>
-                </div>
                 <div id="hidratacaoLink" class="col custom_container container_hidratacao hidratacaoLink">
                     <div class="circle_hidratacao">
                         <img src="../icons/droplet-fill2.svg" alt="Descrição do Ícone" class="icon_container_hidratacao" />
@@ -106,18 +98,26 @@
                     <h2 class="titulo_container titulo_container_hidratacao">Hidratação</h2>
                     <p class="descricao_meta_container">2500ml / 2500ml</p>
                 </div>
+                <div id="calorialink" class="col custom_container container_caloria calorialink">
+                    <div class="circle_calorias">
+                        <img src="../icons/FireSimple1.svg" alt="Descrição do Ícone" class="icon_container_calorias" />
+                        <span class="hover_text_calorias">100%</span>
+                    </div>
+                    <h2 class="titulo_container titulo_container_caloria">Calorias</h2>
+                    <p class="descricao_meta_container">2500kcal / 2500kcal</p>
+                </div>
             </div>
             
             <!-- Linha 2: Peso atual e IMC -->
             <div class="row">
                 <div class="col custom_container container_peso">
                     <h2 class="titulo_container">Peso Atual</h2>
-                    <p class="descricao_meta_container">75 kg</p> <!-- Exemplo -->
+                    <p id="pesoContainer" class="descricao_meta_container">75 kg</p> <!-- Exemplo -->
 
                 </div>
                 <div class="col custom_container container_imc">
                     <h2 class="titulo_container">IMC Atual</h2>
-                    <p class="descricao_meta_container">24.5</p> <!-- Exemplo -->
+                    <p id="imcUser" class="descricao_meta_container">24.5</p> <!-- Exemplo -->
                 </div>
             </div>
 

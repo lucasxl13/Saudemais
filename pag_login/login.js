@@ -24,7 +24,7 @@ document.getElementById('usuario').addEventListener('keydown', function(e) {
 
 
 
-document.getElementById('login').addEventListener('submit', function(event) {
+  document.getElementById('login').addEventListener('submit', function(event) {
     event.preventDefault();
 
     let valido = true;
