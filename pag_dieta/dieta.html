@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidratação</title>
+    <link rel="stylesheet" href="./dieta.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00c399;
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --sidebar-width: 250px;
+            --header-height: 80px;
+            --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.5;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .diet-app {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .diet-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diet-main {
+            display: flex;
+            flex: 1;
+            height: calc(100vh - var(--header-height));
+        }
+
+        .diet-sidebar {
+            width: var(--sidebar-width);
+            background-color: white;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .diet-sidebar h2 {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .diet-weekdays {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .diet-day-item {
+            padding: 1rem;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .diet-day-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .diet-day-item.diet-active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .diet-meals {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .diet-meal-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .diet-meal-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .diet-meal-items {
+            list-style: none;
+        }
+
+        .diet-meal-items li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .diet-meal-items li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+        .diet-main {
+            flex-direction: column;
+            padding-bottom: var(--mobile-weekdays-height);
+        }
+
+        .diet-mobile-menu {
+            display: none;
+        }
+
+        .diet-sidebar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: var(--mobile-weekdays-height);
+            padding: 0.5rem;
+            transform: none;
+            background-color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .diet-sidebar h2 {
+            display: none;
+        }
+
+        .diet-weekdays {
+            flex-direction: row;
+            overflow-x: auto;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            height: 100%;
+            align-items: center;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .diet-weekdays::-webkit-scrollbar {
+            display: none;
+        }
+
+        .diet-day-item {
+            padding: 0.75rem 1.25rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .diet-meals {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: var(--mobile-weekdays-height);
+        }
+
+        .diet-meal-card {
+            padding: 1rem;
+        }
+        }
+
+        @media (max-width: 480px) {
+        .diet-header {
+            padding: 0.5rem 1rem;
+        }
+
+        .diet-header h1 {
+            font-size: 1.25rem;
+        }
+
+        .diet-meal-card {
+            margin-bottom: 0.5rem;
+        }
+
+        .diet-meal-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .diet-day-item {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar navbar-expand-lg navbar-dark fixed-top style_bg_nav">
+        <div class="container-fluid">
+            <button class="btn btn-outline-dark" id="toggleSidebar">Menu</button>
+            <a id="button_menu" class="style_logo" href="#">Saúde <strong id="itemMais_logo">+</strong></a>
+        </div>
+    </header>
+
+    <!-- SideBar -->
+    <div class="sidebar" id="sidebar">
+        <ul class="nav flex-column itens__sidebar">
+            <li class="nav-item item__sidebar">
+                <a class="homeLink nav-link">
+                    <img src="../icons\home.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Home</span>
+                </a>
+            </li>
+            <li class="nav-item item__sidebar">
+                <a class="nav-link hidratacaoLink">
+                    <img src="../icons/gota_container.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Hidratação</span>
+                </a>
+            </li>
+            <li class="nav-item item__sidebar">
+                <a class="nav-link calorialink">
+                    <img src="../icons/calorias_container.svg" alt="Ícone Calorias" class="icon_sideBar" />
+                    <span class="item-text">Calorias</span>
+                </a>
+            </li>
+            <li class="nav-item item__sidebar">
+                <a class="nav-link dietalink">
+                    <img src="../icons/Group.svg" alt="Ícone Dieta" class="icon_sideBar" />
+                    <span class="item-text">Dieta</span>
+                </a>
+            </li>
+            <li class="nav-item item__sidebar">
+                <a class="nav-link perfilLink">
+                    <img src="../icons/account_circle.svg" alt="Ícone Perfil" class="icon_sideBar" />
+                    <span class="item-text">Perfil</span>
+                </a>
+            </li>
+            <li class="nav-item item__sidebar">
+                <a class="nav-link logoutlink">
+                    <img src="../icons/logout.svg" alt="Ícone Hidratação" class="icon_sideBar" />
+                    <span class="item-text">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="container__principal">
+        <!-- Dieta e Refeições -->
+        <div class="diet-app">
+            
+            <main class="diet-main">
+                <aside class="diet-sidebar">
+                    <h2>Dias da Semana</h2>
+                    <div class="diet-weekdays">
+                        <div class="diet-day-item diet-active" data-day="segunda">Segunda</div>
+                        <div class="diet-day-item" data-day="terca">Terça</div>
+                        <div class="diet-day-item" data-day="quarta">Quarta</div>
+                        <div class="diet-day-item" data-day="quinta">Quinta</div>
+                        <div class="diet-day-item" data-day="sexta">Sexta</div>
+                        <div class="diet-day-item" data-day="sabado">Sábado</div>
+                        <div class="diet-day-item" data-day="domingo">Domingo</div>
+                    </div>
+                </aside>
+
+                <section class="diet-meals">
+                    <div id="diet-meals-container">
+                        <!-- Meals will be loaded here by JavaScript -->
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+
+    <script src="dieta.js"></script>
+    <script>
+        const meals = {
+            segunda: [
+                {
+                    title: 'Pequeno-Almoço',
+                    items: ['Ovos mexidos', 'Pão integral', 'Suco de laranja']
+                },
+                {
+                    title: 'Almoço',
+                    items: ['Arroz integral', 'Frango grelhado', 'Brócolis cozidos']
+                },
+                {
+                    title: 'Lanche',
+                    items: ['Iogurte natural', 'Frutas vermelhas']
+                },
+                {
+                    title: 'Jantar',
+                    items: ['Salada de folhas verdes', 'Atum', 'Azeite']
+                }
+            ],
+            terca: [
+                {
+                    title: 'Pequeno-Almoço',
+                    items: ['Panquecas integrais', 'Mel']
+                },
+                {
+                    title: 'Almoço',
+                    items: ['Quinoa', 'Salmão grelhado', 'Brócolis']
+                },
+                {
+                    title: 'Lanche',
+                    items: ['Barra de proteína']
+                },
+                {
+                    title: 'Jantar',
+                    items: ['Frango ao curry', 'Arroz']
+                }
+            ]
+        };
+
+        function createMealCard(meal) {
+            return `
+                <div class="diet-meal-card">
+                    <h3>${meal.title}</h3>
+                    <ul class="diet-meal-items">
+                        ${meal.items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        function displayMeals(day) {
+            const mealsContainer = document.getElementById('diet-meals-container');
+            const dayMeals = meals[day];
+            
+            mealsContainer.innerHTML = dayMeals.map(createMealCard).join('');
+        }
+
+        document.querySelectorAll('.diet-day-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const activeDay = document.querySelector('.diet-day-item.diet-active');
+                activeDay.classList.remove('diet-active');
+                item.classList.add('diet-active');
+                displayMeals(item.dataset.day);
+            });
+        });
+
+        // Default to display Monday
+        displayMeals('segunda');
+    </script>
+
+</body>
+
+</html>

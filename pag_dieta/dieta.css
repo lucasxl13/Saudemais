@@ -1,16 +1,12 @@
 @import url('../main.css');
 
-body {
-    background-color: white;
-}
-
 .style_bg_nav {
-    background-color: #ff9a51;
+    background-color: #00c399;
 }
 
 .style_logo {
     font-size: 2.5em;
-    color: rgb(18, 18, 18);
+    color: whitesmoke;
     font-family: var(--fonte-logo);
 }
 
@@ -55,7 +51,7 @@ body {
 
 
 .item__sidebar:hover {
-    background-color: rgba(245, 245, 245, 0.561);
+    background-color: rgba(245, 245, 245, 0.396);
     margin: 0.2em;
     border-radius: 5px;
     font-size: 20px;
@@ -76,7 +72,7 @@ body {
 
 /* Estilo dos containers */
 .container__lembrete {
-    background-color: #FF6B00; /* Cor de fundo azul */
+    background-color: #6387ff; /* Cor de fundo azul */
     width: 100%;
     padding: 20px;
     border-radius: 8px;
@@ -255,14 +251,25 @@ body {
 }
 
 .container__principal {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 6.5rem;
+    margin-top: 5rem;
+    margin-left: 2rem;
 }
+
+.cusmidoHoje {
+    flex: 1; /* O elemento ocupa todo o espaço restante */
+    display: flex; /* Opcional: Para alinhar os itens dentro do div */
+    justify-content: center; /* Opcional: Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Opcional: Centraliza o conteúdo verticalmente */
+}
+
+#totalConsumido {
+    font-size: 4.5em;
+}
+
 
 /* Estilo dos títulos */
 h2.text-center {
+    color: #005177; /* Cinza escuro */
     font-size: 1.75rem; /* Tamanho maior para dar destaque */
     margin-bottom: 20px; /* Espaçamento abaixo do título */
 }
@@ -285,6 +292,11 @@ h2.text-center {
     border: none; /* Remove bordas */
 }
 
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
 
 .container__pricinpal__titulo {
     color: #3498db;
@@ -296,7 +308,6 @@ h2.text-center {
 
 
 .sidebar {
-    z-index: 1;
     height: 100%;
     position: fixed;
     top: 2em;
@@ -305,7 +316,7 @@ h2.text-center {
     /* Espaço para a navbar fixa */
     transition: transform 0.3s ease;
     transform: translateX(-80%);
-    background-color: #ff9a51;
+    background-color: #00c399;
 }
 
 .sidebar.show {
@@ -553,30 +564,20 @@ h2.text-center {
     width: 100% !important;  /* O gráfico irá ocupar toda a largura do container */
     height: 300px;           /* Definindo uma altura fixa, mas você pode ajustar conforme necessário */
 }
-  
 
-.grafico-container {
-    margin-top: 30px;
+.container__principal__titulo {
+    padding-top: 1em;
 }
 
-.calorias-header {
-background-color: #ff9a51;
-color: white;
-border-radius: 15px;
-}
-
-.calorias-status {
-background-color: #ff9a51;
-color: white;
-padding: 15px;
-border-radius: 15px;
-margin-top: 20px;
-}
 
 
 
 /* Ajustes gerais para telas pequenas */
 @media (max-width: 768px) {
+    #totalConsumido {
+        font-size: 4em;
+    }    
+
     .sidebar {
         width: 100px;
     }
@@ -617,23 +618,12 @@ margin-top: 20px;
     }
 }
 
+
 /* Ajustes para telas ainda menores */
 @media (max-width: 768px) {
     body {
         padding: 0;
         margin: 0;
-    }
-
-    .row {
-        width: 80%;
-    }
-
-    .container__principal {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 6.5rem;
     }
 
     .menu_dieta {

@@ -107,9 +107,34 @@
                     <p class="descricao_meta_container">2500kcal / 2500kcal</p>
                 </div>
             </div>
-            
-            <!-- Linha 2: Peso atual e IMC -->
+
+            <!-- Linha 3: Dieta -->
             <div class="row">
+                <div id="dietalink" class="col-12 custom_container container_dieta dietalink">
+                    <h2 class="titulo_container titulo_container_dieta">Dieta</h2>
+                    <div class="menu-container menu_dieta">
+                        <div class="menu-item">
+                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Segunda</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/21.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Terça</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/3.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Quarta</p>
+                        </div>
+                        <div class="menu-item">
+                            <img src="../icons/dietas/4.svg" alt="Descrição do Ícone 1" class="img_dieta" />
+                            <p>Quinta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Linha 2: Peso atual e IMC -->
+             <div class="row">
                 <div class="col custom_container container_peso">
                     <h2 class="titulo_container">Peso Atual</h2>
                     <p id="pesoContainer" class="descricao_meta_container">75 kg</p> <!-- Exemplo -->
@@ -120,50 +145,54 @@
                     <p id="imcUser" class="descricao_meta_container">24.5</p> <!-- Exemplo -->
                 </div>
             </div>
-
-            <!-- Linha 3: Dieta -->
-            <div class="row">
-                <div class="col-12 custom_container container_dieta">
-                    <h2 class="titulo_container titulo_container_dieta">Dieta</h2>
-                    <div class="menu-container menu_dieta">
-                        <div class="menu-item">
-                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
-                            <p>Dieta 1</p>
-                        </div>
-                        <div class="menu-item">
-                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
-                            <p>Dieta 1</p>
-                        </div>
-                        <div class="menu-item">
-                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
-                            <p>Dieta 1</p>
-                        </div>
-                        <div class="menu-item">
-                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
-                            <p>Dieta 1</p>
-                        </div>
-                        <div class="menu-item">
-                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
-                            <p>Dieta 1</p>
-                        </div>
-                        <div class="menu-item">
-                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
-                            <p>Dieta 1</p>
-                        </div>
-                        <div class="menu-item">
-                            <img src="../icons/dietas/20.svg" alt="Descrição do Ícone 1" class="img_dieta" />
-                            <p>Dieta 1</p>
-                        </div>
-                        <!-- Adicione mais itens de dieta aqui -->
-                    </div>
-                </div>
-            </div>
             
-            <!-- Linha 4: Exercícios -->
-            <div class="row">
-                <div class="col-12 custom_container container_exercicios">
-                    <h2 class="titulo_container">Exercícios</h2>
-                    <p>Detalhes sobre os exercícios</p> <!-- Exemplo -->
+            <div class="cardx">
+                <h2 class="card__title__main">Exercícios</h2>
+                <div class="card__content">
+                    <p class="card__title text-dark">Treinos</p>
+                    
+                    <!-- Linha com informações sobre os treinos -->
+                    <div class="row">
+                        <!-- Coluna: Dia de Hoje -->
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card border-dark shadow-lg">
+                                <div class="card-header bg-white text-dark">
+                                    <h5 class="card-title titulo_exercicios">Dia de Hoje</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p id="currentDate" class="card-text text-dark"></p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Coluna: Horário do Último Treino -->
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card border-dark shadow-lg">
+                                <div class="card-header bg-white text-dark">
+                                    <h5 class="card-title titulo_exercicios">Último Treino</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p id="lastWorkoutTime" class="card-text text-dark">Horário: 12:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <!-- Coluna: Exercícios Realizados -->
+                        <div class="col-12 col-md-4 mb-3">
+                            <div class="card border-dark shadow-lg">
+                                <div class="card-header bg-white text-dark">
+                                    <h5 class="card-title titulo_exercicios">Exercícios Realizados</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul id="exercisesList" class="text-dark">
+                                        <li><strong>Agachamento:</strong> 3 séries de 12 repetições</li>
+                                        <li><strong>Flexão:</strong> 3 séries de 15 repetições</li>
+                                        <li><strong>Abdominal:</strong> 3 séries de 20 repetições</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

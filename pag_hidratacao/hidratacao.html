@@ -71,14 +71,14 @@
 
     <section class="container__principal">
         <!-- Botão para Adicionar Água -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalHidratacao">
+        <header class="calorias-header text-center py-4" style="background-color: #4fc3f7; color: white; border-radius: 15px; padding: 0.5em;">
+            <h1 class="calorias-title">Controle de Hidratação</h1>
+            <p class="calorias-subtitle">Acompanhe o seu consumo diário e atinja suas metas com lembretes.</p>
+        </header> 
+
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalHidratacao" style="margin: 1rem;">
             Adicionar consumo
         </button>
-        <div id="textCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <h3 class="container__principal__titulo">Gerenciar Lembretes</h1>
-            </div>
-        </div>
     
         <div class="row mt-4">
             <!-- Container de Criação de Lembrete -->
@@ -159,9 +159,9 @@
     </section>
 
     <!-- Modal -->
-    <div class="modal fade" id="modalHidratacao" tabindex="-1" aria-labelledby="modalHidratacaoLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
+    <div class="modal fade modalHidratacao" id="modalHidratacao" tabindex="-1" aria-labelledby="modalHidratacaoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="modalHidratacaoLabel">Adicionar Quantidade de Água</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

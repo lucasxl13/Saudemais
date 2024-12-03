@@ -1,4 +1,6 @@
 @import url('../main.css');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&display=swap'); /* Importação da fonte Oswald */
+
 
 body {
     background-color: var(--color3);
@@ -35,6 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    cursor: pointer;
 }
 
 .icon_sideBar {
@@ -121,16 +124,28 @@ body {
 
 .custom_container {
     margin: 1rem;
-    height: 14em; /* Ajuste a altura aqui */
+    height: 14em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 5px; /* Bordas arredondadas */
-    overflow: visible; /* Permitir que o ícone cresça além das bordas */
-    position: relative; /* Para controlar o layout */
-    transition: transform 0.3s ease; /* Transição suave */
+    border-radius: 5px;
+    overflow: visible;
+    position: relative;
+    transition: transform 0.3s ease;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.397) 90%); /* Gradiente neutro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra leve */
+    animation: glowing 1.5s infinite alternate; /* Efeito de brilho */
 }
+
+.custom_container:hover {
+    box-shadow: 0 0 20px 4px rgba(255, 255, 255, 0.7); /* Brilho mais intenso no hover */
+    transform: scale(1.05); /* Aumenta levemente o tamanho do container */
+}
+
+
+
+
 
 .descricao_container img {
     transition: transform 0.3s ease;
@@ -276,15 +291,99 @@ body {
 }
 
 .container_hidratacao {
-    background-color: #00b3ff37;
+    background-color: #00b3ff37; /* Cor de fundo padrão */
+    position: relative;
+    border-radius: 10px; /* Ajuste conforme necessário */
+    overflow: hidden; /* Garante que o gradiente não extrapole o container */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza o hover */
 }
+
+.container_hidratacao::before {
+    content: '';
+    position: absolute;
+    inset: -4px; /* Largura da borda gradiente */
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ab92ff, #bdb5fc, #3DC2EC);
+    background-size: 300%; /* Para o gradiente animado */
+    opacity: 0; /* Invisível por padrão */
+    transform: scale(1.1); /* Efeito inicial para suavizar a entrada */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Delay e suavização */
+    z-index: -1; /* Fica atrás do conteúdo */
+    pointer-events: none; /* Ignora interações do mouse */
+}
+
+.container_hidratacao:hover::before {
+    opacity: 1; /* Torna o gradiente visível no hover */
+    transform: scale(1); /* Ajusta o tamanho ao hover */
+    animation: gradient-move 3s infinite linear; /* Animação de movimento do gradiente */
+}
+
+.container_hidratacao:hover {
+    transform: scale(1.05); /* Aumenta levemente o tamanho do container no hover */
+    box-shadow: 0 0 20px 4px rgba(0, 179, 255, 0.5); /* Realça o efeito de hover */
+}
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 .titulo_container_hidratacao {
     color: #406dff;
 }
 
+
 .container_caloria {
-    background-color: #ffb70037;
+    background-color: #ffb700; /* Cor de fundo padrão */
+    position: relative;
+    border-radius: 10px; /* Ajuste conforme necessário */
+    overflow: hidden; /* Garante que o gradiente não extrapole o container */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza o hover */
+}
+
+.container_caloria::before {
+    content: '';
+    position: absolute;
+    inset: -4px; /* Largura da borda gradiente */
+    border-radius: 10px;
+    background: linear-gradient(135deg, #c38c01, #903000);
+    background-size: 300%; /* Para o gradiente animado */
+    opacity: 0; /* Invisível por padrão */
+    transform: scale(1.1); /* Efeito inicial para suavizar a entrada */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Delay e suavização */
+    z-index: -1; /* Fica atrás do conteúdo */
+    pointer-events: none; /* Ignora interações do mouse */
+}
+
+.container_caloria:hover::before {
+    opacity: 1; /* Torna o gradiente visível no hover */
+    transform: scale(1); /* Ajusta o tamanho ao hover */
+    animation: gradient-move-caloria 3s infinite linear; /* Animação de movimento do gradiente */
+}
+
+.container_caloria:hover {
+    transform: scale(1.05); /* Aumenta levemente o tamanho do container no hover */
+    box-shadow: 0 0 20px 4px rgba(255, 183, 0, 0.5); /* Realça o efeito de hover */
+}
+
+@keyframes gradient-move-caloria {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Peso Atual */
@@ -322,12 +421,54 @@ body {
 }
 
 .container_dieta {
+    cursor: pointer;
     height: 18rem;
-    background-color: #33ff4738;
+    background-color: #00c399;
+    position: relative;
+    border-radius: 10px; /* Ajuste conforme necessário */
+    overflow: hidden; /* Garante que o gradiente não extrapole o container */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza o hover */
+}
+
+.container_dieta::before {
+    content: '';
+    position: absolute;
+    inset: -4px; /* Largura da borda gradiente */
+    border-radius: 10px;
+    background: linear-gradient(135deg, #00ae88, #008883, #00797d);
+    background-size: 300%; /* Para o gradiente animado */
+    opacity: 0; /* Invisível por padrão */
+    transform: scale(1.1); /* Efeito inicial para suavizar a entrada */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Delay e suavização */
+    z-index: -1; /* Fica atrás do conteúdo */
+    pointer-events: none; /* Ignora interações do mouse */
+}
+
+.container_dieta:hover::before {
+    opacity: 1; /* Torna o gradiente visível no hover */
+    transform: scale(1); /* Ajusta o tamanho ao hover */
+    animation: gradient-move 3s infinite linear; /* Animação de movimento do gradiente */
+}
+
+.container_dieta:hover {
+    transform: scale(1.05); /* Aumenta levemente o tamanho do container no hover */
+    box-shadow: 0 0 20px 4px #00c399; /* Realça o efeito de hover */
+}
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .titulo_container_dieta {
-    color: #009a0f;
+    color: whitesmoke;
 }
 
 .conteudo_container {
@@ -389,10 +530,135 @@ body {
 }
 
 
+.container_exercicios {
+    background: #e5ff00; /* Fundo verde fluorescente */
+    color: #000000; /* Texto preto para bom contraste */
+    padding: 20px;
+    border-radius: 15px; /* Bordas arredondadas */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Sombra suave e profunda */
+    text-align: center; /* Centraliza o conteúdo */
+    font-family: 'Oswald', sans-serif; /* Aplicação da nova fonte */
+}
+
+.container_exercicios .titulo_container {
+    font-size: 2.5rem; /* Fonte maior para destaque */
+    font-weight: 700; /* Negrito */
+    margin-bottom: 15px;
+    text-transform: uppercase; /* Maiúsculas para modernidade */
+    letter-spacing: 2px; /* Espaçamento entre letras */
+    color: #000000; /* Preto forte para contraste */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Sombra leve no texto */
+}
+
+.container_exercicios p {
+    font-size: 1.2rem; /* Texto maior para leitura confortável */
+    font-weight: 500; /* Peso médio para complementar */
+    line-height: 1.6; /* Melhor legibilidade */
+    color: #333333; /* Texto secundário */
+}
+
+/* From Uiverse.io by gharsh11032000 */ 
+.cardx {
+    position: relative;
+    height: 20rem;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    perspective: 1000px;
+    box-shadow: 0 0 0 5px #ffffff80;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 1rem;
+  }
+  
+  .cardx:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
+
+  .cardx {
+  
+    /* Dark mode colors and gradient */
+    background: #121212; /* Fallback for browsers that don't support gradients */
+    background: linear-gradient(
+      135deg,
+      #121212 25%,
+      #1a1a1a 25%,
+      #1a1a1a 50%,
+      #121212 50%,
+      #121212 75%,
+      #1a1a1a 75%,
+      #1a1a1a
+    );
+    background-size: 40px 40px;
+  
+    /* Animation */
+    animation: move 4s linear infinite;
+  }
+  
+  @keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 40px 40px;
+    }
+  }
+  
+  .card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f2ff00;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .cardx:hover .card__content {
+    transform: rotateX(0deg);
+  }
+  
+  .card__title {
+    margin: 0;
+    font-size: 24px;
+    color: #f6ff00;
+    font-weight: 700;
+  }
+
+  .card__title__main {
+    color: #f6ff00;
+    font-size: 5rem;
+  }
+  
+  .cardx:hover svg {
+    scale: 0;
+  }
+  
+  .card__description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+  }
+
+  
+
 
 
 /* Ajustes gerais para telas pequenas */
 @media (max-width: 768px) {
+
+    .card__title__main {
+        color: #f6ff00;
+        font-size: 2rem;
+      }
 
     .descricao_meta_container {
         font-family: 'Roboto', sans-serif; /* Fonte moderna */
@@ -546,7 +812,7 @@ body {
     }
 
     .container_caloria, .container_hidratacao, .container_dieta {
-        width: 100%; /* Containers ocupam toda a largura */
+        width: 2rem; /* Containers ocupam toda a largura */
         margin: 0.5em 0;
     }
 

@@ -1,10 +1,9 @@
 const toggleButton = document.getElementById('toggleSidebar');
 const sidebar = document.getElementById('sidebar');
-const containerPrincipal = document.querySelector('.container__pricinpal');
+const containerPrincipal = document.querySelector('.container__principal');
 const campoLogo = document.querySelector('.style_logo');
 const itemLogo = document.getElementById('itemMais_logo');
 const itemSideBar = document.querySelectorAll('.item__sidebar'); // Alterado para querySelectorAll
-
 
 const botaoHome = document.querySelectorAll('.homeLink');
 const botoesHidratacao = document.querySelectorAll('.hidratacaoLink');
@@ -79,33 +78,12 @@ if (buttonMenu) {
     });
 }
 
-
 toggleButton.addEventListener('click', () => {
     sidebar.classList.toggle('show');
-    containerPrincipal.classList.toggle('opacity');
 
     // Alterna a classe 'show' para todos os itens da sidebar
     itemSideBar.forEach(item => {
         item.classList.toggle('show'); // Aplica a mudança em todos os itens
     });
 });
-
-// Exemplo de nome do usuário
-const nomeUsuario = localStorage.getItem("user") || "Pedro";
-const pesoUsuario = localStorage.getItem("quilos") || "80 kg";
-const imcUsuario = localStorage.getItem("imc") || "24.5"
-
-  // Atualizando o título com o nome do usuário
-  document.getElementById("welcome").textContent = `Bem-Vindo, ${nomeUsuario}!`;
-  document.getElementById("pesoContainer").textContent = `${pesoUsuario}`;
-  document.getElementById("imcUser").textContent = `${imcUsuario}`;
-
-   // Exibir a data atual
-   const currentDate = new Date().toLocaleDateString();
-   document.getElementById('currentDate').textContent = `Data: ${currentDate}`;
-
-   // Exibir o horário do último treino (ajuste conforme necessário)
-   const lastWorkoutTime = new Date().toLocaleTimeString();
-   document.getElementById('lastWorkoutTime').textContent = `Horário: ${lastWorkoutTime}`;
-
 
