@@ -648,17 +648,112 @@ body {
     line-height: 1.4;
   }
 
+  .card {
+    border-radius: 10px; /* Cantos arredondados */
+    background-color: #f8f9fa; /* Fundo neutro */
+    border: 2px solid #6c757d; /* Cor da borda */
+  }
   
+  .card-header {
+    background-color: #e9ecef; /* Fundo suave para o cabeçalho */
+    font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+    font-weight: bold; /* Realça o título */
+    text-align: center; /* Centraliza o título */
+    color: #343a40; /* Cor do texto escuro */
+    border-bottom: 2px solid #6c757d; /* Destaque na borda inferior */
+  }
+  
+  .card-body {
+    padding: 1rem 1.5rem; /* Espaçamento interno */
+    background-color: #ffffff; /* Fundo branco para contraste */
+  }
+  
+  ul#exercisesList {
+    list-style-type: none; /* Remove os marcadores padrão */
+    padding-left: 0; /* Remove o padding padrão */
+    font-size: 0.95rem; /* Ajusta o tamanho da fonte */
+    line-height: 1.5; /* Melhora o espaçamento entre as linhas */
+  }
+  
+  ul#exercisesList li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Espaçamento entre os itens */
+  }
+  
+  ul#exercisesList li::before {
+    content: '✔'; /* Adiciona um ícone antes de cada item */
+    color: #28a745; /* Cor verde para o ícone */
+    margin-right: 0.5rem; /* Espaçamento entre o ícone e o texto */
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  ul#exercisesList strong {
+    color: #495057; /* Cor neutra para os títulos dos exercícios */
+  }
+
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação suave */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Eleva levemente o cartão */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+  }
+
+  .card-header {
+    background: linear-gradient(90deg, #b5b5b5, #ffffff); /* Gradiente colorido */
+    color: #fff; /* Texto branco para contraste */
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra no texto */
+  }
+  
+  
+  .text_caloria {
+    color: #FFB700;
+  }
+
+  .exerciciosLink {
+    cursor: pointer;
+  }
 
 
 
 /* Ajustes gerais para telas pequenas */
 @media (max-width: 768px) {
 
+    .column_batimentos {
+        display: none;
+    }
+
+    .colum_calorias {
+        display: none;
+    }
+
+    .cardx {
+        padding: 0.5rem; /* Menos espaçamento no mobile */
+      }
+      .card-header {
+        font-size: 0.9rem;
+      }
+      .card-body {
+        font-size: 0.8rem;
+      }
+
+    .img_dieta {
+       display: none;
+    }
+
+    .container_dieta {
+        display: flex;
+        flex-direction: row;
+    }
+
     .card__title__main {
         color: #f6ff00;
         font-size: 2rem;
       }
+      
 
     .descricao_meta_container {
         font-family: 'Roboto', sans-serif; /* Fonte moderna */
@@ -704,15 +799,6 @@ body {
         font-size: 2rem;
     }
 
-    body {
-        padding: 0;
-        margin: 0;
-    }
-
-    .menu_dieta {
-        display: none;
-    }
-
     .style_logo {
         font-size: 1.8em; /* Reduz o tamanho da logo */
         text-align: center;
@@ -746,8 +832,8 @@ body {
     }
 
     .custom_container {
-        height: 8em; /* Menor altura nos containers */
-        flex-direction: row; /* Alinha em coluna */
+        height: 9em; /* Menor altura nos containers */
+        flex-direction: column; /* Alinha em coluna */
         margin: 0.5rem; /* Margem menor */
     }
 
@@ -787,11 +873,6 @@ body {
 
     .titulo_container {
         font-size: 1.2rem; /* Texto reduzido */
-    }
-
-    .menu-container {
-        flex-direction: column; /* Itens empilhados */
-        gap: 10px; /* Menor espaço entre os itens */
     }
 
     .menu-item {

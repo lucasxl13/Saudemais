@@ -153,33 +153,10 @@
                     
                     <!-- Linha com informações sobre os treinos -->
                     <div class="row">
-                        <!-- Coluna: Dia de Hoje -->
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="card border-dark shadow-lg">
-                                <div class="card-header bg-white text-dark">
-                                    <h5 class="card-title titulo_exercicios">Dia de Hoje</h5>
-                                </div>
-                                <div class="card-body">
-                                    <p id="currentDate" class="card-text text-dark"></p>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <!-- Coluna: Horário do Último Treino -->
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="card border-dark shadow-lg">
-                                <div class="card-header bg-white text-dark">
-                                    <h5 class="card-title titulo_exercicios">Último Treino</h5>
-                                </div>
-                                <div class="card-body">
-                                    <p id="lastWorkoutTime" class="card-text text-dark">Horário: 12:00 PM</p>
-                                </div>
-                            </div>
-                        </div>
                 
                         <!-- Coluna: Exercícios Realizados -->
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="card border-dark shadow-lg">
+                        <div class="col-md-4">
+                            <div class="card border-dark shadow-lg exerciciosLink">
                                 <div class="card-header bg-white text-dark">
                                     <h5 class="card-title titulo_exercicios">Exercícios Realizados</h5>
                                 </div>
@@ -189,6 +166,30 @@
                                         <li><strong>Flexão:</strong> 3 séries de 15 repetições</li>
                                         <li><strong>Abdominal:</strong> 3 séries de 20 repetições</li>
                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Coluna: Batimentos Cardíacos Médios -->
+                        <div class="col-md-4 column_batimentos exerciciosLink">
+                            <div class="card border-danger shadow-lg">
+                                <div class="card-header bg-white text-danger">
+                                    <h5 class="card-title titulo_exercicios">Batimentos Cardíacos</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h1 class="display-4 text-danger" id="averageHeartRate">72 bpm</h1>
+                                    <p>Monitoramento médio do último treino.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Coluna: Calorias Queimadas -->
+                        <div class="col-md-4 colum_calorias exerciciosLink">
+                            <div class="card border-success shadow-lg">
+                                <div class="card-header bg-white text_caloria">
+                                    <h5 class="card-title titulo_exercicios">Calorias Queimadas</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h1 class="display-4 text_caloria" id="caloriesBurned">350 kcal</h1>
+                                    <p>Total estimado com base nos exercícios realizados hoje.</p>
                                 </div>
                             </div>
                         </div>

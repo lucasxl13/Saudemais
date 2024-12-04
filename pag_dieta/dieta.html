@@ -91,7 +91,6 @@
         .diet-meals {
             flex: 1;
             padding: 2rem;
-            overflow-y: auto;
         }
 
         .diet-meal-card {
@@ -182,7 +181,7 @@
 
         @media (max-width: 480px) {
         .diet-header {
-            padding: 0.5rem 1rem;
+            padding: 1rem;
         }
 
         .diet-header h1 {
@@ -198,7 +197,7 @@
         }
 
         .diet-day-item {
-            padding: 0.5rem 1rem;
+            padding: 1rem;
             font-size: 0.9rem;
         }
         }
@@ -262,19 +261,6 @@
         <div class="diet-app">
             
             <main class="diet-main">
-                <aside class="diet-sidebar">
-                    <h2>Dias da Semana</h2>
-                    <div class="diet-weekdays">
-                        <div class="diet-day-item diet-active" data-day="segunda">Segunda</div>
-                        <div class="diet-day-item" data-day="terca">Terça</div>
-                        <div class="diet-day-item" data-day="quarta">Quarta</div>
-                        <div class="diet-day-item" data-day="quinta">Quinta</div>
-                        <div class="diet-day-item" data-day="sexta">Sexta</div>
-                        <div class="diet-day-item" data-day="sabado">Sábado</div>
-                        <div class="diet-day-item" data-day="domingo">Domingo</div>
-                    </div>
-                </aside>
-
                 <section class="diet-meals">
                     <div id="diet-meals-container">
                         <!-- Meals will be loaded here by JavaScript -->
@@ -287,42 +273,32 @@
     <script src="dieta.js"></script>
     <script>
         const meals = {
-            segunda: [
-                {
-                    title: 'Pequeno-Almoço',
-                    items: ['Ovos mexidos', 'Pão integral', 'Suco de laranja']
-                },
-                {
-                    title: 'Almoço',
-                    items: ['Arroz integral', 'Frango grelhado', 'Brócolis cozidos']
-                },
-                {
-                    title: 'Lanche',
-                    items: ['Iogurte natural', 'Frutas vermelhas']
-                },
-                {
-                    title: 'Jantar',
-                    items: ['Salada de folhas verdes', 'Atum', 'Azeite']
-                }
-            ],
-            terca: [
-                {
-                    title: 'Pequeno-Almoço',
-                    items: ['Panquecas integrais', 'Mel']
-                },
-                {
-                    title: 'Almoço',
-                    items: ['Quinoa', 'Salmão grelhado', 'Brócolis']
-                },
-                {
-                    title: 'Lanche',
-                    items: ['Barra de proteína']
-                },
-                {
-                    title: 'Jantar',
-                    items: ['Frango ao curry', 'Arroz']
-                }
-            ]
+          segunda: [
+        {
+            title: 'Manhã',
+            items: ['1 Pão Francês', '2 Ovos']
+        },
+        {
+            title: 'Lanche da Manhã',
+            items: ['1 Banana', '10 Amêndoas']
+        },
+        {
+            title: 'Almoço',
+            items: ['150g Arroz', '200g Frango', '50g Brócolis']
+        },
+        {
+            title: 'Lanche da Tarde',
+            items: ['1 Iogurte Natural', 'Frutas Vermelhas']
+        },
+        {
+            title: 'Jantar',
+            items: ['120g Macarrão', '120g Patinho']
+        },
+        {
+            title: 'Ceia',
+            items: ['Chá de camomila', '1 Fatia de Queijo']
+        }
+    ]
         };
 
         function createMealCard(meal) {

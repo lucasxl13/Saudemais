@@ -12,6 +12,7 @@ const botaoCalorias = document.querySelectorAll('.calorialink');
 const botaoDieta = document.querySelectorAll('.dietalink');
 const botaoPerfil = document.querySelectorAll('.perfilLink');
 const botaoLogout = document.getElementById('logoutlink');
+const exerciciosButton = document.querySelectorAll('.exerciciosLink');
 
 // Adicionando os eventos
 if (botaoHome.length > 0) {
@@ -68,6 +69,15 @@ if (botaoLogout) {
             window.location.href = '../pag_login/login.html';
             localStorage.removeItem('manterx');
         }
+    });
+}
+
+if (exerciciosButton.length > 0) {
+    exerciciosButton.forEach((botao) => {
+        botao.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.location.href = '../pag_acad/acad.html';
+        });
     });
 }
 
