@@ -1,0 +1,883 @@
+@import url('../main.css');
+
+body {
+    background-color: black;
+}
+
+.style_bg_nav {
+    background-color: #e5ff00;
+}
+
+.style_logo {
+    font-size: 2.5em;
+    color: rgb(18, 18, 18);
+    font-family: var(--fonte-logo);
+}
+
+.style_logo strong {
+    display: inline-block; /* Necessário para aplicar transformações */  
+    transition: transform 0.2s ease, padding 0.5s ease; /* Suavização da rotação */
+}
+
+.style_logo:hover strong {
+    transform: rotate(360deg) scale(1.3); /* Gira 360 graus */
+}
+
+.itens__sidebar a {
+    color: black;
+}
+
+.item__sidebar {
+    margin: 0.2em;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease, align-items 1s ease; /* Adicione opacity à transição */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.icon_sideBar {
+    width: 1.5rem;
+}
+
+
+.item__sidebar.show {
+    margin: 0.2em;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: background-color 0.3s ease, align-items 1s ease; /* Adicione opacity à transição */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.item__sidebar:hover {
+    background-color: rgba(245, 245, 245, 0.561);
+    margin: 0.2em;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.col-lg-5,
+.col-md-12 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Ajustes nos campos para todos terem o mesmo tamanho */
+.form-control {
+    width: 100%; /* Garante que todos os campos ocupem 100% da largura disponível */
+    margin-bottom: 15px; /* Adiciona um espaçamento entre os campos */
+}
+
+/* Estilo dos containers */
+.container__lembrete {
+    background-color: #e5ff00; /* Cor de fundo azul */
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Estilo das listas de lembretes */
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botão de Desativar e Reativar */
+.btn-desativar {
+    background-color: #f0ad4e;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-desativar:hover {
+    background-color: #ec971f;
+}
+
+/* Botão de Reativar */
+.btn-reativar {
+    background-color: #5bc0de;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-reativar:hover {
+    background-color: #31b0d5;
+}
+
+/* Estilo para o título */
+.titulo-lembrete {
+    text-align: left; /* Alinha o título à esquerda */
+    color: #ffffff;
+    font-size: 1.75rem;
+    margin-bottom: 20px;
+}
+
+/* Transição suave para esconder o conteúdo */
+#lembretesContainer {
+    transition: all 0.3s ease;
+}
+
+/* Quando o container é minimizado, esconder a lista */
+.minimizado #lembretesContainer {
+    height: 50px; /* Altura reduzida quando minimizado */
+    overflow: hidden; /* Ocultar o conteúdo dentro do container */
+}
+
+#lembretesContainer {
+    padding: 16px;
+    background-color: #f1faff; /* Fundo suave azul claro */
+    border: 1px solid #d0e8f2; /* Azul claro */
+    border-radius: 8px;
+}
+
+/* Estilo geral para os títulos */
+#lembretesContainer h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #0b4566; /* Azul escuro */
+    font-weight: bold;
+}
+
+/* Garantir que o container de lembretes tenha altura e rolagem adequadas */
+#lembretesAtivos, #lembretesDesativados {
+    max-height: 230px; /* Ajuste a altura conforme necessário */
+    overflow-y: auto;  /* Adiciona rolagem quando o conteúdo excede a altura */
+    padding-right: 10px; /* Para não sobrepor a rolagem ao conteúdo */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espaçamento entre os lembretes */
+}
+
+
+/* Lista de lembretes ativos */
+#lembretesAtivos {
+    background-color: #e6f7ff; /* Azul muito claro */
+    border: 1px solid #b3e5fc; /* Azul claro */
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#lembretesAtivos .list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #81d4fa; /* Azul suave */
+    color: #0277bd; /* Azul escuro */
+    margin-bottom: 6px;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#lembretesAtivos .list-group-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Lista de lembretes desativados */
+#lembretesDesativados {
+    background-color: #eef3f7; /* Cinza azulado */
+    border: 1px solid #cfd8dc; /* Cinza suave */
+    border-radius: 8px;
+    padding: 8px;
+}
+
+#lembretesDesativados .list-group-item {
+    background-color: #ffffff;
+    border: 1px solid #b0bec5; /* Cinza claro */
+    color: #546e7a; /* Cinza escuro */
+    margin-bottom: 6px;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#lembretesDesativados .list-group-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adicionar ícones ao lado dos lembretes */
+.list-group-item::before {
+    content: '\2022'; /* Bolinha */
+    font-size: 16px;
+    margin-right: 8px;
+}
+
+/* Personalizar ícones para ativos e desativados */
+#lembretesAtivos .list-group-item::before {
+    color: #4fc3f7; /* Azul claro */
+}
+
+#lembretesDesativados .list-group-item::before {
+    color: #90a4ae; /* Cinza neutro */
+}
+
+
+.container__tabela {
+    display: flex;
+    flex-direction: column;
+    background-color: #04a6f267; /* Azul claro */
+    color: #2c3b42; /* Cinza escuro */
+    width: 50rem;
+    height: 45em;
+    margin: 0 auto; /* Centraliza os containers */
+    padding: 20px;
+    border: 1px solid #a6bcfa; /* Bordas em tom de azul mais escuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.container__lembrete {
+    display: flex;
+    flex-direction: column;
+    background-color: #04a6f267; /* Azul claro */
+    justify-content: start;
+    color: #2c3b42; /* Cinza escuro */
+    font-weight: 700;
+    height: 45em;
+    width: 50rem;
+    margin: 0 auto; /* Centraliza os containers */
+    padding: 20px;
+    border: 1px solid #a6bcfa; /* Bordas em tom de azul mais escuro */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.container__principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6.5rem;
+}
+
+/* Estilo dos títulos */
+h2.text-center {
+    font-size: 1.75rem; /* Tamanho maior para dar destaque */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Botões */
+.btn-primary {
+    background-color: #4e6bb4; /* Azul mais escuro para o botão */
+    border-color: #4e6bb4;
+}
+
+.btn-primary:hover {
+    background-color: #3b5481; /* Azul mais escuro ao passar o mouse */
+    border-color: #3b5481;
+}
+
+/* Estilo das listas */
+.list-group-item {
+    background-color: #5074d3; /* Azul mais escuro para os itens da lista */
+    color: white; /* Texto branco para os itens */
+    border: none; /* Remove bordas */
+}
+
+
+.container__pricinpal__titulo {
+    color: #3498db;
+}
+
+.container__pricinpal.opacity {
+    filter: blur(0.8px); /* Ajuste o valor para definir o nível de desfoque */   
+}
+
+
+.sidebar {
+    z-index: 1;
+    height: 100%;
+    position: fixed;
+    top: 2em;
+    width: 250px;
+    padding-top: 56px;
+    /* Espaço para a navbar fixa */
+    transition: transform 0.3s ease;
+    transform: translateX(-80%);
+    background-color: #e5ff00;
+}
+
+.sidebar.show {
+    transform: translateX(0);
+}
+
+/* Quando a sidebar não tiver a classe .show (fechada), mostrar apenas ícones */
+.sidebar .nav-link .item-text {
+    display: none; /* Esconde o texto */
+}
+
+.sidebar .nav-link img {
+    font-size: 1.5rem; /* Tamanho maior para ícones quando a sidebar está fechada */
+}
+
+/* Quando a sidebar tiver a classe .show (aberta), mostrar o texto e ajustar os ícones */
+.sidebar.show .nav-link .item-text {
+    display: inline; /* Mostra o texto */
+    margin-left: 10px; /* Espaçamento entre o ícone e o texto */
+}
+
+.sidebar.show .nav-link img {
+    font-size: 1rem; /* Reduz o tamanho dos ícones */
+}
+
+.content {
+    margin-left: 250px;
+}
+
+.container {
+    align-items: center;
+    font-family: var(--fonte-logo);
+}
+
+.custom_container {
+    margin: 1rem;
+    height: 12em; /* Ajuste a altura aqui */
+    display: flex;
+    border-radius: 5px; /* Bordas arredondadas */
+    overflow: visible; /* Permitir que o ícone cresça além das bordas */
+    position: relative; /* Para controlar o layout */
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+.descricao_container img {
+    transition: transform 0.3s ease;
+}
+
+.descricao_container img:hover {
+    transform: scale(1.4); /* Ajuste o valor conforme necessário */
+}
+
+.descricao_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+}
+
+.circle_hidratacao {
+    width: 80px;
+    height: 80px;
+    border: 5px solid #3498db; /* Apenas a borda */
+    border-radius: 50%; /* Deixa como círculo */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center;
+    font-size: 18px;
+    color: #3498db;
+    transition: transform 0.3s ease;
+}
+
+.circle_hidratacao:hover {
+    transform: scale(1.2); /* Ajuste o valor conforme necessário */
+  }
+
+.circle_calorias {
+    width: 80px;
+    height: 80px;
+    border: 5px solid #FF6B00; /* Apenas a borda */
+    border-radius: 50%; /* Deixa como círculo */
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    text-align: center;
+    font-size: 18px;
+    color: #FF6B00;
+    transition: transform 0.3s ease;
+}
+
+.circle_calorias:hover {
+    transform: scale(1.2); /* Ajuste o valor conforme necessário */
+}
+
+  .icon_container_hidratacao {
+    transition: opacity 0.3s ease; /* Transição suave ao desaparecer */
+  }
+
+  .icon_container_calorias {
+    transition: opacity 0.3s ease; /* Transição suave ao desaparecer */
+  }
+  
+  .hover_text_hidratacao {
+    position: absolute;
+    font-size: 24px;
+    color: #3498db;
+    opacity: 0; /* Inicialmente escondido */
+    transition: opacity 0.3s ease;
+  }
+
+  .hover_text_calorias {
+    position: absolute;
+    font-size: 24px;
+    color: #FF6B00;
+    opacity: 0; /* Inicialmente escondido */
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Quando o mouse passa sobre o círculo */
+  .circle_hidratacao:hover .icon_container_hidratacao {
+    opacity: 0; /* Esconde a imagem */
+  }
+
+  /* Quando o mouse passa sobre o círculo */
+  .circle_hidratacao:hover .icon_container_calorias {
+    opacity: 0; /* Esconde a imagem */
+  }
+  
+  .circle_hidratacao:hover .hover_text_hidratacao {
+    opacity: 1; /* Mostra o texto */
+  }
+
+   /* Quando o mouse passa sobre o círculo */
+   .circle_calorias:hover .icon_container_hidratacao {
+    opacity: 0; /* Esconde a imagem */
+  }
+
+  /* Quando o mouse passa sobre o círculo */
+  .circle_calorias:hover .icon_container_calorias {
+    opacity: 0; /* Esconde a imagem */
+  }
+  
+  .circle_calorias:hover .hover_text_calorias {
+    opacity: 1; /* Mostra o texto */
+  }
+  
+.custom_container:hover {
+    transform: scale(1.05) !important; /* Aumenta 5% ao passar o mouse */
+}
+
+.container_hidratacao {
+    background-color: #00b3ff37;
+}
+
+.titulo_container_hidratacao {
+    color: #4F40FF;
+}
+
+.container_caloria {
+    background-color: #ffb70037;
+}
+
+.titulo_container_caloria {
+    color: #FFB700;
+}
+
+.container_dieta {
+    background-color: #33ff4738;
+}
+
+.titulo_container_dieta {
+    color: #33FF47;
+}
+
+.conteudo_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1em;
+}
+
+.titulo_container {
+    font-weight: 700;
+    font-size: 2.5rem;
+}
+
+.icone_caloria {
+    width: 80px;
+}
+
+.menu-container {
+    display: flex; /* Usamos flexbox para alinhar os itens */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    gap: 20px; /* Espaçamento entre os itens */
+    padding: 20px; /* Adiciona um pouco de espaço ao redor do contêiner */
+}
+
+.menu-item {
+    background-color: white; /* Fundo branco */
+    border-radius: 20px; /* Bordas arredondadas */
+    padding: 20px; /* Espaço interno */
+    text-align: center; /* Centraliza o texto */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+    transition: transform 0.3s; /* Transição suave ao passar o mouse */
+}
+
+.img_dieta {
+    width: 80%;
+}
+
+.flip-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    top: 0;
+    left: 0;
+}
+.back {
+    transform: rotateY(180deg);
+    background-color: #f8f9fa;
+}
+.flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+}
+
+#historicoConsumo {
+    width: 100% !important;  /* O gráfico irá ocupar toda a largura do container */
+    height: 300px;           /* Definindo uma altura fixa, mas você pode ajustar conforme necessário */
+}
+  
+
+.grafico-container {
+    margin-top: 30px;
+}
+
+.calorias-header {
+background-color: #ff9a51;
+color: white;
+border-radius: 15px;
+}
+
+.calorias-status {
+background-color: #ff9a51;
+color: white;
+padding: 15px;
+border-radius: 15px;
+margin-top: 20px;
+}
+
+/* Tema dark */
+.bg-dark {
+    background-color: #333 !important;
+    color: #eee !important;
+    border: none;
+}
+
+.text-light {
+    color: #eee !important;
+}
+
+/* Listas e bordas */
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #555;
+    padding: 10px 15px;
+    font-size: 1rem;
+}
+
+/* Containers ocupando largura e altura totais */
+.row {
+    height: 100%;
+}
+
+.w-100 {
+    width: 100% !important;
+}
+
+.h-100 {
+    height: 100% !important;
+}
+
+/* Sombra nos containers */
+.shadow-sm {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Cabeçalho do tema */
+.calorias-header {
+    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Gráfico */
+.chart-container {
+    margin-top: 15px;
+}
+
+/* Tema dark */
+.bg-dark {
+    background-color: #282828 !important;
+    color: #f1f1f1 !important;
+    border: none;
+}
+
+.text-light {
+    color: #f1f1f1 !important;
+}
+
+/* Listas */
+.list-group-item {
+    border: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid #444;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+/* Sombra e estilização */
+.shadow-sm {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.btn-outline-light {
+    border: 2px solid #f1f1f1;
+    color: #f1f1f1;
+    font-weight: bold;
+}
+
+.btn-outline-light:hover {
+    background-color: #f1f1f1;
+    color: #282828;
+}
+
+/* Badges */
+.badge {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border-radius: 12px;
+}
+
+.bg-warning {
+    background-color: #ffc107 !important;
+    color: #282828;
+}
+
+.bg-info {
+    background-color: #17a2b8 !important;
+    color: #f1f1f1;
+}
+
+.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+/* Cabeçalho do tema */
+.calorias-header {
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Gráfico */
+.chart-container {
+    margin-top: 15px;
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+/* Ajustes gerais para telas pequenas */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .container_resumo {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .content {
+        margin-left: 100px;
+    }
+
+    .container__lembrete,
+    .container__tabela {
+        width: 20rem;
+        margin: 0 auto; /* Centraliza os containers */
+        padding: 20px;
+        border: 1px solid #ccc; /* Adiciona borda para visualização */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    }
+
+    .custom_container {
+        height: auto;
+        flex-direction: column;
+        margin: 0.5rem;
+    }
+
+    .circle_hidratacao, 
+    .circle_calorias {
+        width: 60px;
+        height: 60px;
+        font-size: 14px;
+    }
+
+    .style_logo {
+        font-size: 1.5em;
+    }
+
+    .titulo_container {
+        font-size: 2rem;
+    }
+}
+
+/* Ajustes para telas ainda menores */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    .row {
+        width: 80%;
+    }
+
+    .container__principal {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 6.5rem;
+    }
+
+    .menu_dieta {
+        display: none;
+    }
+
+    .style_logo {
+        font-size: 1.8em; /* Reduz o tamanho da logo */
+        text-align: center;
+    }
+
+    .item-text {
+        font-size: 0.8em;
+    }
+
+    .item__sidebar {
+        flex-direction: row; /* Elementos lado a lado */
+        align-items: center; 
+        font-size: 16px; /* Texto menor */
+    }
+
+    .icon_sideBar {
+        width: 1.2rem; /* Ícones menores */
+    }
+
+    .sidebar {
+        width: 100px; /* Sidebar menor */
+        transform: translateX(-100%); /* Mais escondida por padrão */
+    }
+
+    .sidebar.show {
+        width: 40%; /* Sidebar ocupa maior parte da tela ao abrir */
+    }
+
+    .container__pricinpal {
+        padding-top: 4em; /* Menor espaço superior */
+    }
+
+    .custom_container {
+        height: 8em; /* Menor altura nos containers */
+        flex-direction: column; /* Alinha em coluna */
+        margin: 0.5rem; /* Margem menor */
+    }
+
+    .descricao_container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row; /* Ajuste para coluna */
+        gap: 1em; /* Menor espaçamento entre os elementos */
+    }
+
+    .circle_hidratacao,
+    .circle_calorias {
+        width: 50px;
+        height: 50px;
+        font-size: 7px; /* Ajuste do tamanho do texto */
+    }
+
+    .garrafa_hidratacao, .icone_caloria {
+        width: 15%;
+    }
+
+    .hover_text_hidratacao,
+    .hover_text_calorias {
+        font-size: 18px; /* Tamanho menor do texto */
+    }
+
+    .container {
+        padding: 1em;
+    }
+
+    .conteudo_container {
+        flex-direction: column; /* Alinhar verticalmente */
+        gap: 1em; /* Espaçamento entre os itens */
+        text-align: center;
+    }
+
+    .titulo_container {
+        font-size: 1.2rem; /* Texto reduzido */
+    }
+
+    .menu-container {
+        flex-direction: column; /* Itens empilhados */
+        gap: 10px; /* Menor espaço entre os itens */
+    }
+
+    .menu-item {
+        padding: 10px; /* Menor espaço interno */
+    }
+
+    .img_dieta {
+        width: 100%; /* Imagem ajustada para preencher o container */
+    }
+
+    .sidebar .nav-link img {
+        width: 1.2rem; /* Ícones menores na sidebar */
+    }
+
+    .content {
+        margin-left: 0; /* Sem margem lateral */
+        padding: 1em; /* Adiciona espaço interno */
+    }
+
+    .container_caloria, .container_hidratacao, .container_dieta {
+        width: 100%; /* Containers ocupam toda a largura */
+        margin: 0.5em 0;
+    }
+
+    .icone_caloria {
+        width: 60px; /* Ícone menor */
+    }
+
+    .circle_hidratacao:hover,
+    .circle_calorias:hover {
+        transform: scale(1.1); /* Redução no efeito hover */
+    }
+
+    .graficoCalorias, .graficoHidratacao {
+        display: none;
+    }
+
+
+}
+
+
+

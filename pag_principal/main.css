@@ -722,6 +722,10 @@ body {
 /* Ajustes gerais para telas pequenas */
 @media (max-width: 768px) {
 
+    .card_exercicios {
+        height: 1rem;
+    }
+
     .column_batimentos {
         display: none;
     }
